@@ -1,0 +1,11 @@
+node_modules/
+lib/
+artifacts/
+.pnpm-store/
+coverage/
+*.tgz
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

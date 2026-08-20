@@ -1,0 +1,9 @@
+- id: agent-default-model
+  config:
+    provider: 'dovetail-snapshot'
+    model: 'dovetail-snapshot'
+- id: session-persistence-jsonl
+  config:
+    root: 'C:\Users\Darian\AppData\Local\Temp\dovetail-treatment-8axm6b2o\sessions'
+    compression: none
+    packChunks: false

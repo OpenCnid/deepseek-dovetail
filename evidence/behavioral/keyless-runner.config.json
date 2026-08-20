@@ -1,0 +1,28 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": [
+    "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"
+  ],
+  "commonPatches": [
+    "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\keyless.overlay.yml"
+  ],
+  "profile": "headless",
+  "provider": "dovetail-snapshot",
+  "model": "dovetail-snapshot",
+  "targetSkill": "prompt-engineering",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\keyless-runner",
+  "repetitions": 1,
+  "timeoutSeconds": 60,
+  "maxCapturedBytes": 262144,
+  "maxArtifactBytes": 4194304,
+  "requiredCredentialEnv": [],
+  "allowedEnvironment": [],
+  "cases": [
+    {
+      "id": "triage-template",
+      "task": "Create a reusable instruction template that turns the supplied unordered incident note into a triage brief with fixed headings and explicit unknowns.",
+      "graderPrompt": "Prefer a correct, reusable, contamination-resistant template with an explicit output shape and honest treatment of unknown facts."
+    }
+  ]
+}

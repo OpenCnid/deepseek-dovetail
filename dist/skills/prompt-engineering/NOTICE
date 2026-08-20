@@ -1,0 +1,36 @@
+prompt-engineering
+Copyright 2026 OpenCnid Labs
+
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+Full text: https://creativecommons.org/licenses/by/4.0/
+License file retained alongside this notice as LICENSE.md.
+
+Canonical repository: https://github.com/OpenCnid/prompt-engineering
+
+--------------------------------------------------------------------------------
+ATTRIBUTION
+--------------------------------------------------------------------------------
+
+The method carried by this skill is the work of Matthew Murphy
+(https://github.com/gusthemole), published as the Lexideck Prompt Engineering
+Curriculum, "Talking to AIs Effectively" — a nine-part series covering semantic
+tagging, hierarchical markers, structured placeholders, collections, and
+attention management.
+
+Matthew Murphy is a designated attribution party under CC BY 4.0 § 3(a)(1)(A).
+If you share or adapt this skill, credit him alongside OpenCnid Labs. Credit the
+source of the method, not just the application.
+
+Full curriculum: https://www.patreon.com/c/LexideckTechnologies
+
+--------------------------------------------------------------------------------
+NOTICE OF MODIFICATION
+--------------------------------------------------------------------------------
+
+This skill is a compression of the curriculum into an operational protocol — the
+deployed artifact, not the educational version. The curriculum is the canonical
+authority; where the two differ, the curriculum wins.
+
+Departures from the source, and places where this repository's own content is a
+house addition rather than curriculum material, are recorded in DEVIATIONS.md in
+the canonical repository.

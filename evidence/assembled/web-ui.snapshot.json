@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS",
+  "source": "visible DOM from the real pinned DSH web profile in the Codex in-app browser",
+  "url": "http://127.0.0.1:31989/",
+  "workspace": "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail",
+  "warningsOrErrors": 0,
+  "entries": [
+    { "name": "better-skill-creator", "count": 1, "userOnly": false },
+    { "name": "hypershot-protocol", "count": 1, "userOnly": false },
+    { "name": "judge-composition", "count": 1, "userOnly": false },
+    { "name": "prompt-engineering", "count": 1, "userOnly": false },
+    { "name": "self-play", "count": 1, "userOnly": false },
+    { "name": "spark-steering", "count": 1, "userOnly": true },
+    { "name": "subagent-composition", "count": 1, "userOnly": false },
+    { "name": "upsum", "count": 1, "userOnly": true }
+  ],
+  "note": "The slash-trigger suggestions showed every entry exactly once; spark-steering and upsum carried the DSH user-only marker. This is visibility/routing evidence, not model-effectiveness evidence."
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "UNMEASURED",
+  "date": "2026-08-20",
+  "reason": "No owner-approved real-provider/model/spend opt-in was supplied and DEEPSEEK_API_KEY was absent. Keyless routing tests are not substituted for effectiveness evidence.",
+  "stableReleaseCases": [
+    "paired prompt/template companion behavior",
+    "delegation-gate refusal",
+    "useful parallel cold-child delegation",
+    "blind judging of a self-authored claim",
+    "self-play over a rubric or router",
+    "real-provider skill-authoring treatment/baseline comparison",
+    "changed and unchanged-session upsum behavior"
+  ],
+  "keylessRunnerEvidence": "evidence/behavioral/keyless-runner/dsh-eval-20260820T225535Z-9d374658",
+  "keylessRunnerScope": "DSH treatment/baseline/grader construction, catalog suppression, body injection, persistence, sanitization, randomization ordering, and artifact schemas only"
+}

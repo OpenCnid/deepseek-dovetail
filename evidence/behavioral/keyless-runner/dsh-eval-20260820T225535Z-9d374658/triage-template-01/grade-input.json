@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "DOVETAIL_KEYLESS_SNAPSHOT_OK",
+      "position": "A"
+    },
+    {
+      "output": "DOVETAIL_KEYLESS_SNAPSHOT_OK",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer a correct, reusable, contamination-resistant template with an explicit output shape and honest treatment of unknown facts.",
+  "task": "Create a reusable instruction template that turns the supplied unordered incident note into a triage brief with fixed headings and explicit unknowns."
+}

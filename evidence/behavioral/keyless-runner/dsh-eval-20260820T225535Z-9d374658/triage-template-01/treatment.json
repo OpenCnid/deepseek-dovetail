@@ -1,0 +1,35 @@
+{
+  "durationMs": 2131,
+  "label": "treatment",
+  "output": "DOVETAIL_KEYLESS_SNAPSHOT_OK",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\keyless.overlay.yml",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\keyless-runner\\dsh-eval-20260820T225535Z-9d374658\\triage-template-01\\treatment.overlay.yml",
+      "<task:169-bytes:2917788ed5a8>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "inputTokens": 11,
+    "outputTokens": 5
+  }
+}

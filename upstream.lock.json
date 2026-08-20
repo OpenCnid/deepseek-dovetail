@@ -1,0 +1,362 @@
+{
+  "formatVersion": 1,
+  "repository": "https://github.com/OpenCnid/dovetail.git",
+  "commit": "69f89e3322847fb11665980c16598494a9eacca0",
+  "commitDate": "2026-08-11T11:19:05-05:00",
+  "subject": "docs(self-play): remove retired TTT reference residue (#40)",
+  "included": [
+    {
+      "path": "skills/better-skill-creator/LICENSE.txt",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "skills/better-skill-creator/NOTICE",
+      "sha256": "1bcf608481bcb8e92ba807b60f855cf612317ec484a612ca9661f7c1d1d394ac"
+    },
+    {
+      "path": "skills/better-skill-creator/requirements.txt",
+      "sha256": "baf3785ffeb992afa5f9ea61f2d300f41336bdc4f71edcbb6fbe7a8d5dc127d4"
+    },
+    {
+      "path": "skills/better-skill-creator/SKILL.md",
+      "sha256": "b1478edb9347c682b17fee8aeb6b9f5b581884de8a4b11983e8289b36c00aa1f"
+    },
+    {
+      "path": "skills/hypershot-protocol/LICENSE.md",
+      "sha256": "2340b165269ab802da0ab1e52a496d10d70f66058b5c980c89317f089fd900b0"
+    },
+    {
+      "path": "skills/hypershot-protocol/SKILL.md",
+      "sha256": "c49bc835d725410f3790bf14c90a7714430a492d89d070475a1c132c951298a4"
+    },
+    {
+      "path": "skills/judge-composition/LICENSE.md",
+      "sha256": "2340b165269ab802da0ab1e52a496d10d70f66058b5c980c89317f089fd900b0"
+    },
+    {
+      "path": "skills/judge-composition/references/failure-modes.md",
+      "sha256": "deb4d17ebed1c7629d53fbe2ab029f18079361c23561adea3450cd577ef32342"
+    },
+    {
+      "path": "skills/judge-composition/references/substrate-and-cases.md",
+      "sha256": "1ae55ab85f6aa2c59fe8189e680ca9ac51c21678b2ffbb6073db6faacc905b6e"
+    },
+    {
+      "path": "skills/judge-composition/references/thesis-and-provenance.md",
+      "sha256": "1ea5de06fb78cd1c8e3a9dfd7a54345dbefb2b93e9fe5b127dbb6aa5bc58cb81"
+    },
+    {
+      "path": "skills/judge-composition/SKILL.md",
+      "sha256": "300e153e766511b6e21683de017997fdaeca167b094830279c4d2ebd3985e070"
+    },
+    {
+      "path": "skills/prompt-engineering/LICENSE.md",
+      "sha256": "09d72e9bc9046eafa32ace56f6baf6e66f66c6cf077d8c937f441c268e0c6dbc"
+    },
+    {
+      "path": "skills/prompt-engineering/NOTICE",
+      "sha256": "171da1274697b52d560f0d2976e566f9762184b342a7e9a353d0b1954bb603e7"
+    },
+    {
+      "path": "skills/prompt-engineering/SKILL.md",
+      "sha256": "d705ab1482bf3746a05dfe6a99da8223d0b3d5672ab293d2579df8acd5d94de8"
+    },
+    {
+      "path": "skills/self-play/LICENSE.md",
+      "sha256": "c12c369f7dd92830d145ccca6f78d4ffa99a8bce6ab377664da40d23e68073cd"
+    },
+    {
+      "path": "skills/self-play/references/discipline-cases.md",
+      "sha256": "0f460bb71886188cc959ec35dbd922d880dfe1c6e7d7641b396c8880da42929c"
+    },
+    {
+      "path": "skills/self-play/references/ground-block-failure.md",
+      "sha256": "b87a3b4aeb40e76ac0c30f8b1a711b767062b8b71d183c030c94d541b0b0673a"
+    },
+    {
+      "path": "skills/self-play/references/measurement-and-reporting.md",
+      "sha256": "4b205c775c70e09cfb14296cb81d556c3da11b8daefdd9a29bb9ff828ae895ae"
+    },
+    {
+      "path": "skills/self-play/references/measurement-bounds.md",
+      "sha256": "29a31ed77150d9912f2a5afc6c5eb18d14c5bfff4063a45e533706dc70852507"
+    },
+    {
+      "path": "skills/self-play/references/README.md",
+      "sha256": "68243f06325936cf3f80443d4a4b77ead639d3a0a64ae134d2f327067e917e81"
+    },
+    {
+      "path": "skills/self-play/SKILL.md",
+      "sha256": "1a73a1373af63cc5f7ac98b856297bb9f4c000c3df6dc0e3699608de9539c510"
+    },
+    {
+      "path": "skills/spark-steering/LICENSE.md",
+      "sha256": "2340b165269ab802da0ab1e52a496d10d70f66058b5c980c89317f089fd900b0"
+    },
+    {
+      "path": "skills/spark-steering/references/steer-1-levers.md",
+      "sha256": "31c3be5a47127d75a0f9570734f61703d6f826432f6b6cf32aea18fdb5953392"
+    },
+    {
+      "path": "skills/spark-steering/references/steer-3-costs.md",
+      "sha256": "a7aa281fab9987a02f608b163679fc60bd93035404e2f2060ee0c3c1a532e788"
+    },
+    {
+      "path": "skills/spark-steering/SKILL.md",
+      "sha256": "844dd833ef86ddedad4aaee596dd1824bb4f07a1354a7a5abda358d577f5120f"
+    },
+    {
+      "path": "skills/subagent-composition/LICENSE.md",
+      "sha256": "06690dfb99daa665b1dde5ddb131f8abdd7db37e73b13b236fb98c75d2938f38"
+    },
+    {
+      "path": "skills/subagent-composition/references/provenance.md",
+      "sha256": "223692e8ad57764192269e6c518a3966cb44aedc5984578fa2fad7001d3f86a7"
+    },
+    {
+      "path": "skills/subagent-composition/SKILL.md",
+      "sha256": "85eadfa171254c029e01cbf8c926fd8e3c504328b930966240afdd4f797466c0"
+    },
+    {
+      "path": "skills/upsum/LICENSE.md",
+      "sha256": "190e9a774032d9a6b07e1cfb683144d04682dec0e537f7b781561ad903cf807c"
+    },
+    {
+      "path": "skills/upsum/scripts/checks.py",
+      "sha256": "502ae8c2365e832db832b9d18fe65b69eb8fd11a74d4e7b875181b6d28087642"
+    },
+    {
+      "path": "skills/upsum/SKILL.md",
+      "sha256": "a5fb101fceba2bac0f02aef96ec7ef813f6a5fa9d98f0ab2ced06bd2468097b1"
+    }
+  ],
+  "reviewedDeletions": [
+    {
+      "path": "skills/better-skill-creator/agents/analyzer.md",
+      "sha256": "82cceefde415c5af32e2f8ba0ea1a68c5671824b776fa0e4cec61dc98476d545"
+    },
+    {
+      "path": "skills/better-skill-creator/agents/comparator.md",
+      "sha256": "81fcdf9e266847100cd3e0f8b82c5d2566dcd76ddb0ffa0f64f2e1e153173e24"
+    },
+    {
+      "path": "skills/better-skill-creator/agents/grader.md",
+      "sha256": "7088378c0861909ec1869f91331ca036d147a2a4ee66da09d66ebe50d03a4884"
+    },
+    {
+      "path": "skills/better-skill-creator/agents/panel/audit.md",
+      "sha256": "7f81624b9334d99af622f64db30b5daebbde43eb69a411a5fa44db3584ba0bb8"
+    },
+    {
+      "path": "skills/better-skill-creator/agents/panel/characterizer.md",
+      "sha256": "e2997191f638b564bf754e7c1324267d80cc8e98ce580f65212ca38e5a5a74da"
+    },
+    {
+      "path": "skills/better-skill-creator/agents/panel/composer.md",
+      "sha256": "b20bbaf962dcb16413ca6dff1426d3ef5907004dccadc44b8d284642b0a46e7b"
+    },
+    {
+      "path": "skills/better-skill-creator/agents/panel/seat-frame.md",
+      "sha256": "98611c0fccaeafaea3b8d8dfb85a18d29f1def6a8a6b98970b8981cdfd075e3d"
+    },
+    {
+      "path": "skills/better-skill-creator/assets/eval_review.html",
+      "sha256": "a1b8ec549b4d27d579939f5ee68ed24ed79af2a358731397a698503f4394e45b"
+    },
+    {
+      "path": "skills/better-skill-creator/eval-viewer/generate_review.py",
+      "sha256": "4fc82c0bfd7f4c8799ffaa34d663a748a3653b30e776dff7194e7af36fdda2d1"
+    },
+    {
+      "path": "skills/better-skill-creator/eval-viewer/viewer.html",
+      "sha256": "d1cb181226deaac5fba1f66b78618223060ceb3643d2a865419ff651b944f17f"
+    },
+    {
+      "path": "skills/better-skill-creator/references/description-optimization.md",
+      "sha256": "5f656d4d7803e6d57b50d79ce883af46b9c704119eb04cbaf216c0f8b83c4262"
+    },
+    {
+      "path": "skills/better-skill-creator/references/distribution.md",
+      "sha256": "290067ba27c68501f3388f4cc7e162659ca5d133954a66d4bf1adafc20660075"
+    },
+    {
+      "path": "skills/better-skill-creator/references/environments.md",
+      "sha256": "df7fb38b18353a5984fa766ea1e6cf6350d987eb93b7f203cf95523dc2ac311f"
+    },
+    {
+      "path": "skills/better-skill-creator/references/frontmatter.md",
+      "sha256": "ba0f076dc71ea2b93d7a51e8033641a972c1e798ef64ae45591f46b8a4439eb5"
+    },
+    {
+      "path": "skills/better-skill-creator/references/grading-panel.md",
+      "sha256": "0a7a94806f22ac47c9e9b0126ed9355b95878b4825d527a2713a7fdf593a8ea5"
+    },
+    {
+      "path": "skills/better-skill-creator/references/how-skills-load.md",
+      "sha256": "03ed93ac780c89220a5d2fb2fb6aa2d4b48267f651ef4157013b374e9f9233c7"
+    },
+    {
+      "path": "skills/better-skill-creator/references/judge-registries.md",
+      "sha256": "c978bda89d34c44d08bd3ecc2c4ecba078974aab7ed534ad7607edf9355ef205"
+    },
+    {
+      "path": "skills/better-skill-creator/references/schemas.md",
+      "sha256": "2bb2a3cfc6b0578589d3cd50f36addd73c2a46e64c6a1ffaca467cd5f07b6815"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/aggregate_benchmark.py",
+      "sha256": "c0c6f2da5bdc8adcda5e3407178b6bdd857a77ada75ae8bc9ec053c091b3ba18"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/gate_panel.py",
+      "sha256": "ff6163f316acc394e1b6fb0a2171bb7c29c1c1212e9aa2cfbde6da3ed9172b2b"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/generate_report.py",
+      "sha256": "939d63be3d0a42738eb500b4647f91ad44892f1d3dbf10989bdd6cf31d1540a8"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/improve_description.py",
+      "sha256": "d8015090e36b0dae6168cdb280af667e6c729e4f737e9aaa2150e3a9273d5fe1"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/package_skill.py",
+      "sha256": "585c4d06ff97436d0d84195be7bd5dfcc509cb8c6c14035897dfaa03f536a6cf"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/preflight.py",
+      "sha256": "9132f49c8ba433366fdbd57c1e8d0d60f6fa0a9155b01e30fec97f15522a9268"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/quick_validate.py",
+      "sha256": "0ade4b4b649e4154c5be879c046097d2c7bf1a8e4747c51fbdf6b84f58fe830d"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/render_seats.py",
+      "sha256": "160e19e06bf2773dc7cb8de82470588e3f825e30c695c16010a52c89992df62b"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/run_eval.py",
+      "sha256": "95ab0ebcb059dfff23330bedb5dc8bc9cf613a8d788657b19a8e9ce98890f464"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/run_loop.py",
+      "sha256": "2722f75b0d81960ddfcf14866f301b558cb9d91d7e4e9abea6543dd02f8c6a81"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/utils.py",
+      "sha256": "c0e729a3f72f0bf5053b290b4f8989c85f60d5412733c7d74f6cc1693b7d4048"
+    },
+    {
+      "path": "skills/better-skill-creator/scripts/validate_grading.py",
+      "sha256": "46a73b924c9470a820681b9e924e7ea1287c5b43e976b111c15c4c77a87e1a01"
+    },
+    {
+      "path": "skills/judge-composition/references/AMBIENT.md",
+      "sha256": "839ff85d8464d329cb83969f565e1ddae2b9ba9e1037a9c5a2b93b76399921bc"
+    },
+    {
+      "path": "skills/judge-composition/references/COMPOSITION_FROM_PRIMITIVES.md",
+      "sha256": "2afdb687c9af727e322a4f1c13633cbba038a16b040c6c8c4ddc09d64faf3e2e"
+    },
+    {
+      "path": "skills/judge-composition/references/DOUBTS_WORKSPACE.md",
+      "sha256": "03fbf110dfb02eb3b00833dcdcc2b26447ddd1dc24023314a43c87922817b559"
+    },
+    {
+      "path": "skills/judge-composition/references/FOUR_JUDGE_BASIC_MODEL.md",
+      "sha256": "9b1d3eeebc91f36ae925defb13433e6a0a5c0500e384f9560363b8c05597a910"
+    },
+    {
+      "path": "skills/judge-composition/references/FOUR_JUDGE_DESIGN.md",
+      "sha256": "6b6be8b44fc84a08c4a6846871bce1653b1e6d83e205ddbcedc5a44012dfe8de"
+    },
+    {
+      "path": "skills/judge-composition/references/JUDGE_COMPOSITION_CEREMONY.md",
+      "sha256": "b2587de42871be3ec49cd5418af7e6d7d84372881d5e762560b07dac85699b24"
+    },
+    {
+      "path": "skills/judge-composition/references/JUDGE_COMPOSITION_GAME.md",
+      "sha256": "300bdeaf59b80e7dfece7d5617179fd1ed61469dcce73d17189c9eb30b49e80a"
+    },
+    {
+      "path": "skills/judge-composition/references/JUDGE_CONVOCATION_DESIGN.md",
+      "sha256": "4829c8e0a17f00f470be2d0e285b973e221a1636ad1e6891b670888ec0b89faf"
+    },
+    {
+      "path": "skills/judge-composition/references/JUDGE_INTAKE_DESIGN.md",
+      "sha256": "0b56e488b34aa99ee2ed60db8abee142c08bcb988a73e6a4b451792d85dbf283"
+    },
+    {
+      "path": "skills/judge-composition/references/judge_panel.ts",
+      "sha256": "926388b10416eb7e3369e01b67d77d70a6bcd12da3372a263c124044ea7eab3d"
+    },
+    {
+      "path": "skills/judge-composition/references/PROGRAM_CONTEXT.md",
+      "sha256": "137568a8519f85b305738a7282aadb808be31f24297735c96cf90d55a857456d"
+    },
+    {
+      "path": "skills/judge-composition/references/README.md",
+      "sha256": "78cc9ebdcc27caab7466516184b35799998b18b6baf46e641319d8b7cb0122e8"
+    },
+    {
+      "path": "skills/judge-composition/references/RECONCILIATION.md",
+      "sha256": "9c142186ab33afd598b53c6dbef52deaa0e7f5fd825c66a62f9a1bc0becf0ca7"
+    },
+    {
+      "path": "skills/judge-composition/references/registry-parameters.md",
+      "sha256": "eecc19976e6f90452ede9390b8f28b8eb832ea26df528a182b582497e274f05a"
+    },
+    {
+      "path": "skills/judge-composition/references/STANDING_MODEL.md",
+      "sha256": "cefae79b7ee9b5ab3fb5bf9ac0ee3c0b0c81c507dcb0a647edc7abf4646967e8"
+    },
+    {
+      "path": "skills/judge-composition/references/standing-model-reframing.md",
+      "sha256": "b70c226f6d578e405ab068317e4d24d9b81e5fe6cd569498d18f3a06b131b5be"
+    },
+    {
+      "path": "skills/self-play/references/COMPLEXITY_CONVOCATION_VALIDATION.md",
+      "sha256": "d23042c5e07893241b6b7ee414fdb15071df645ba10bfa730d5c037012e7237b"
+    },
+    {
+      "path": "skills/self-play/references/DOUBTS_WORKSPACE.md",
+      "sha256": "03fbf110dfb02eb3b00833dcdcc2b26447ddd1dc24023314a43c87922817b559"
+    },
+    {
+      "path": "skills/self-play/references/earth_figure_factbase.md",
+      "sha256": "3af8bd28d090c4859d46d257181a07743d38e9ad6981a2c2b107c42183526ae5"
+    },
+    {
+      "path": "skills/self-play/references/PRIMITIVE_ENCODING_AUDIT.md",
+      "sha256": "e0ace8c6cf325590dac64471d8dce3b59ac65b33dff7733aaa8ef3e2f13fbe1b"
+    },
+    {
+      "path": "skills/spark-steering/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+    },
+    {
+      "path": "skills/subagent-composition/.claude-plugin/plugin.json",
+      "sha256": "055c03a7335c6dc204990056d070308174d242fb13acb33be60045bf9f1dacd9"
+    },
+    {
+      "path": "skills/subagent-composition/hooks/hooks.json",
+      "sha256": "73e0192006a3b4f8d8c3f09658a7c1ac6ccf7bcca37aae7039eb5a59f741bd89"
+    },
+    {
+      "path": "skills/upsum/agents/openai.yaml",
+      "sha256": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+    }
+  ],
+  "excludedClasses": [
+    "upstream Git metadata and CI/release machinery",
+    "upstream tests and scratch fixtures",
+    "historical iteration output and captured model streams",
+    "Codex/Claude installation bridges outside selected skill directories",
+    "unreachable upstream skill resources enumerated and hashed in reviewedDeletions"
+  ]
+}

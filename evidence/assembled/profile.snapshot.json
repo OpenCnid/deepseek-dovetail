@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS",
+  "dshCommit": "99f6f02fecdb7dff40c3fbc9470f5907c29f74ca",
+  "dshCheckoutCleanAfterBuildAndAcceptance": true,
+  "artifact": {
+    "path": "artifacts/deepseek-dovetail-0.1.0.tgz",
+    "bytes": 61621,
+    "files": 46,
+    "skillDocuments": 8,
+    "sha256": "b668ccf0244e5c4250b049d42f03811297d2f5c4acf086416c6576c3efb2ea0b"
+  },
+  "installed": {
+    "headlessBundleRows": 1,
+    "headlessBundleLayers": 1,
+    "webBundleRows": 1,
+    "webBundleLayers": 1,
+    "headlessPeerIssues": 0,
+    "webPeerIssues": 0,
+    "keylessCases": ["catalog-v4", "upsum-v4", "spark-v4", "self-play-v4", "baseline-v4"],
+    "webHtmlStatus": 200,
+    "webAssetStatus": 200,
+    "webHtmlBytes": 12076,
+    "webAssetBytes": 442999
+  },
+  "skillHomeFingerprint": {
+    "before": "31ba2e11ebb6cc36cb353e7b72c4f6dc9b1c33cc9c82425d9a3aa5ec769a996d",
+    "afterRemove": "31ba2e11ebb6cc36cb353e7b72c4f6dc9b1c33cc9c82425d9a3aa5ec769a996d",
+    "afterInstall": "31ba2e11ebb6cc36cb353e7b72c4f6dc9b1c33cc9c82425d9a3aa5ec769a996d",
+    "unchanged": true
+  },
+  "removed": {
+    "headlessBundleRows": 0,
+    "headlessBundleLayers": 0,
+    "webBundleRows": 0,
+    "webBundleLayers": 0,
+    "packageCatalogEntries": 0,
+    "packageInvocations": 0,
+    "profilesListPackage": false
+  }
+}

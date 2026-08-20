@@ -1,0 +1,49 @@
+# Runtime dependencies for better-skill-creator.
+#
+#   python -m pip install -r requirements.txt
+#
+# Compatibility: CPython 3.10 or newer. Several scripts use PEP 604 unions
+# (`str | None`) in *runtime* annotations without `from __future__ import
+# annotations`, so 3.9 raises TypeError at import, not at call.
+#
+# PyYAML is the one non-stdlib requirement. It parses SKILL.md frontmatter.
+# `scripts/utils.py` guards its import and raises SkillMdError with an install
+# hint when it is absent, so run_eval / run_loop / improve_description degrade
+# to a one-line message rather than a traceback -- but every one of them still
+# needs it to do anything useful.
+#
+# The floor used to read >=5.1, "because `yaml.safe_load` is called without an
+# explicit Loader and 5.1 is where the loader deprecation landed". That was the
+# right number for a reason that describes nothing this package does:
+# `safe_load` has never taken a Loader argument, and the one `yaml.load` call
+# here passes one explicitly (`scripts/utils.py`, `Loader=_STRICT_LOADER`).
+#
+# What 5.1 actually is: the release that taught the Reader to accept codepoints
+# above 0xFFFF (PyYAML PR #63). SKILL.md frontmatter carries emoji, so on 5.0
+# and earlier the parse fails outright -- measured 2026-08-06 on CPython 3.10,
+# where PyYAML 3.13 turns `name: rocket-<U+1F680>` into a ReaderError and takes
+# tests/test_quick_validate.py's name rules down with it. That is the floor the
+# *code* sets, and it is 5.1.
+#
+# The floor declared is 5.4, which is higher, and the difference is not about
+# this package's API use. Four advisories affect PyYAML; the newest is fixed in
+# 5.4 (CVE-2020-14343), and >=5.1 admits every one of them. None is reachable
+# from here -- all four are deserialization through `yaml.load` with the default
+# or Full loader, and the strict loader above is a SafeLoader subclass, which
+# refuses those tags in every PyYAML ever shipped. So this buys nothing for this
+# package and something for the machine it lands on, which is the right trade
+# for a file that gets copied into ~/.claude/skills/ by install.sh.
+#
+# No upper bound, deliberately. This file ships to users rather than describing
+# a build: 5.4 is satisfied by what Ubuntu 22.04 LTS already carries
+# (python3-yaml 5.4.1, supported to 2027), so a user there installs nothing,
+# while a ceiling would turn that no-op into a fetch and could demote a PyYAML
+# other software on the same machine depends on. CI's reproducibility is not
+# this file's job -- see scripts/check-supply-chain.sh for what is checked and
+# where.
+PyYAML>=5.4
+
+# Everything else in this tree is stdlib. The `claude` CLI is a separate,
+# non-pip dependency, needed only by the description-triggering optimizer
+# (scripts/run_eval.py, scripts/run_loop.py, scripts/improve_description.py).
+# Validation, packaging, aggregation and the viewer work without it.

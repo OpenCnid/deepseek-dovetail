@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {
+      "case": "triage-template",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260820T225535Z",
+  "status": "MEASURED",
+  "targetSkill": "prompt-engineering"
+}

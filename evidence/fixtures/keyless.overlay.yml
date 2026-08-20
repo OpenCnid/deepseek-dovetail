@@ -1,0 +1,14 @@
+- id: agent-default-model
+  config:
+    provider: dovetail-snapshot
+    model: dovetail-snapshot
+
+- id: session-persistence-jsonl
+  config:
+    root: !!js process.env.DOVETAIL_SESSION_ROOT
+    compression: none
+    packChunks: false
+
+- insert:
+    - id: dovetail-snapshot-llm
+      name: 'file:///D:/deepseek-harness-custom-plugins-setup/deepseek-dovetail/evidence/fixtures/dovetail-snapshot-llm.ts'

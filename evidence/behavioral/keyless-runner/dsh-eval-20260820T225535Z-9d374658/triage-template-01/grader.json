@@ -1,0 +1,35 @@
+{
+  "durationMs": 2445,
+  "label": "grader",
+  "output": "TIE: the keyless adapter measures routing only, not candidate quality.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\keyless.overlay.yml",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\keyless-runner\\dsh-eval-20260820T225535Z-9d374658\\triage-template-01\\grader.overlay.yml",
+      "<task:548-bytes:08df3d71f8f5>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 11,
+    "outputTokens": 5
+  }
+}

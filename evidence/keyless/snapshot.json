@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS",
+  "scope": "keyless DSH assembly and routing; not behavioral effectiveness",
+  "modelCatalog": {
+    "packageEntries": [
+      {
+        "name": "better-skill-creator",
+        "description": "Author, repair, validate, measure, and package DSH skills. Use when turning a repeated workflow, prompt pattern, team convention, or model-facing template into a skill; when SKILL.md does not trigger, parses incorrectly, is too long, or produces inconsistent results; or when comparing a skill with a clean no-skill baseline. Covers DSH frontmatter, project/user/bundled precedence, /name invocation, paired evaluation, blind grading, evidence artifacts, and private handoff."
+      },
+      {
+        "name": "hypershot-protocol",
+        "description": "Author contamination-free structural examples for prompts, templates, workflow schemas, agent instructions, and model-facing documents. Use when a concrete few-shot example could leak topic or answer content, or when output shape should be primed with free variables ranging from spread (...) through categoric to instruction-bearing names. Pair with prompt-engineering; skip it for simple declarative or one-off tasks that need no reusable frame."
+      },
+      {
+        "name": "judge-composition",
+        "description": "Compose a differently blinded panel for grounding, coherence, independent corroboration, and audit of a claim, belief, record entry, or artifact. Use when asked to judge, vet, adjudicate, promote, reconcile, or impartially evaluate a self-authored claim; when a judge panel or promotion candidate is mentioned; or when authorship and expected verdict must stay out of evaluator prompts. Requires cold DSH subagents for blinded seats."
+      },
+      {
+        "name": "prompt-engineering",
+        "description": "Design or improve prompts, templates, system instructions, agent instructions, and output schemas with semantic tags, explicit hierarchy, structured placeholders, attention control, uncontaminated ground, and iterative refinement. Use when precision matters or the user asks to write, debug, restructure, or review prompt bytes. Pair with hypershot-protocol when an example should teach form without leaking content."
+      },
+      {
+        "name": "self-play",
+        "description": "Run a clean-room search over an unsolved design with blind gatherer, adversary, evaluator, and judge roles, controls, pre-registration, and an input-visibility matrix. Use to test whether a rubric, gate, classifier, router, retrieval strategy, prompt template, judge, summarizer, or agent policy really discriminates when the builder's own opinion is not evidence. Do not use for deterministic checks or when cold-child isolation costs more than the decision."
+      },
+      {
+        "name": "subagent-composition",
+        "description": "Decide whether to delegate and compose self-contained DSH subagent prompts, return frames, blind cold-child work, parallel foreground calls, and continuable background work. Use when asked to spawn, delegate, fan out, design a specialist or preset, isolate an evaluator, or repair thin/off-scope child output. Also use to choose cold subagent versus inherited subagent_fork and to map persistent specialization to DSH agent presets/profile composition."
+      }
+    ],
+    "explicitOnlyAbsent": [
+      "spark-steering",
+      "upsum"
+    ],
+    "totalHostCatalogEntries": 16
+  },
+  "humanInvocation": {
+    "upsum": {
+      "bodyBytes": 3370,
+      "resourceSuffix": "/node_modules/deepseek-dovetail/dist/skills/upsum"
+    },
+    "spark-steering": {
+      "bodyBytes": 3091,
+      "resourceSuffix": "/node_modules/deepseek-dovetail/dist/skills/spark-steering"
+    }
+  },
+  "baseline": {
+    "catalogMessages": 0,
+    "skillInvocations": 0,
+    "skillMarkupOccurrences": 0
+  },
+  "coldSubagent": {
+    "tool": "subagent",
+    "provider": "spawn",
+    "mode": "one-shot",
+    "runInBackground": false,
+    "inheritedParentMarker": false,
+    "settled": true
+  },
+  "rawEvidence": {
+    "catalog": [
+      {
+        "relativePath": "evidence/keyless/raw/catalog-v4/--D-deepseek-harness-custom-plugins-setup-dsh-99f6f02-clean-dovetail--/session-c705b2c4-2d6f-49db-a3d2-1465edd3a4a9/session.jsonl",
+        "bytes": 69467,
+        "sha256": "267a5aca8eefd3ea1fc83cb9edd576e4567f4852fa5cf2bf9a56193a89b45d9f",
+        "delegationDepth": 0
+      }
+    ],
+    "upsum": [
+      {
+        "relativePath": "evidence/keyless/raw/upsum-v4/--D-deepseek-harness-custom-plugins-setup-dsh-99f6f02-clean-dovetail--/session-d96913e2-8928-4226-8daa-36d6d3c3056d/session.jsonl",
+        "bytes": 72924,
+        "sha256": "6a1b70f27584ecd9d3f7b422d86181d8664a9e4adb2c5e8cca321cb7a93ef860",
+        "delegationDepth": 0
+      }
+    ],
+    "spark": [
+      {
+        "relativePath": "evidence/keyless/raw/spark-v4/--D-deepseek-harness-custom-plugins-setup-dsh-99f6f02-clean-dovetail--/session-ec118ada-bb8c-4e05-8b68-326d36f14aab/session.jsonl",
+        "bytes": 72671,
+        "sha256": "2f02f16f78ca31156b9b78d54d55f972a75a03f4e986b023eb380cf92efaabe6",
+        "delegationDepth": 0
+      }
+    ],
+    "baseline": [
+      {
+        "relativePath": "evidence/keyless/raw/baseline-v4/--D-deepseek-harness-custom-plugins-setup-dsh-99f6f02-clean-dovetail--/session-3f5561f9-bc41-4a64-bbed-cc2635cc71f6/session.jsonl",
+        "bytes": 54228,
+        "sha256": "5da97f348e77baf6cef03cf19bf57279650a3c010f2e978c4eb31d2e282f03bd",
+        "delegationDepth": 0
+      }
+    ],
+    "selfPlay": [
+      {
+        "relativePath": "evidence/keyless/raw/self-play-v4/--D-deepseek-harness-custom-plugins-setup-dsh-99f6f02-clean-dovetail--/a22837f1-5e72-4eca-b2c8-02839cc4de74/session.jsonl",
+        "bytes": 69208,
+        "sha256": "bbdca7c5e53806104ad54834faceb0f963313cd2c9559596f44386f7bf02adbd",
+        "delegationDepth": 1
+      },
+      {
+        "relativePath": "evidence/keyless/raw/self-play-v4/--D-deepseek-harness-custom-plugins-setup-dsh-99f6f02-clean-dovetail--/session-a535c735-9812-4920-a734-0967dc4cd3f6/session.jsonl",
+        "bytes": 76523,
+        "sha256": "d38de8bfb741af76dda26df728759cc0b20948dc144ccdff589377fcf41049c2",
+        "delegationDepth": 0
+      }
+    ]
+  }
+}

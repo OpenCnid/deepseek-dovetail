@@ -1,0 +1,11 @@
+- id: agent-default-model
+  config:
+    provider: 'dovetail-snapshot'
+    model: 'dovetail-snapshot'
+- id: session-persistence-jsonl
+  config:
+    root: 'C:\Users\Darian\AppData\Local\Temp\dovetail-grader-9hmsfgs7\sessions'
+    compression: none
+    packChunks: false
+- id: tool-skill
+  disabled: true

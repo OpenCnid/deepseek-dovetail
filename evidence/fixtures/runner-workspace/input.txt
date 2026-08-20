@@ -1,0 +1,1 @@
+Incident note: queue latency rose after a configuration rollout; timing and ownership remain unknown.

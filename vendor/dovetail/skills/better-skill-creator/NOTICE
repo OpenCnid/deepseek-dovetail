@@ -1,0 +1,54 @@
+better-skill-creator
+Copyright 2026 the better-skill-creator contributors
+
+This product includes software originally developed by Anthropic, PBC as the
+"skill-creator" skill in the anthropics/skills repository
+(https://github.com/anthropics/skills), licensed under the Apache License,
+Version 2.0.
+
+The original work is copyright Anthropic, PBC. It is used here under the terms
+of that license, whose full text is retained in LICENSE.txt.
+
+--------------------------------------------------------------------------------
+NOTICE OF MODIFICATION
+--------------------------------------------------------------------------------
+
+This is a derived work and is NOT affiliated with, endorsed by, or supported by
+Anthropic. Do not report issues with this project to Anthropic.
+
+Substantial modifications have been made to every component of the original.
+Summarized:
+
+  * Measurement correctness. The original's aggregation, trigger-evaluation, and
+    grading paths could each return a well-formed, plausible result computed from
+    no data — an all-zero benchmark from a valid workspace, a trigger score from
+    probes that never ran, a token column derived from character counts. These
+    paths now either report a data-backed number or fail loudly.
+
+  * A single canonical workspace layout, reconciled across the producing
+    workflow, the aggregator, the review viewer, and the grading validator, which
+    previously disagreed with one another in ways that produced silent zeros.
+
+  * Cross-platform file I/O and console handling throughout. The original read
+    and wrote at the platform default encoding in roughly thirty places, which on
+    Windows corrupted skill descriptions silently and crashed several entry points
+    outright.
+
+  * Target-aware frontmatter validation. The original enforced one key set as
+    universal and rejected a majority of the skills shipped in Anthropic's own
+    marketplace. Validation is now explicit about which target it is checking.
+
+  * Packaging no longer includes .env files, version-control directories, virtual
+    environments, or symlink targets from outside the source tree, and emits a
+    format that installable surfaces actually accept.
+
+  * Per-probe isolation and spend controls for the description-optimization loop,
+    which previously wrote into the user's live configuration directory and had no
+    bound on cost.
+
+  * Restructured and substantially rewritten SKILL.md and sub-agent prompts, plus
+    new reference documentation on skill loading behavior, frontmatter targets,
+    and distribution routes.
+
+Original authorship of the underlying design and of the surviving portions
+remains with Anthropic, PBC.
