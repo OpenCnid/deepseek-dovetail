@@ -2,6 +2,8 @@
 
 Date: 2026-08-20 (America/Chicago)
 
+> Publication note (2026-08-20): this report records the private-repository state used during acceptance. The GitHub repository is now public; the npm package remains `private: true`, unpublished, and without an owner-selected license for new adapter/build/test code.
+
 ## Outcome
 
 `deepseek-dovetail@0.1.0` is implemented as one private, standalone, out-of-tree DSH bundle. Milestones 1–9 in SPEC.md section 17 pass. Milestone 10 now has owner-approved ChatGPT OAuth evidence for six of section 15.5's seven case classes. The Windows `upsum` lifecycle case remains `UNMEASURED`, so the first stable-release definition in section 18 is intentionally not claimed complete.
@@ -149,6 +151,6 @@ Focused commands also executed every generated skill through packaged `quick_val
 
 1. SPEC section 15.5's changed/unchanged live `upsum` criterion remains `UNMEASURED`. Next change: fix/prove the pinned DSH Windows restricted-subprocess read path for pre-created Git fixtures, or run the pinned assembled profile inside an outer VM/container with bounded mounts; then repeat both cases without weakening `workspace-write`.
 2. Consequently, section 18's claim that the complete bounded behavioral gate passes is not established. All static, keyless, package, and assembled criteria pass, and every other skill has bounded live task evidence.
-3. Publication remains blocked by the remaining owner decisions in section 19: new-code license, npm ownership/visibility, notice approval, OS claims, and final acceptance of the live evidence. Repository ownership/visibility has already been selected as private GitHub.
+3. Publication remains blocked by the remaining owner decisions in section 19: new-code license, npm ownership/visibility, notice approval, OS claims, and final acceptance of the live evidence. GitHub repository visibility is now public; npm ownership/visibility remains unresolved.
 
 No essential DSH API export remained blocked, no DSH/upstream tracked change is required, and no other acceptance criterion is known unmet.

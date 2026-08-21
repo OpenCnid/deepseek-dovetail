@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">DeepSeek Dovetail</title>
+  <desc id="description">Eight OpenCnid Dovetail agent skills delivered through one Cordis bundle for DeepSeek Harness.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071321" />
+      <stop offset="0.56" stop-color="#0b1c31" />
+      <stop offset="1" stop-color="#13243c" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#41d9ff" />
+      <stop offset="0.52" stop-color="#67edbd" />
+      <stop offset="1" stop-color="#b58cff" />
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#5ee8d0" stop-opacity="0.24" />
+      <stop offset="1" stop-color="#5ee8d0" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#9dc5da" stroke-opacity="0.075" />
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#020913" flood-opacity="0.48" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="360" rx="24" fill="url(#bg)" />
+  <rect width="1200" height="360" rx="24" fill="url(#grid)" />
+  <circle cx="1000" cy="170" r="260" fill="url(#glow)" />
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g transform="translate(62 52)">
+      <rect width="310" height="30" rx="15" fill="#102f43" stroke="#55dff1" stroke-opacity="0.5" />
+      <circle cx="17" cy="15" r="5" fill="#6ff0be" />
+      <text x="32" y="20" fill="#c5f3ff" font-size="13" font-weight="700" letter-spacing="1.3">PUBLIC SOURCE · CORDIS BUNDLE</text>
+
+      <text x="0" y="105" fill="#f3fbff" font-size="64" font-weight="800" letter-spacing="-2.1">DeepSeek</text>
+      <text x="286" y="105" fill="url(#accent)" font-size="64" font-weight="800" letter-spacing="-2.1">Dovetail</text>
+      <text x="2" y="151" fill="#c5d9e4" font-size="21" font-weight="550">Eight agent skills. One native DSH seam.</text>
+      <text x="2" y="184" fill="#89acbc" font-size="16">Prompt · delegate · evaluate · steer · hand off</text>
+
+      <g transform="translate(0 217)" font-size="12" font-weight="700" letter-spacing="0.4">
+        <g>
+          <rect width="142" height="34" rx="17" fill="#122c3e" stroke="#2d819d" />
+          <text x="71" y="22" text-anchor="middle" fill="#caf5ff">8 SKILLS</text>
+        </g>
+        <g transform="translate(154)">
+          <rect width="142" height="34" rx="17" fill="#122c3e" stroke="#359477" />
+          <text x="71" y="22" text-anchor="middle" fill="#d9ffef">CORDIS 4.0.1</text>
+        </g>
+        <g transform="translate(308)">
+          <rect width="176" height="34" rx="17" fill="#122c3e" stroke="#7659a8" />
+          <text x="88" y="22" text-anchor="middle" fill="#eee4ff">DSH RC.7</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(792 36)" filter="url(#shadow)">
+      <circle cx="168" cy="144" r="124" fill="#0a1827" stroke="#437c91" stroke-opacity="0.62" />
+      <circle cx="168" cy="144" r="83" fill="#0c2233" stroke="url(#accent)" stroke-width="2" />
+      <rect x="113" y="112" width="110" height="64" rx="15" fill="#12374a" stroke="#5de1e9" />
+      <text x="168" y="139" text-anchor="middle" fill="#f0fcff" font-size="20" font-weight="800">CORDIS</text>
+      <text x="168" y="159" text-anchor="middle" fill="#91c8d7" font-size="11" font-weight="700" letter-spacing="1.4">DSH PROVIDER</text>
+
+      <g fill="#102d3e" stroke-width="1.5" text-anchor="middle" font-size="10" font-weight="800">
+        <g transform="translate(168 19)"><circle r="25" stroke="#44d9ff" /><text y="4" fill="#d8f8ff">PE</text></g>
+        <g transform="translate(256 55)"><circle r="25" stroke="#50e4d2" /><text y="4" fill="#ddfff8">HS</text></g>
+        <g transform="translate(293 144)"><circle r="25" stroke="#68edba" /><text y="4" fill="#e2fff1">SC</text></g>
+        <g transform="translate(256 233)"><circle r="25" stroke="#87dfa9" /><text y="4" fill="#e8fff0">JC</text></g>
+        <g transform="translate(168 269)"><circle r="25" stroke="#b28de8" /><text y="4" fill="#f1e7ff">SP</text></g>
+        <g transform="translate(80 233)"><circle r="25" stroke="#ad86ef" /><text y="4" fill="#f1e7ff">SS</text></g>
+        <g transform="translate(43 144)"><circle r="25" stroke="#6bb8ed" /><text y="4" fill="#e2f4ff">UP</text></g>
+        <g transform="translate(80 55)"><circle r="25" stroke="#55d8f4" /><text y="4" fill="#ddf9ff">BS</text></g>
+      </g>
+
+      <g fill="none" stroke="#65dfe2" stroke-width="1.5" stroke-dasharray="3 6" opacity="0.58">
+        <path d="M168 44V61M238 73l-22 22M268 144h-17M238 215l-22-22M168 244v-17M98 215l22-22M68 144h17M98 73l22 22" />
+      </g>
+    </g>
+  </g>
+
+  <rect x="1" y="1" width="1198" height="358" rx="23" fill="none" stroke="#74ddeb" stroke-opacity="0.2" stroke-width="2" />
+</svg>

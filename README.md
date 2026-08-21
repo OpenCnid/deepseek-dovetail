@@ -1,91 +1,161 @@
-# deepseek-dovetail
+<p align="center">
+  <a href="https://github.com/OpenCnid/deepseek-dovetail">
+    <img src="docs/assets/deepseek-dovetail.svg" alt="DeepSeek Dovetail — eight agent skills in one Cordis bundle for DeepSeek Harness" width="100%" />
+  </a>
+</p>
 
-`deepseek-dovetail` is a private, out-of-tree DeepSeek Harness bundle containing DSH-compatible ports of all eight OpenCnid Dovetail skills. DeepSeek Harness remains the sole agent runtime. This package contributes one Cordis row and mounts its immutable `dist/skills` directory through the published DSH filesystem skill provider.
+<p align="center">
+  <img alt="DeepSeek Harness v0.1.0-rc.7" src="https://img.shields.io/badge/DeepSeek_Harness-v0.1.0--rc.7-4968ff?style=flat-square" />
+  <img alt="Cordis 4.0.1" src="https://img.shields.io/badge/Cordis-4.0.1-31c48d?style=flat-square" />
+  <img alt="Eight skills" src="https://img.shields.io/badge/agent_skills-8-f0a34a?style=flat-square" />
+  <img alt="Public source" src="https://img.shields.io/badge/source-public-8b5cf6?style=flat-square" />
+</p>
 
-The package is pinned to:
+`deepseek-dovetail` brings eight [OpenCnid Dovetail](https://github.com/OpenCnid/dovetail) workflows to [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) as one out-of-tree Cordis bundle. DSH remains the sole agent runtime; this package mounts an immutable, package-local skill tree through DSH's published filesystem provider.
 
-- DeepSeek Harness `99f6f02fecdb7dff40c3fbc9470f5907c29f74ca` (`dsh-v0.1.0-rc.7`)
-- Cordis `4.0.1`
-- OpenCnid Dovetail `69f89e3322847fb11665980c16598494a9eacca0`
-- Node.js `^22.19.0 || >=24`
-- pnpm `11.x`
+## Why use it?
 
-It is `private: true`. Do not publish it until the owner chooses terms for the new adapter/build/test code and approves the licensing and provenance record.
+- **One install, eight workflows:** prompting, skill authoring, delegation, evaluation, self-play, agent steering, and session handoff.
+- **Small runtime seam:** one Cordis row and one effect-owned filesystem provider—no replacement agent loop or skill registry.
+- **Quiet on load:** no network access, update check, script execution, watcher, or writes to project/user skill homes.
+- **Reproducible:** upstream content is commit-pinned and hash-locked; package, integration, UI, and bounded behavioral evidence live in the repository.
 
-## Runtime architecture
+## Quick start
+
+Requirements: DeepSeek Harness `v0.1.0-rc.7`, Node.js `^22.19.0 || >=24`, and pnpm `11.x`.
+
+```sh
+git clone https://github.com/OpenCnid/deepseek-dovetail.git
+cd deepseek-dovetail
+corepack pnpm install --frozen-lockfile
+corepack pnpm run build
+corepack pnpm run verify
+corepack pnpm run pack:artifact
+```
+
+Install the generated tarball into any DSH profile:
+
+```sh
+dsh plugin --profile web add {ABSOLUTE_PATH}/artifacts/deepseek-dovetail-0.1.0.tgz
+dsh --profile web --dump-config
+```
+
+Replace `web` with another profile name as needed. Remove the bundle with:
+
+```sh
+dsh plugin --profile web remove deepseek-dovetail
+```
+
+In a DSH session, type `/` to browse skills or invoke one directly, for example `/prompt-engineering`. Six skills are model-discoverable; `spark-steering` and `upsum` are intentionally user-only.
+
+## Skill gallery
+
+Each original SVG gives the workflow a visual shorthand. Expand **Real DSH output** for an example generated through the installed bundle in the pinned DSH web profile—not a mockup. Six skills are model-discoverable and slash-invocable; `spark-steering` and `upsum` are intentionally slash-only.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>prompt-engineering</code></h3>
+      <img src="docs/assets/skills/prompt-engineering.svg" alt="A rough prompt refracted into a precise structured instruction" width="100%" />
+      <p>Turns a vague request into a precise instruction schema with explicit constraints and output shape. <code>/prompt-engineering</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/prompt-engineering.png" alt="Prompt Engineering producing a structured API review prompt in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>hypershot-protocol</code></h3>
+      <img src="docs/assets/skills/hypershot-protocol.svg" alt="An empty structural frame that transfers form without content" width="100%" />
+      <p>Builds examples that transfer structure without contaminating the target with task-specific content. <code>/hypershot-protocol</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/hypershot-protocol.png" alt="Hypershot Protocol creating a contamination-free incident postmortem frame in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>better-skill-creator</code></h3>
+      <img src="docs/assets/skills/better-skill-creator.svg" alt="A skill specification forged into a validated reusable module" width="100%" />
+      <p>Authors compact DSH skills, validates their structure, and plans clean-baseline comparison. <code>/better-skill-creator</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/better-skill-creator.png" alt="Better Skill Creator drafting a minimal release-note sanitizer skill in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>subagent-composition</code></h3>
+      <img src="docs/assets/skills/subagent-composition.svg" alt="A routing gate deciding whether and how work should branch to agents" width="100%" />
+      <p>Applies a delegation gate, then chooses cold, forked, foreground, or background execution. <code>/subagent-composition</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/subagent-composition.png" alt="Subagent Composition declining unnecessary delegation for a documentation typo in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>judge-composition</code></h3>
+      <img src="docs/assets/skills/judge-composition.svg" alt="Four differently blinded judges surrounding an evidence core" width="100%" />
+      <p>Designs separately blinded grounding, coherence, corroboration, and audit seats. <code>/judge-composition</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/judge-composition.png" alt="Judge Composition designing a four-seat cache latency evaluation panel in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>self-play</code></h3>
+      <img src="docs/assets/skills/self-play.svg" alt="Controlled gatherer adversary evaluator and judge roles inside a test arena" width="100%" />
+      <p>Tests unresolved designs through preregistered, visibility-controlled specialist roles. <code>/self-play</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/self-play.png" alt="Self-Play designing a controlled routing-threshold evaluation in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>spark-steering</code></h3>
+      <img src="docs/assets/skills/spark-steering.svg" alt="A five-axis SPARK compass identifying the constrained agent capability" width="100%" />
+      <p>Diagnoses the shortest Skills, Personalities, Approaches, Resources, or Knowledge axis before intervention. <code>/spark-steering</code> only</p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/spark-steering.png" alt="SPARK Steering diagnosing a shallow incident report as a skills-axis gap in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>upsum</code></h3>
+      <img src="docs/assets/skills/upsum.svg" alt="A changed session compressed into durable records at descending resolutions" width="100%" />
+      <p>Closes changed sessions with a durable record, compressed summary, open-work projection, and checks. <code>/upsum</code> only</p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/upsum.png" alt="Upsum previewing a read-only documentation closeout in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+</table>
+
+The captures use the assembled `deepseek-dovetail@0.1.0` profile with GPT-5.6 Terra. They are illustrative runs, not universal evaluation claims; exact prompts and capture conditions are recorded in [the example manifest](docs/assets/examples/README.md). A machine-readable [UI snapshot](evidence/assembled/web-ui.snapshot.json) covers all eight catalog entries.
+
+## Architecture
 
 ```text
 DSH profile
-  -> deepseek-dovetail bundle patch (one row)
+  -> deepseek-dovetail bundle row
   -> deepseek-dovetail Cordis plugin
-  -> @deepseek-ai/dsh-skill-filesystem over package-local dist/skills
-  -> ctx.skills bundled layer
-  -> existing DSH catalog, explicit invocation, tools, agents, sessions, and UI
+  -> @deepseek-ai/dsh-skill-filesystem
+  -> package-local dist/skills
+  -> existing DSH catalog, agents, tools, sessions, and UI
 ```
 
-The child provider is named `dovetail`, disables default roots and watching, and supplies only the package-local bundled root resolved from built code with `import.meta.url`/`fileURLToPath`. DSH's project and user roots keep their lower precedence ranks. Package load performs no network access, update, script execution, user-home installation, or project/user skill write.
+The provider is named `dovetail`, excludes default roots, disables watching, and resolves its bundled directory from installed code. Project and user skill roots keep their normal precedence.
 
-Pinned DSH profiles set pnpm `autoInstallPeers: false`, so the package declares the filesystem provider's exact public `0.1.0-rc.7` runtime/peer closure directly, together with Cordis `4.0.1`. It does not import DSH source paths or rely on dependencies from an in-tree bundle anchor; see the preflight failure and corrected plan in `COMPATIBILITY.md`.
+## Work on the bundle
 
-## Build and verification
+Edit DSH adaptations in `ports/dsh/`; never hand-edit pinned `vendor/dovetail` files or generated `dist/skills` output. See [AGENTS.md](AGENTS.md) for repository rules and the complete validation workflow.
 
-From a clean source tree with the pinned runtime:
-
-```text
-pnpm install --frozen-lockfile
-pnpm run typecheck
-pnpm run lint
-pnpm run test
-pnpm run build
-pnpm run verify
-pnpm pack --dry-run
-pnpm run pack:artifact
+```sh
+corepack pnpm run typecheck
+corepack pnpm run lint
+corepack pnpm run test
+corepack pnpm run build
+corepack pnpm run verify
+corepack pnpm pack --dry-run
 ```
 
-`vendor/dovetail` is not edited. To refresh it from an exact detached, clean checkout of the pinned source:
+To refresh the pinned upstream subset from an exact, clean checkout:
 
-```text
-pnpm run sync:upstream -- --source {Absolute_Pinned_Dovetail_Checkout}
+```sh
+corepack pnpm run sync:upstream -- --source {ABSOLUTE_PINNED_DOVETAIL_CHECKOUT}
 ```
 
-The sync fails on a wrong commit, dirty source, symlink, path escape, unclassified runtime file, or mismatch between the explicit source/deletion manifests. `upstream.lock.json` records every retained hash and every reviewed deletion hash. `dist/skills` is deterministic disposable output; edit `ports/dsh`, then materialize again.
+The sync fails closed on a wrong commit, dirty source, symlink, path escape, unclassified runtime file, or manifest/hash mismatch.
 
-## Private profile installation
+## Evidence and deeper documentation
 
-Build and inspect the tarball, then use the real DSH bundle workflow:
+- [COMPATIBILITY.md](COMPATIBILITY.md) — pinned host contracts and the skill-by-skill port matrix.
+- [evidence/REPORT.md](evidence/REPORT.md) — package, profile, UI, removal, and behavioral acceptance ledger.
+- [evidence/behavioral/LIVE_REPORT.md](evidence/behavioral/LIVE_REPORT.md) — bounded real-provider comparisons and known gaps.
+- [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) — provenance, retained licenses, notices, and code-license status.
 
-```text
-dsh plugin --profile web add {Absolute_Path_To_deepseek-dovetail-0.1.0.tgz}
-dsh plugin --profile headless add {Absolute_Path_To_deepseek-dovetail-0.1.0.tgz}
-dsh --profile web --dump-config
-dsh --profile headless --dump-config
-```
+## Public-source status and limitations
 
-Remove it with:
+This GitHub repository is public. The npm manifest deliberately remains `private: true`, no npm package has been published, and no owner-selected public license currently covers the new adapter/build/test code. Public visibility does not imply a license grant; review [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before reuse or redistribution.
 
-```text
-dsh plugin --profile web remove deepseek-dovetail
-dsh plugin --profile headless remove deepseek-dovetail
-```
-
-All eight skills remain human-invocable through DSH `/name`. `spark-steering` and `upsum` are explicit-only; the other six appear in the model-facing lowercase `skill` catalog. Relative scripts and references must be resolved from the `<skill_resources>` directory reported by the loaded package, never from a development checkout or user home.
-
-## Evaluation
-
-Better Skill Creator includes a host-side DSH runner at `scripts/run_eval.py` within that installed skill. Use `--plan` before `--run`. Its optional fixed `dshArguments` support launcher forms such as `node path/to/dsh`, while common overlays are applied identically before every arm-specific overlay. Each live case uses separate temporary workspaces and session roots. On Windows, `workspaceTempRoot` selects an existing caller-owned scratch parent; callers must first verify that the pinned DSH restricted subprocess can read pre-created fixture files there. Session/control state stays in a separate system-temp tree. The optional `initializeGit` control creates the same clean repository in every arm before DSH starts, using a fixed local identity and timestamps. The arm overlay pins DSH to `workspace-write`, pins filesystem resolution to that arm's workspace, redirects project/user/built-in filesystem skill discovery to empty arm-local roots, and disables watching. Treatment begins with `/<target-skill>`, baseline disables the exact `tool-skill` row, and the grader also has no skill catalog. Candidate order is randomized and the arm map is written only after the grader settles.
-
-Runs are bounded by root child count, repetitions, timeout, captured bytes, artifact bytes, and an environment-name allowlist. Credentials remain inherited in memory and are redacted from sanitized evidence; they are never command-line arguments. Missing credentials self-report `UNMEASURED`. A missing target body, contaminated baseline/grader, timeout, truncation, failed process, or missing verdict is `FAILED` and retains the partial sanitized evidence. ChatGPT subscription OAuth supplies plan usage rather than an API-dollar meter, so the runner records bounded calls and available usage but cannot enforce a literal USD ceiling; do not purchase extra credits during a run intended to stay within included plan usage. The owner-approved OAuth run and every retained failure are summarized in [`evidence/behavioral/LIVE_REPORT.md`](evidence/behavioral/LIVE_REPORT.md).
-
-`upsum`'s Python checker takes an explicit target workspace, invokes the adjacent package-owned `parse-frontmatter.mjs`, and uses this package's pinned `yaml@2.9.0`. It therefore needs Git, Node.js, and the installed package dependency closure, but not PyYAML or Python site packages.
-
-## Security and trust
-
-The package trusts the pinned skill prose. Retained scripts are ordinary package resources: installation and plugin load do not execute them, and they become executable only when a user or model deliberately asks an existing DSH tool to run one. This is the intended DSH trust boundary, not a loading defect.
-
-See [COMPATIBILITY.md](COMPATIBILITY.md) for the host contract and skill-by-skill port matrix, [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for licensing/provenance, and `evidence/` for reproducible package and assembled-profile results.
-
-## Limitations
-
-- The recorded live comparisons provide bounded behavioral evidence, not universal effectiveness. Results apply only to the recorded ChatGPT OAuth provider, `gpt-5.6-sol`, prompts, DSH composition, and repetitions; unrun cases and broader effectiveness claims remain `UNMEASURED`.
-- A clean evaluation arm is not an adversarial secrecy sandbox. The runner removes inherited workspace/session/skill state and DSH confines writes, but the pinned filesystem seam deliberately permits reads. Cold `subagent/spawn` is required for blind children; `subagent_fork` is not equivalent. Exclude RLM/IPython from these profiles or place the entire DSH process in an OS sandbox/container when untrusted code or hostile readable host data is in scope.
-- `upsum` still requires Git and a readable worktree. On this Windows host, DSH's in-process filesystem tools saw the disposable fixture while its workspace-write subprocess could not read the pre-created Git metadata, so the live lifecycle gate remains `UNMEASURED`; the package-relative checker passes its isolated static test. The checker never contacts a remote, so pushed/upstream status is local-cache evidence and is reported as partially blind rather than clean.
+Initial assembled acceptance is Windows-only. The changed/unchanged live `upsum` lifecycle remains `UNMEASURED` on the pinned Windows restricted-subprocess path, and the recorded behavioral comparisons are bounded evidence—not universal effectiveness claims.

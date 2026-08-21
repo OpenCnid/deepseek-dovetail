@@ -1,6 +1,6 @@
 # Third-party notices and licensing posture
 
-This private package combines verbatim OpenCnid Dovetail material with DSH-specific adaptations and new package/build/test code. No single replacement license is asserted over those distinct bodies of work.
+This public source repository combines verbatim OpenCnid Dovetail material with DSH-specific adaptations and new package/build/test code. No single replacement license is asserted over those distinct bodies of work.
 
 ## Source and provenance
 
@@ -71,4 +71,4 @@ Original pinned bytes for every adapted upstream file remain under `vendor/dovet
 
 ## New code
 
-`src/`, `scripts/`, `tests/`, the bundle patch, DSH overlays without an upstream counterpart, and repository documentation are new private adapter/build/test work. The owner has not selected public license terms for that work. The package therefore remains `private: true` and declares `SEE LICENSE IN THIRD_PARTY_NOTICES.md`. Do not publish, redistribute, or infer a public license for the new work without owner approval.
+`src/`, `scripts/`, `tests/`, the bundle patch, DSH overlays without an upstream counterpart, and repository documentation are new adapter/build/test work. The owner has not selected public license terms for that work. The GitHub repository is publicly visible, while the npm package remains `private: true`, unpublished, and declared `SEE LICENSE IN THIRD_PARTY_NOTICES.md`. Do not infer a license grant from public visibility or publish the npm package without owner approval.

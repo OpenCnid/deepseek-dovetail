@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Subagent Composition</title>
+  <desc id="desc">A guarded router sends work to cold, forked, foreground, or background agents and brings framed results home.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07171a"/><stop offset="1" stop-color="#113a37"/></linearGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#55e1ed"/><stop offset="1" stop-color="#71ef9f"/></linearGradient>
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0V26" fill="none" stroke="#8cf4dc" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="720" height="400" rx="24" fill="url(#bg)"/><rect width="720" height="400" rx="24" fill="url(#grid)"/>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="38" y="48" fill="#69e9c0" font-size="12" font-weight="800" letter-spacing="2">DOVETAIL SKILL</text>
+    <text x="38" y="94" fill="#f1fffb" font-size="34" font-weight="800">Subagent Composition</text>
+    <text x="38" y="126" fill="#acd5cc" font-size="15">Delegate only when independence, isolation, or overlap pays.</text>
+    <g transform="translate(45 174)">
+      <rect width="154" height="108" rx="18" fill="#0c2626" stroke="#3d8c82"/>
+      <text x="77" y="33" text-anchor="middle" fill="#cafff2" font-size="14" font-weight="800">PARENT TASK</text>
+      <path d="M40 58h74M40 77h54" stroke="#427d77" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <path d="M201 228h59" stroke="#60ddc8" stroke-width="3"/><path d="m252 220 13 8-13 8" fill="#60ddc8"/>
+    <g transform="translate(278 182)">
+      <path d="M0 20 31 0l31 20v40L31 80 0 60z" fill="#113b39" stroke="url(#route)" stroke-width="2"/>
+      <path d="m19 38 9 9 17-20" fill="none" stroke="#b5ffdf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="31" y="103" text-anchor="middle" fill="#7edac8" font-size="11" font-weight="800">GATE</text>
+    </g>
+    <g transform="translate(405 150)" font-size="12" font-weight="800">
+      <path d="M-55 75H0M0 75V19M0 75v57M0 75h111" fill="none" stroke="#4aaea3" stroke-width="2" stroke-dasharray="4 5"/>
+      <g transform="translate(10 0)"><rect width="119" height="44" rx="13" fill="#102c31" stroke="#57d8ef"/><circle cx="20" cy="22" r="8" fill="#66e4f3"/><text x="70" y="27" text-anchor="middle" fill="#d8fbff">COLD</text></g>
+      <g transform="translate(10 54)"><rect width="119" height="44" rx="13" fill="#102f2a" stroke="#71e5a2"/><circle cx="20" cy="22" r="8" fill="#72e6a3"/><text x="70" y="27" text-anchor="middle" fill="#e0ffea">FORK</text></g>
+      <g transform="translate(10 108)"><rect width="119" height="44" rx="13" fill="#163029" stroke="#b4dd6b"/><circle cx="20" cy="22" r="8" fill="#c7e675"/><text x="72" y="27" text-anchor="middle" fill="#f5ffd9">PARALLEL</text></g>
+      <g transform="translate(141 54)"><rect width="119" height="44" rx="13" fill="#1c2b38" stroke="#7399dd"/><circle cx="20" cy="22" r="8" fill="#7da4e9"/><text x="70" y="27" text-anchor="middle" fill="#e6efff">BACKGROUND</text></g>
+    </g>
+    <g transform="translate(407 327)"><rect width="258" height="42" rx="14" fill="#0c2426" stroke="#3c8e87"/><text x="129" y="18" text-anchor="middle" fill="#b5e9df" font-size="11" font-weight="700">RETURN FRAME</text><text x="129" y="33" text-anchor="middle" fill="#6faaa2" font-size="10">result · evidence · uncertainty · next move</text></g>
+  </g>
+  <rect x="1" y="1" width="718" height="398" rx="23" fill="none" stroke="#62e2cd" stroke-opacity=".22" stroke-width="2"/>
+</svg>

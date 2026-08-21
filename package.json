@@ -1,7 +1,7 @@
 {
   "name": "deepseek-dovetail",
   "version": "0.1.0",
-  "description": "Private DSH compatibility bundle for the eight OpenCnid Dovetail skills",
+  "description": "DeepSeek Harness Cordis bundle for eight OpenCnid Dovetail agent skills",
   "private": true,
   "type": "module",
   "main": "./lib/index.js",

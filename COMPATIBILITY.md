@@ -49,7 +49,7 @@ The packed manifest must contain no `file:`, `link:`, `workspace:`, absolute-pat
 
 The materializer vendors 31 byte-identical source/runtime files from the pinned Dovetail commit, overlays DSH adaptations from `ports/dsh`, and records 55 reviewed deletion hashes in the current lock. Better Skill Creator remains Apache-2.0 with its NOTICE. Each other directory retains its adjacent license. Prompt Engineering retains its NOTICE and Matthew Murphy/Lexideck attribution. SPARK references retain the arXiv provenance inherited from upstream. `THIRD_PARTY_NOTICES.md` distinguishes verbatim from adapted paths.
 
-The repository and package remain private. New adapter/build/test code has no owner-selected public license; `SEE LICENSE IN THIRD_PARTY_NOTICES.md` records that unresolved publication decision without relicensing upstream work.
+The GitHub repository is public. The npm package remains `private: true` and unpublished. New adapter/build/test code has no owner-selected public license; `SEE LICENSE IN THIRD_PARTY_NOTICES.md` records that unresolved licensing and npm-publication decision without relicensing upstream work. Public repository visibility does not imply a license grant.
 
 ## Preflight limitations
 

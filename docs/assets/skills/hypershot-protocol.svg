@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Hypershot Protocol</title>
+  <desc id="desc">An empty structural frame teaches form while protected content remains outside it.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1023"/><stop offset="1" stop-color="#28203d"/></linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b38cff"/><stop offset="1" stop-color="#55dfff"/></linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#d7c5ff" fill-opacity=".08"/></pattern>
+  </defs>
+  <rect width="720" height="400" rx="24" fill="url(#bg)"/><rect width="720" height="400" rx="24" fill="url(#dots)"/>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="38" y="48" fill="#c0a2ff" font-size="12" font-weight="800" letter-spacing="2">DOVETAIL SKILL</text>
+    <text x="38" y="94" fill="#f8f5ff" font-size="34" font-weight="800">Hypershot Protocol</text>
+    <text x="38" y="126" fill="#c6bddc" font-size="15">Teach the shape—without leaking the answer.</text>
+    <g transform="translate(51 175)">
+      <circle cx="92" cy="76" r="72" fill="#201934" stroke="#6e578f" stroke-dasharray="5 7"/>
+      <path d="M42 76h100M92 26v100" stroke="#6f5b91" stroke-opacity=".6"/>
+      <circle cx="92" cy="76" r="23" fill="#372847" stroke="#e085bd"/>
+      <path d="M78 76l9 9 20-22" fill="none" stroke="#ff98cf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="92" y="169" text-anchor="middle" fill="#a994c7" font-size="11" font-weight="700" letter-spacing="1.2">CONTENT STAYS OUT</text>
+    </g>
+    <g transform="translate(287 157)">
+      <rect width="379" height="169" rx="20" fill="#101629" stroke="url(#frame)" stroke-width="2"/>
+      <path d="M31 38h317M31 82h317M31 126h317" stroke="#756593" stroke-opacity=".35"/>
+      <g font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="16" font-weight="700">
+        <text x="31" y="30" fill="#69dcff">{Finding}</text><text x="173" y="30" fill="#806f9b">...</text><text x="232" y="30" fill="#c1a3ff">[Evidence]</text>
+        <text x="31" y="74" fill="#b89aff">{Two_Sentence_Assessment}</text>
+        <text x="31" y="118" fill="#6fe5cf">{Confidence}</text><text x="190" y="118" fill="#806f9b">...</text><text x="246" y="118" fill="#f0bd78">{Next_Action}</text>
+        <text x="31" y="160" fill="#927fad">...</text><text x="83" y="160" fill="#d3c4ee">form without topic bytes</text>
+      </g>
+    </g>
+    <g transform="translate(38 348)" font-size="12" font-weight="700"><rect width="112" height="28" rx="14" fill="#2c2343" stroke="#825fba"/><text x="56" y="18" text-anchor="middle" fill="#f0e5ff">SPREAD</text><rect x="124" width="134" height="28" rx="14" fill="#172d40" stroke="#3d83a0"/><text x="191" y="18" text-anchor="middle" fill="#dcf6ff">CATEGORIC</text><rect x="270" width="184" height="28" rx="14" fill="#1d3437" stroke="#3a967f"/><text x="362" y="18" text-anchor="middle" fill="#dcfff3">INSTRUCTION-BEARING</text></g>
+  </g>
+  <rect x="1" y="1" width="718" height="398" rx="23" fill="none" stroke="#ad8cff" stroke-opacity=".22" stroke-width="2"/>
+</svg>
