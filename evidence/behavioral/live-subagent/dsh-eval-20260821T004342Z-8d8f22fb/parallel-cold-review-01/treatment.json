@@ -1,0 +1,34 @@
+{
+  "durationMs": 29064,
+  "label": "treatment",
+  "output": "| Category | Synthesis |\n|---|---|\n| Subject | A governs **contractors**; B governs **on-call responders**. A contractor may possibly qualify separately as a responder, but contractor status alone is insufficient. |\n| Allowed data | Contractors may read **incident summaries**. On-call responders may read **production logs**. A otherwise prohibits contractors from reading production logs. |\n| Conditions | Incident-summary access requires **manager approval**. Production-log access requires **on-call responder status** and a **declared severity-1 incident**. |\n| Conflict or ambiguity | For someone who is both a contractor and an on-call responder, A’s blanket log prohibition conflicts with B’s conditional permission. The excerpts do not specify whether B overrides A during severity-1 incidents. |",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\parallel-cold-review-01\\treatment.overlay.yml",
+      "<task:578-bytes:c048c60426d8>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 3,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 5613,
+    "outputTokens": 236
+  }
+}

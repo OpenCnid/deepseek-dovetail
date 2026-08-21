@@ -1,0 +1,34 @@
+{
+  "durationMs": 151783,
+  "label": "baseline",
+  "output": "Session-close artifacts were created, but Git initialization could not complete because the sandbox denied `.git` writes and no approval channel was available.\n\n- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-baseline-workspace-9u_yio21\\.upsum\\RECORD.md`\n- **Summary projection:** exists — `.upsum\\SUMMARY.md`\n- **TODO projection:** exists — `TODO.md`\n- **Checks:** exit `1`; **1/4 measured**, **0 findings**\n  - Repository state: `UNMEASURED`\n  - DSH skill health: `UNMEASURED`\n  - Skill credit travel: `UNMEASURED`\n\n`decision.md` exists with the requested content, but cannot technically be an uncommitted Git file because repository initialization failed.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\changed-session-01\\baseline.overlay.yml",
+      "<task:453-bytes:7c3d14ba3b01>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 42496,
+    "inputTokens": 921,
+    "outputTokens": 253
+  }
+}

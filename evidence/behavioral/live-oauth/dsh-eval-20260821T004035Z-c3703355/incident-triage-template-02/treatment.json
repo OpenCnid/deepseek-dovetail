@@ -1,0 +1,34 @@
+{
+  "durationMs": 22067,
+  "label": "treatment",
+  "output": "<request type=\"incident_triage_brief\">\n  <task>\n    Transform the unordered incident note into a concise triage brief using the exact headings and order specified below.\n  </task>\n\n  <rules>\n    1. Use only information supported by the incident note.\n    2. Preserve identifiers, timestamps, measurements, and uncertainty exactly.\n    3. Separate reported facts from assessments or hypotheses.\n    4. Do not infer chronology unless timestamps or explicit sequencing support it.\n    5. Record missing decision-relevant information under **Explicit Unknowns**; write `None identified` only when none exist.\n    6. Do not silently resolve contradictions. List conflicting claims under **Evidence and Observations** and note the resulting uncertainty.\n    7. Recommend actions proportionate to the evidence. Label each action `(Immediate|Next|Conditional)` and identify an owner when the note provides one; otherwise use `Owner unknown`.\n    8. Use `Not established` for any required section unsupported by the note.\n    9. Output only the completed triage brief.\n  </rules>\n\n  <structural_demonstration>\n    Unordered note:\n    - {Observation_B}\n    - {Timestamped_Event_A}\n    - {Unverified_Claim}\n    - {Impact_Statement}\n    - ...\n\n    Triage brief:\n\n    # Incident Summary\n    {Concise_Factual_Summary}\n\n    # Severity and Scope\n    - Severity: {Stated_Severity_Or_Not_Established}\n    - Affected systems or assets: [...]\n    - Affected users or operations: [...]\n    - Scope confidence: {High|Medium|Low} — {Reason}\n\n    # Current Impact\n    - {Supported_Impact}\n    - ...\n\n    # Timeline\n    - {Timestamp_Or_Sequence_Marker} — {Event}\n    - ...\n    - Chronology gaps: [...]\n\n    # Evidence and Observations\n    - Confirmed: {Supported_Fact}\n    - Reported but unverified: {Claim}\n    - Conflicting evidence: {Conflict_Or_None_Identified}\n    - ...\n\n    # Working Assessment\n    - Leading assessment: {Assessment_Or_Not_Established}\n    - Supporting basis: [...]\n    - Alternative explanations: [...]\n    - Confidence: {High|Medium|Low} — {Reason}\n\n    # Explicit Unknowns\n    - {Decision_Relevant_Unknown}\n    - ...\n\n    # Recommended Actions\n    - (Immediate) {Action} — Owner: {Owner_Or_Unknown}\n    - (Next) {Action} — Owner: {Owner_Or_Unknown}\n    - (Conditional) If {Condition}, then {Action} — Owner: {Owner_Or_Unknown}\n\n    # Escalation and Communications\n    - Escalation status: {Status_Or_Not_Established}\n    - Required notifications: [...]\n    - Next update: {Time_Or_Trigger_Or_Not_Established}\n  </structural_demonstration>\n\n  <incident_note>\n    ${UNORDERED_INCIDENT_NOTE}\n  </incident_note>\n\n  <output_instructions>\n    Produce the triage brief using these exact headings:\n\n    # Incident Summary\n    # Severity and Scope\n    # Current Impact\n    # Timeline\n    # Evidence and Observations\n    # Working Assessment\n    # Explicit Unknowns\n    # Recommended Actions\n    # Escalation and Communications\n  </output_instructions>\n</request>",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T004035Z-c3703355\\incident-triage-template-02\\treatment.overlay.yml",
+      "<task:300-bytes:ee2ab4fe856d>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 6656,
+    "inputTokens": 1659,
+    "outputTokens": 845
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {
+      "case": "mid-task-steering",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T015503Z",
+  "status": "MEASURED",
+  "targetSkill": "spark-steering"
+}

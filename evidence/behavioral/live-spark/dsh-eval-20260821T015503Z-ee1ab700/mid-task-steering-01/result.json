@@ -1,0 +1,109 @@
+{
+  "baseline": {
+    "durationMs": 33183,
+    "label": "baseline",
+    "output": "**Decision record**\n\n- **Primary SPARK shortage:** **Strategy/reasoning** — repeating an unchanged test is not reducing uncertainty.\n- **Ruled out:** **Reach/tool access** — the configured shell succeeded and returned valid output.\n- **Narrowest DSH move:** `send_message` to the existing agent, requiring competing hypotheses and one discriminating next test before rerunning anything.\n- **Cost:** **Once** — one steering turn, not a recurring escalation.\n- **Intentionally unchanged:** **Model/capability tier**; speed versus certainty preference is unknown, so do not upgrade or fan out yet.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-spark\\dsh-eval-20260821T015503Z-ee1ab700\\mid-task-steering-01\\baseline.overlay.yml",
+        "<task:556-bytes:7b737c49cf90>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 5632,
+      "inputTokens": 858,
+      "outputTokens": 1047
+    }
+  },
+  "case": "mid-task-steering",
+  "grader": {
+    "durationMs": 15385,
+    "label": "grader",
+    "output": "WINNER_B — It grounds S versus R in the evidence, uses available grep/read rather than assuming a messageable agent, and leaves the collaborator-owned preference unchanged.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-spark\\dsh-eval-20260821T015503Z-ee1ab700\\mid-task-steering-01\\grader.overlay.yml",
+        "<task:2390-bytes:a7eb5fd2cda5>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 1837,
+      "outputTokens": 509
+    }
+  },
+  "repetition": 1,
+  "status": "MEASURED",
+  "treatment": {
+    "durationMs": 33382,
+    "label": "treatment",
+    "output": "```text\nSymptom: Valid test output was obtained, but the identical command was repeated without narrowing causality.\nAxis: S\nConfusable ruled out: R — the configured shell executed successfully and returned valid output; capability and access are present.\nCheaper move considered: Ask collaborator about speed versus certainty — useful later, but it does not make the repeated evidence discriminating.\nLever: Targeted DSH grep/read — inspect the failure-implicated code and choose one falsifiable, materially different check instead of rerunning the suite.\nSpends: Once\nLeft unmoved: P — no speed/certainty preference is assumed; the next check remains small and reversible.\n```",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-spark\\dsh-eval-20260821T015503Z-ee1ab700\\mid-task-steering-01\\treatment.overlay.yml",
+        "<task:572-bytes:b390a6f4a1c3>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": true,
+      "sawCatalog": true,
+      "sessionFiles": 1,
+      "targetBodyCount": 1
+    },
+    "usage": {
+      "cacheReadTokens": 6656,
+      "inputTokens": 2181,
+      "outputTokens": 1177
+    }
+  },
+  "verdictPosition": "B",
+  "winner": "treatment"
+}

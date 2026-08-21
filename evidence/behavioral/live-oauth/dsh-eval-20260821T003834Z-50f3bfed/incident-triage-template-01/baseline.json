@@ -1,0 +1,34 @@
+{
+  "durationMs": 17220,
+  "label": "baseline",
+  "output": "# Incident Triage Brief Generator\n\nTransform the unordered incident note below into a concise triage brief.\n\n## Requirements\n\n- Use exactly the fixed headings and order shown below.\n- Preserve facts from the note; do not invent, infer, or silently resolve contradictions.\n- Label unavailable information explicitly as **Unknown**.\n- Distinguish confirmed facts from unverified reports.\n- Include conflicting claims under **Unknowns and Conflicts**.\n- Use short bullets and operationally precise language.\n- Preserve relevant timestamps, systems, locations, identifiers, impact, actions, owners, and status.\n- Write **None reported** when a section is applicable but the note explicitly indicates none.\n- Do not include commentary outside the brief.\n\n## Required Output Format\n\n### Incident Summary\n- ...\n\n### Current Status\n- ...\n\n### Timeline\n- ...\n\n### Scope and Impact\n- ...\n\n### Indicators and Evidence\n- ...\n\n### Actions Taken\n- ...\n\n### Immediate Next Actions\n- **Action:** ...  \n  **Owner:** ...  \n  **Priority:** ...  \n  **Due:** ...\n\n### Unknowns and Conflicts\n- ...\n\n### Escalation and Communication\n- ...\n\n## Structurally Analogous Demonstration\n\n**Unordered note**\n> At `<TIME_A>`, `<SOURCE>` reported `<OBSERVATION>`. `<SYSTEM_OR_AREA>` may be affected, but scope is unclear. `<ACTION>` was started by `<OWNER>`. Another report gives `<CONFLICTING_DETAIL>`. No due time or communication status was provided.\n\n**Triage brief**\n\n### Incident Summary\n- `<OBSERVATION>` was reported by `<SOURCE>` at `<TIME_A>`.\n- Possible involvement of `<SYSTEM_OR_AREA>` remains unconfirmed.\n\n### Current Status\n- `<ACTION>` is in progress.\n- Overall incident status: **Unknown**.\n\n### Timeline\n- `<TIME_A>` — `<SOURCE>` reported `<OBSERVATION>`.\n- Start time of `<ACTION>`: **Unknown**.\n\n### Scope and Impact\n- Potentially affected: `<SYSTEM_OR_AREA>`.\n- Confirmed scope: **Unknown**.\n- Impact severity: **Unknown**.\n\n### Indicators and Evidence\n- Reported indicator: `<OBSERVATION>`.\n- Verification status: **Unknown**.\n\n### Actions Taken\n- `<OWNER>` started `<ACTION>`.\n\n### Immediate Next Actions\n- **Action:** Verify `<OBSERVATION>` and determine the scope of `<SYSTEM_OR_AREA>`.  \n  **Owner:** **Unknown**  \n  **Priority:** **Unknown**  \n  **Due:** **Unknown**\n\n### Unknowns and Conflicts\n- Confirmed scope is **Unknown**.\n- `<CONFLICTING_DETAIL>` conflicts with or cannot yet be reconciled with the initial report.\n- Incident status, severity, and action start time are **Unknown**.\n\n### Escalation and Communication\n- Escalation status: **Unknown**.\n- Stakeholder communication status: **Unknown**.\n\n## Incident Note\n\n`<PASTE_UNORDERED_INCIDENT_NOTE_HERE>`",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T003834Z-50f3bfed\\incident-triage-template-01\\baseline.overlay.yml",
+      "<task:280-bytes:e7c53c467b96>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1401,
+    "outputTokens": 695
+  }
+}

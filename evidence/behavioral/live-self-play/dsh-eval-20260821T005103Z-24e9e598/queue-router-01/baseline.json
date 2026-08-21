@@ -1,0 +1,34 @@
+{
+  "durationMs": 25118,
+  "label": "baseline",
+  "output": "### Routing rubric\n\nAssume requests are **atomic** and capacity is maximum accepted batch size—not current free space.\n\n| Rule order | Condition | Route |\n|---|---|---|\n| 1 | Invalid urgency, regulated flag, or batch outside 1–100 | Reject |\n| 2 | Regulated = yes | **B** |\n| 3 | Urgency = high and batch ≤ 20 | **A** |\n| 4 | Otherwise | **B** |\n\nThis reserves low-latency Queue A for eligible high-urgency work. All valid requests fit Queue B.\n\n### Pseudocode\n\n```text\nroute(request):\n    require request.urgency in {\"low\", \"high\"}\n    require request.regulated in {yes, no}\n    require 1 <= request.batch_size <= 100\n\n    if request.regulated == yes:\n        return B, \"regulated data requires B\"\n\n    if request.urgency == high and request.batch_size <= 20:\n        return A, \"high urgency and fits A\"\n\n    return B, \"default or exceeds A capacity\"\n```\n\n### Stress test\n\nExhaust all `2 × 2 × 100 = 400` valid combinations:\n\n- A receives exactly 20: nonregulated, high, sizes 1–20.\n- B receives the other 380.\n- No regulated request reaches A.\n- No request routed to A exceeds 20.\n- Routing is total and deterministic.\n\n### Three boundary cases\n\n1. `(high, no, 20)` → **A** — exact A capacity.\n2. `(high, no, 21)` → **B** — one over A capacity.\n3. `(high, yes, 1)` → **B** — regulation overrides urgency.\n\n### Input-visibility matrix\n\nA blind verifier may independently derive outcomes without seeing expected routes.\n\n| Role | Urgency | Regulated flag | Batch size | Policy | Expected route | Actual decision |\n|---|---:|---:|---:|---:|---:|---:|\n| Router | ✓ | ✓ | ✓ | ✓ | — | Produces |\n| Blind verifier | ✓ | ✓ | ✓ | ✓ | **Blind** | Derives |\n| Result comparator | — | — | — | — | ✓ | ✓ |\n\nIf “capacity” instead means **current free queue slots**, queue occupancy must be added as an input; otherwise capacity-safe routing cannot be guaranteed.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play\\dsh-eval-20260821T005103Z-24e9e598\\queue-router-01\\baseline.overlay.yml",
+      "<task:382-bytes:da3d817255ac>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1439,
+    "outputTokens": 1151
+  }
+}

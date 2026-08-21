@@ -1,0 +1,34 @@
+{
+  "durationMs": 6559,
+  "label": "grader",
+  "output": "WINNER_A — It confirms the required uncommitted decision and more explicitly reports checker partial blindness without misrepresenting 0 findings as a pass.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\changed-session-01\\grader.overlay.yml",
+      "<task:1708-bytes:e6b5b758e6ed>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1760,
+    "outputTokens": 136
+  }
+}

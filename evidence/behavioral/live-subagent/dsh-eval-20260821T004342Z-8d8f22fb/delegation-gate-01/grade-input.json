@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "DELEGATION: NO\n\n17 × 19 = **323**\n\nCheck: 17 × (20 − 1) = 340 − 17 = 323.",
+      "position": "A"
+    },
+    {
+      "output": "DELEGATION: NO\n\n**Result:** 17 × 19 = **323**\n\n**Check:** 17 × (20 − 1) = 340 − 17 = 323.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer a correct answer that makes a proportionate delegation decision, avoids unnecessary process overhead, and gives a valid compact check. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "Compute 17 multiplied by 19. First state whether this small, self-contained task clears the delegation gate as `DELEGATION: YES` or `DELEGATION: NO`, then give the result and one-line arithmetic check."
+}

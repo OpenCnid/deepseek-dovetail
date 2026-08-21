@@ -1,0 +1,34 @@
+{
+  "durationMs": 20525,
+  "label": "treatment",
+  "output": "<request type=\"Incident_Triage_Brief\">\n  <objective>\n    Transform the unordered incident note into a concise, operational triage brief using the exact headings and order specified below.\n  </objective>\n\n  <source_note>\n    ${UNORDERED_INCIDENT_NOTE}\n  </source_note>\n\n  <rules>\n    1. Use only information supported by the source note.\n    2. Do not infer missing facts, causes, severity, ownership, or chronology.\n    3. Preserve uncertainty and conflicting accounts explicitly.\n    4. Write “Unknown — not stated” for required information absent from the note.\n    5. Write “Unknown — unclear/conflicting: {Brief_Explanation}” when the note is ambiguous or inconsistent.\n    6. Distinguish observed facts from reported claims.\n    7. Normalize timestamps only when their meaning and time zone are unambiguous; otherwise preserve them verbatim.\n    8. Keep every heading, even when its contents are unknown.\n    9. Prefer short bullets over narrative prose.\n  </rules>\n\n  <structural_demonstration>\n# Incident Summary\n- **What happened:** {Supported_Incident_Description}\n- **Current status:** {Supported_Status_Or_Explicit_Unknown}\n- **Severity:** {Stated_Severity_Or_Explicit_Unknown}\n\n# Impact\n- {Affected_Subject_And_Supported_Effect}\n- ...\n\n# Scope\n- **Affected:** {Supported_Affected_Systems_Users_Or_Locations}\n- **Unaffected:** {Explicitly_Confirmed_Unaffected_Scope_Or_Unknown}\n\n# Timeline\n- `{Timestamp_Or_Time_Reference}` — {Supported_Event}\n- ...\n\n# Evidence and Indicators\n- **Observed:** {Directly_Observed_Fact}\n- **Reported:** {Attributed_Claim}\n- ...\n\n# Actions Taken\n- {Completed_Or_Ongoing_Action_With_Known_Result}\n- ...\n\n# Immediate Triage Priorities\n1. {Evidence_Grounded_Next_Priority}\n2. ...\n\n# Unknowns\n- {Required_Fact}: Unknown — not stated\n- {Ambiguous_Fact}: Unknown — unclear/conflicting: {Brief_Explanation}\n- ...\n\n# Ownership and Escalation\n- **Incident owner:** {Named_Owner_Or_Explicit_Unknown}\n- **Responders:** {Named_Responders_Or_Explicit_Unknown}\n- **Escalation status:** {Supported_Status_Or_Explicit_Unknown}\n\n# Next Update\n- **Expected at:** {Supported_Time_Or_Explicit_Unknown}\n- **Trigger:** {Supported_Update_Trigger_Or_Explicit_Unknown}\n  </structural_demonstration>\n\n  <task>\n    Produce the triage brief from the source note now.\n  </task>\n\n  <output_instructions>\n    Return only the completed brief. Use the exact headings and order shown in the structural demonstration. Do not include analysis, preamble, or commentary.\n  </output_instructions>\n</request>",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T004035Z-c3703355\\incident-triage-template-01\\treatment.overlay.yml",
+      "<task:300-bytes:ee2ab4fe856d>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 6656,
+    "inputTokens": 1658,
+    "outputTokens": 772
+  }
+}

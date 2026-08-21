@@ -1,0 +1,33 @@
+{
+  "durationMs": 6600,
+  "label": "grader",
+  "output": "WINNER_A — It provides a complete placeholder-based input/output demonstration, fixed structure, and rigorous handling of unknowns and conflicts without contaminating the template with incidental facts.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T003834Z-50f3bfed\\incident-triage-template-01\\grader.overlay.yml",
+      "<task:5619-bytes:8d70b6440af1>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 7263,
+    "outputTokens": 136
+  }
+}

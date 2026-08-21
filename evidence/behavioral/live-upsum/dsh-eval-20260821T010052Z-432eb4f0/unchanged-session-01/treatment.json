@@ -1,0 +1,34 @@
+{
+  "durationMs": 78810,
+  "label": "treatment",
+  "output": "Unable to complete: the PowerShell sandbox denied access to the designated workspace, and escalation could not be approved because no approval channel was available.\n\n- Repository was **not initialized or committed**.\n- Existing fixture `input.txt` remains unchanged.\n- No `.upsum` close record was created because no repository work changed; per `/upsum`, unchanged sessions stop without a record.\n- Package-relative close checks were therefore not run.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T010052Z-432eb4f0\\unchanged-session-01\\treatment.overlay.yml",
+      "<task:298-bytes:8062f9cbb628>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 9900,
+    "outputTokens": 90
+  }
+}

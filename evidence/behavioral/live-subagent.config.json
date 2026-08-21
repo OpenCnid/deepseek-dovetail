@@ -1,0 +1,30 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": ["D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "subagent-composition",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent",
+  "repetitions": 1,
+  "timeoutSeconds": 600,
+  "maxCapturedBytes": 524288,
+  "maxArtifactBytes": 20971520,
+  "requiredCredentialEnv": ["DSH_HOME"],
+  "allowedEnvironment": [],
+  "authorization": {"route": "ChatGPT subscription OAuth", "ownerApprovedCeilingUsd": 25, "expectedIncrementalUsd": 0, "purchasedCreditsAllowed": false, "rootRuns": 6},
+  "cases": [
+    {
+      "id": "delegation-gate",
+      "task": "Compute 17 multiplied by 19. First state whether this small, self-contained task clears the delegation gate as `DELEGATION: YES` or `DELEGATION: NO`, then give the result and one-line arithmetic check.",
+      "graderPrompt": "Prefer a correct answer that makes a proportionate delegation decision, avoids unnecessary process overhead, and gives a valid compact check. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    },
+    {
+      "id": "parallel-cold-review",
+      "task": "Review two independent access-policy excerpts and synthesize conflicts. Excerpt A: `Contractors may read incident summaries after manager approval; production logs are prohibited.` Excerpt B: `On-call responders may read production logs during a declared severity-1 incident; contractor status does not grant responder status.` Use independent cold DSH children for the two excerpt analyses when the effective composition supports it, wait for both foreground results, then return a four-row table: subject, allowed data, conditions, conflict or ambiguity.",
+      "graderPrompt": "Prefer the output that accurately separates the excerpts, identifies the conditional responder exception without inventing contractor rights, and provides the requested synthesis. Evidence of correctly isolated parallel analysis is valuable but cannot compensate for a wrong policy reading. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

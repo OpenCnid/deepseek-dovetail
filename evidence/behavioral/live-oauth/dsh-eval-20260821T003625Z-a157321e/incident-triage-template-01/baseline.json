@@ -1,0 +1,33 @@
+{
+  "durationMs": 21170,
+  "label": "baseline",
+  "output": "# Incident Note → Triage Brief\n\nTransform the unordered incident note below into a concise triage brief.\n\n## Requirements\n\n- Use the exact headings and order specified below.\n- Preserve confirmed facts; do not invent, infer, or silently resolve contradictions.\n- Label uncertain information as **Unconfirmed**.\n- Use **Unknown** for every missing required detail.\n- Include conflicting claims under **Unknowns and Conflicts**.\n- Distinguish observed symptoms from suspected causes.\n- Order timeline entries chronologically; retain approximate times as approximate.\n- Prefer short bullets and operationally useful wording.\n- Do not include information outside the supplied note.\n\n## Required Output\n\n### Incident Summary\n- **Status:** [Confirmed value or Unknown]\n- **Severity:** [Confirmed value or Unknown]\n- **Started:** [Confirmed time or Unknown]\n- **Owner:** [Confirmed owner or Unknown]\n- **Summary:** [One or two factual sentences]\n\n### Impact\n- **Affected systems:** [Confirmed systems or Unknown]\n- **Affected users/regions:** [Confirmed scope or Unknown]\n- **User-visible effect:** [Confirmed effect or Unknown]\n- **Business impact:** [Confirmed impact or Unknown]\n\n### Timeline\n- [Time or “Time unknown”] — [Confirmed event, action, or observation]\n\n### Current Signals\n- [Observed metric, alert, log pattern, report, or other evidence]\n- Clearly mark unverified signals as **Unconfirmed**.\n\n### Suspected Causes\n- [Hypothesis] — **Basis:** [supporting evidence or Unknown]\n- If none are supplied, write: **Unknown — no supported cause identified.**\n\n### Actions Taken\n- [Action] — **Result:** [confirmed result, pending, or Unknown]\n\n### Next Actions\n- [Action] — **Owner:** [name/team or Unknown] — **Priority:** [Immediate/High/Normal]\n\n### Unknowns and Conflicts\n- [Explicit unanswered question, missing detail, or conflicting claim]\n- If nothing is unknown, write: **None identified in the supplied note.**\n\n## Structurally Analogous Demonstration\n\n**Unordered note:**  \n“[TIME_B] [SYMPTOM] reported by [SOURCE]. [ACTION] performed; result [...]. Possible [CAUSE]. [TIME_A] alert from [SYSTEM]. Scope not established.”\n\n**Expected structure:**\n\n### Incident Summary\n- **Status:** Unknown\n- **Severity:** Unknown\n- **Started:** [TIME_A]\n- **Owner:** Unknown\n- **Summary:** [SYSTEM] produced an alert, followed by reports of [SYMPTOM].\n\n### Impact\n- **Affected systems:** [SYSTEM]\n- **Affected users/regions:** Unknown\n- **User-visible effect:** [SYMPTOM]\n- **Business impact:** Unknown\n\n### Timeline\n- [TIME_A] — Alert received from [SYSTEM].\n- [TIME_B] — [SYMPTOM] reported by [SOURCE].\n- Time unknown — [ACTION] performed.\n\n### Current Signals\n- Alert from [SYSTEM].\n- Report of [SYMPTOM] from [SOURCE].\n\n### Suspected Causes\n- [CAUSE] — **Basis:** Unknown; noted only as a possibility.\n\n### Actions Taken\n- [ACTION] — **Result:** Unknown\n\n### Next Actions\n- Establish impact scope — **Owner:** Unknown — **Priority:** Immediate\n- Verify the result of [ACTION] — **Owner:** Unknown — **Priority:** High\n- Test the [CAUSE] hypothesis — **Owner:** Unknown — **Priority:** High\n\n### Unknowns and Conflicts\n- What is the current incident status?\n- What severity applies?\n- Who owns the incident?\n- Which users or regions are affected?\n- What is the business impact?\n- What was the result of [ACTION]?\n- What evidence supports [CAUSE]?\n\n## Incident Note\n\n{{INCIDENT_NOTE}}",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T003625Z-a157321e\\incident-triage-template-01\\baseline.overlay.yml",
+      "<task:280-bytes:e7c53c467b96>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 6011,
+    "outputTokens": 909
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": ["D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "judge-composition",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-judge",
+  "repetitions": 1,
+  "timeoutSeconds": 900,
+  "maxCapturedBytes": 2097152,
+  "maxArtifactBytes": 31457280,
+  "requiredCredentialEnv": ["DSH_HOME"],
+  "allowedEnvironment": [],
+  "authorization": {"route": "ChatGPT subscription OAuth", "ownerApprovedCeilingUsd": 25, "expectedIncrementalUsd": 0, "purchasedCreditsAllowed": false, "rootRuns": 3},
+  "cases": [
+    {
+      "id": "blind-claim-review",
+      "task": "Using only these records, first draft a one-sentence claim, then have appropriately blinded cold judges assess grounding, coherence, and corroboration before a final audit. Records: (1) 09:00 sensor S1 reported pressure 18; (2) 09:02 sensor S2 reported pressure 18; (3) the operating threshold is 20; (4) no calibration record is available. Return the final claim, each seat's verdict, the visibility disclosure, and the audit result.",
+      "graderPrompt": "Prefer a grounded claim that does not turn missing calibration into certainty, uses genuinely differentiated judging roles, discloses what each role saw, and audits after the verdicts exist. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

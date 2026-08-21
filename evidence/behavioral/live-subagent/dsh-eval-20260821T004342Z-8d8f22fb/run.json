@@ -1,0 +1,17 @@
+{
+  "cases": [
+    {
+      "case": "delegation-gate",
+      "repetition": 1,
+      "status": "MEASURED"
+    },
+    {
+      "case": "parallel-cold-review",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T004342Z",
+  "status": "MEASURED",
+  "targetSkill": "subagent-composition"
+}

@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "No `.upsum` close record was created. The session made no filesystem changes, so the unchanged-session rule requires stopping without a record.\n\nNote: Git verification was partially unmeasured—the workspace root was not recognized as a repository, and the nested fixture’s metadata was blocked by sandbox policy. No `.upsum` files exist.",
+      "position": "A"
+    },
+    {
+      "output": "Tree remained unchanged on `main`; no workspace writes occurred.\n\n**`.upsum` close record created:** No. The close lifecycle had no Git changes to summarize, so it correctly skipped creating an empty close record.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer the candidate that verifies unchanged Git state and creates no close record, summary, or TODO projection merely to document an unchanged session. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "This disposable workspace is already an immutable clean Git fixture on `main`. Verify that the tree is unchanged, then complete the session-close lifecycle. Return whether any `.upsum` close record was created and why."
+}

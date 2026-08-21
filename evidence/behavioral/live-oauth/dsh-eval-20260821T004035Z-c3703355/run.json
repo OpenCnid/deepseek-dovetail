@@ -1,0 +1,17 @@
+{
+  "cases": [
+    {
+      "case": "incident-triage-template",
+      "repetition": 1,
+      "status": "MEASURED"
+    },
+    {
+      "case": "incident-triage-template",
+      "repetition": 2,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T004035Z",
+  "status": "MEASURED",
+  "targetSkill": "prompt-engineering"
+}

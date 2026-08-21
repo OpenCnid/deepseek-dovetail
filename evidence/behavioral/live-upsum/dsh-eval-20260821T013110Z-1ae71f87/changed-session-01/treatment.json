@@ -1,0 +1,34 @@
+{
+  "durationMs": 89300,
+  "label": "treatment",
+  "output": "Session-close lifecycle completed.\n\n- **Close record:** `C:\\Users\\Darian\\dovetail-treatment-workspace-dcfystqm\\.upsum\\RECORD.md`\n- **Summary projection:** Yes — `.upsum\\SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Decision:** Added uncommitted `decision.md` with the requested content.\n- **Checks:** Exit **1** — partial measurement.\n  - **Measured:** 1/4 checks\n  - **Findings:** 0\n  - **Unmeasured:** repository state, DSH skill health, skill credit travel\n  - Git worktree metadata was not readable; this is **not** a clean-pass result.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T013110Z-1ae71f87\\changed-session-01\\treatment.overlay.yml",
+      "<task:392-bytes:6df1903f9fc5>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 16896,
+    "inputTokens": 362,
+    "outputTokens": 152
+  }
+}

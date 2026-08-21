@@ -356,6 +356,7 @@ The skill MUST contain a delegation gate that recommends no child when the work 
 - Resolve `scripts/checks.py` from DSH's reported skill base directory; remove the Claude-home fallback.
 - Take the target repository as an explicit argument.
 - Preserve the difference between findings and measurement failures, including exit-code semantics.
+- Parse DSH frontmatter with the package's pinned Node `yaml` dependency through a package-relative helper; PyYAML and Python site packages MUST NOT be runtime prerequisites for `upsum`.
 - Never create a close record when repository work did not change.
 
 ### 11.8 `better-skill-creator`
@@ -383,6 +384,8 @@ For one evaluation case:
 5. Do not tell the baseline that it is a baseline or that a skill exists.
 6. Capture final output, stop reason, duration, and available usage without exposing credentials.
 7. Randomize treatment/control presentation before grading and withhold arm identity from graders until their verdicts are final.
+
+Each arm MUST also pin DSH to `workspace-write`, use its disposable workspace as the filesystem/session cwd, and redirect the ordinary filesystem skill provider's project-independent roots to empty arm-local directories with watching disabled. On Windows, the runner MUST accept an explicit caller-owned workspace scratch root with inherited ACLs compatible with DSH's restricted token; the pinned host's passing real-ACL suite uses a home-directory scratch root, while a user-private `%TEMP%` MAY deny confined reads. Session/control state remains in a separate system-temp tree. This removes inherited local skill state but is not an adversarial read-secrecy boundary: profiles containing RLM/IPython MUST be excluded unless the complete DSH process is placed inside an OS sandbox, VM, or container with bounded mounts.
 
 The implementation MUST verify through a keyless snapshot that hiding the exact `skill` tool also suppresses DSH's catalog. Prompting a baseline model to “ignore skills” is not an acceptable control.
 

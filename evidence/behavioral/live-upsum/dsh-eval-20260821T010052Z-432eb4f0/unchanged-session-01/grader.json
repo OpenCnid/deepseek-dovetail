@@ -1,0 +1,33 @@
+{
+  "durationMs": 5186,
+  "label": "grader",
+  "output": "WINNER_B — It completed the required Git setup and commit, verified a clean tree, and correctly created no `.upsum` record for an unchanged close.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T010052Z-432eb4f0\\unchanged-session-01\\grader.overlay.yml",
+      "<task:1492-bytes:488c2ed4090b>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 6285,
+    "outputTokens": 36
+  }
+}

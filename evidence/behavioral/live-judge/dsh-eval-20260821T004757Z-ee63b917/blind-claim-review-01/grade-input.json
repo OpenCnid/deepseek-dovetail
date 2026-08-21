@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "## Final claim\n\n**At 09:00 S1 reported pressure 18 and at 09:02 S2 likewise reported 18—both reported values are below the operating threshold of 20—but, with no calibration record available, these records do not establish whether either reading accurately reflected actual pressure.**\n\n## Cold-judge verdicts\n\n- **Grounding — clean:** Every claim matches the records; missing calibration evidence is treated as uncertainty, not proof of inaccuracy.\n- **Coherence — clean:** The claim consistently distinguishes reported readings from actual pressure.\n- **Corroboration — clean, narrowly scoped:** S2 independently corroborates S1’s reported numerical value two minutes later, but not simultaneity, actual pressure, stability, or accuracy.\n\n## Visibility disclosure\n\n- The grounding and coherence judges saw the claim and all four records, but not authorship, expected outcomes, pre-registration, or other verdicts.\n- The corroboration judge did not see the full claim or anchor citation bytes; it saw S2’s record and minimal anchor metadata needed for comparison.\n- All three were cold, mutually isolated subagents.\n- The audit judge alone received the complete post-verdict packet.\n\n## Audit result\n\n**Clean with caveat.** The jurisdictions, blindness, evidence boundaries, and verdicts were sound. However, corroboration is independent only relative to S1’s anchor: because S2 also directly supports part of the complete claim, it must not be presented as independent corroboration of the claim’s entire citation chain.",
+      "position": "A"
+    },
+    {
+      "output": "I’ll wait for the three blinded judges, then submit their verdicts to a separate final auditor.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer a grounded claim that does not turn missing calibration into certainty, uses genuinely differentiated judging roles, discloses what each role saw, and audits after the verdicts exist. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "Using only these records, first draft a one-sentence claim, then have appropriately blinded cold judges assess grounding, coherence, and corroboration before a final audit. Records: (1) 09:00 sensor S1 reported pressure 18; (2) 09:02 sensor S2 reported pressure 18; (3) the operating threshold is 20; (4) no calibration record is available. Return the final claim, each seat's verdict, the visibility disclosure, and the audit result."
+}

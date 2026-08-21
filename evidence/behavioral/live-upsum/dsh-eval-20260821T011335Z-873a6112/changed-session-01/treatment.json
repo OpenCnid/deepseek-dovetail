@@ -1,0 +1,34 @@
+{
+  "durationMs": 52283,
+  "label": "treatment",
+  "output": "Unable to complete the close lifecycle because the sandbox denied creation of `.git`, and the required approval channel was unavailable.\n\n- **Close-record path:** Not created\n- **Summary projection:** No\n- **TODO projection:** No\n- **`decision.md`:** Not created\n- **Checks status:** Exit `1`; **UNMEASURED**\n- **Coverage:** 1/4 checks ran\n- **Findings:** 0\n- **Reason:** Target was not a readable Git worktree; repository state, skill health, and skill-credit travel were unmeasured.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\changed-session-01\\treatment.overlay.yml",
+      "<task:460-bytes:5b9fb48168db>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 8704,
+    "inputTokens": 1156,
+    "outputTokens": 122
+  }
+}

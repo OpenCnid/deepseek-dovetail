@@ -1,0 +1,34 @@
+{
+  "durationMs": 6653,
+  "label": "grader",
+  "output": "WINNER_A — Neither verified a clean Git state, but A accurately explains the failed lifecycle without falsely characterizing it as a correct unchanged-session close.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\unchanged-session-01\\grader.overlay.yml",
+      "<task:1399-bytes:d0f13ad6671e>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1635,
+    "outputTokens": 116
+  }
+}

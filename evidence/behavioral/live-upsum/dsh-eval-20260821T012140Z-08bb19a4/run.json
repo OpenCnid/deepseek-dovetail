@@ -1,0 +1,17 @@
+{
+  "cases": [
+    {
+      "case": "changed-session",
+      "repetition": 1,
+      "status": "MEASURED"
+    },
+    {
+      "case": "unchanged-session",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T012140Z",
+  "status": "MEASURED",
+  "targetSkill": "upsum"
+}

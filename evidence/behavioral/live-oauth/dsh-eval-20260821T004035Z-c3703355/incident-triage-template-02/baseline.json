@@ -1,0 +1,33 @@
+{
+  "durationMs": 11896,
+  "label": "baseline",
+  "output": "Transform the unordered incident note into a concise triage brief.\n\n## Input\n<INCIDENT_NOTE>\n…\n</INCIDENT_NOTE>\n\n## Instructions\n- Use only information present in the incident note.\n- Do not infer, invent, diagnose, or resolve missing details.\n- Mark every missing or unclear detail explicitly as **Unknown**.\n- Preserve uncertainty and distinguish facts from reported claims.\n- Deduplicate overlapping details.\n- Use the exact headings and order below.\n- Under each heading, use short bullets. If no information is available, write `- Unknown`.\n- Return only the completed triage brief.\n\n## Required Output\n\n# Incident Summary\n- …\n\n# Impact\n- …\n\n# Scope\n- …\n\n# Timeline\n- …\n\n# Evidence and Observations\n- …\n\n# Actions Taken\n- …\n\n# Current Status\n- …\n\n# Risks\n- …\n\n# Unknowns\n- …\n\n# Recommended Next Steps\n- …\n\n## Structurally Analogous Demonstration\n\n### Example Input\n<INCIDENT_NOTE>\n[Actor/team] reported [anomalous condition] affecting [system or service] at [time]. [Observed evidence]. [Action taken]. …\n</INCIDENT_NOTE>\n\n### Example Output\n# Incident Summary\n- Reported incident involving [anomalous condition] in [system or service].\n\n# Impact\n- [Observed or reported impact].\n\n# Scope\n- Affected system: [system or service].\n- Other affected systems or users: **Unknown**.\n\n# Timeline\n- [Time]: [reported event or observation].\n- Incident start time: **Unknown**.\n\n# Evidence and Observations\n- [Observed evidence].\n\n# Actions Taken\n- [Action taken].\n\n# Current Status\n- **Unknown**.\n\n# Risks\n- [Risk explicitly stated in the note, if any].\n- Additional risks: **Unknown**.\n\n# Unknowns\n- [Missing detail requiring clarification].\n- Root cause: **Unknown**.\n\n# Recommended Next Steps\n- Clarify [missing detail].\n- Verify [reported condition] using [available evidence or source].",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T004035Z-c3703355\\incident-triage-template-02\\baseline.overlay.yml",
+      "<task:280-bytes:e7c53c467b96>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 6007,
+    "outputTokens": 417
+  }
+}

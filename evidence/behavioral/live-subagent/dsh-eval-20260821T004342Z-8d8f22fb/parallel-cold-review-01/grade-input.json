@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "| Subject | Allowed data | Conditions | Conflict or ambiguity |\n|---|---|---|---|\n| Contractors | Incident summaries | Manager approval required | “Manager,” approval scope, and summary boundaries are undefined. |\n| Contractors | No production logs | Prohibited by Excerpt A | Potential conflict if a contractor is separately designated an on-call responder. |\n| On-call responders | Production logs | Only during a declared severity-1 incident | Responder designation, incident declaration authority/duration, and log scope are undefined. |\n| Contractor who is also an on-call responder | Incident summaries; possibly production logs | Manager approval for summaries; severity-1 declaration and responder designation for logs | Core ambiguity: A’s absolute prohibition may override B, or B may be a specific emergency exception. Contractor status alone does **not** confer responder access. |",
+      "position": "A"
+    },
+    {
+      "output": "| Category | Synthesis |\n|---|---|\n| Subject | A governs **contractors**; B governs **on-call responders**. A contractor may possibly qualify separately as a responder, but contractor status alone is insufficient. |\n| Allowed data | Contractors may read **incident summaries**. On-call responders may read **production logs**. A otherwise prohibits contractors from reading production logs. |\n| Conditions | Incident-summary access requires **manager approval**. Production-log access requires **on-call responder status** and a **declared severity-1 incident**. |\n| Conflict or ambiguity | For someone who is both a contractor and an on-call responder, A’s blanket log prohibition conflicts with B’s conditional permission. The excerpts do not specify whether B overrides A during severity-1 incidents. |",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer the output that accurately separates the excerpts, identifies the conditional responder exception without inventing contractor rights, and provides the requested synthesis. Evidence of correctly isolated parallel analysis is valuable but cannot compensate for a wrong policy reading. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "Review two independent access-policy excerpts and synthesize conflicts. Excerpt A: `Contractors may read incident summaries after manager approval; production logs are prohibited.` Excerpt B: `On-call responders may read production logs during a declared severity-1 incident; contractor status does not grant responder status.` Use independent cold DSH children for the two excerpt analyses when the effective composition supports it, wait for both foreground results, then return a four-row table: subject, allowed data, conditions, conflict or ambiguity."
+}

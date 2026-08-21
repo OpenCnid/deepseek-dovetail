@@ -1,0 +1,25 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": ["D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "better-skill-creator",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-skill-authoring",
+  "repetitions": 1,
+  "timeoutSeconds": 600,
+  "maxCapturedBytes": 2097152,
+  "maxArtifactBytes": 20971520,
+  "requiredCredentialEnv": ["DSH_HOME"],
+  "allowedEnvironment": [],
+  "authorization": {"route": "ChatGPT subscription OAuth", "ownerApprovedCeilingUsd": 25, "expectedIncrementalUsd": 0, "purchasedCreditsAllowed": false, "rootRuns": 3},
+  "cases": [
+    {
+      "id": "release-note-skill",
+      "task": "Author a complete DSH SKILL.md named `release-note-sanitizer`. It should trigger when a user asks to turn raw internal release notes into a public changelog, remove credentials and private identifiers, preserve verifiable user impact, flag unsupported claims, and output Markdown. Keep the parsed description complete and at most 480 characters; keep it both model- and user-invocable. Return only the finished SKILL.md bytes and do not install it.",
+      "graderPrompt": "Prefer valid concise DSH frontmatter, clear trigger conditions, a complete safe workflow, no Claude/Codex installation assumptions, and an output contract that preserves verified impact while rejecting secrets and unsupported claims. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "durationMs": 27812,
+  "label": "baseline",
+  "output": "---\nname: release-note-sanitizer\ndescription: Turn raw internal release notes into a public Markdown changelog. Use when a user asks to publish, sanitize, redact, or rewrite release notes. Remove credentials, secrets, and private identifiers; preserve only verifiable user impact; flag unsupported claims instead of presenting them as facts.\nuser-invocable: true\ndisable-model-invocation: false\n---\n\n# Release Note Sanitizer\n\nTransform raw internal release notes into a safe, accurate public changelog in Markdown.\n\n## Core Requirements\n\n1. Remove sensitive information.\n2. Preserve verifiable user-facing impact.\n3. Flag unsupported claims.\n4. Return polished Markdown.\n5. Never invent missing details.\n\n## Remove Sensitive Information\n\nDelete or safely generalize:\n\n- Passwords, API keys, access tokens, session tokens, secrets, private keys, certificates, signatures, and credential-bearing URLs.\n- Internal hostnames, IP addresses, ports, network topology, repository paths, infrastructure names, environment names, and deployment identifiers.\n- Customer, employee, account, tenant, organization, project, ticket, incident, commit, branch, pull-request, build, device, and database identifiers when they are private or unnecessary.\n- Personal data, private contact details, internal usernames, and nonpublic organization names.\n- Security details that would materially aid exploitation.\n- Confidential roadmap, commercial, legal, operational, or partner information.\n\nDo not reproduce a secret even to explain its removal. Replace necessary omissions with neutral wording such as “internal identifier removed” only when readers need to understand that information was withheld.\n\nTreat secret-like values as sensitive even when labeled as examples, expired, test-only, or already revoked.\n\n## Preserve Verifiable User Impact\n\nKeep statements supported by the supplied notes, including:\n\n- Features users can access.\n- Observable behavior changes.\n- Fixed user-facing defects.\n- Performance, reliability, compatibility, accessibility, or security improvements supported by evidence.\n- Required migration steps, limitations, and deprecations.\n- Availability details explicitly established by the source.\n\nTranslate implementation details into clear user impact without changing their meaning. Retain exact versions, dates, platforms, measurements, and scope only when the source supports them and they do not expose private information.\n\nDo not infer causation, availability, severity, percentages, timelines, or universal impact from ambiguous notes.\n\n## Handle Unsupported Claims\n\nA claim is unsupported when the supplied material does not provide enough evidence for it, including claims such as:\n\n- “Faster,” “more secure,” or “more reliable” without substantiation.\n- “Fixed,” “resolved,” or “eliminated” when the notes show only mitigation, investigation, or partial rollout.\n- “Available to everyone” without confirmed scope.\n- Precise performance, adoption, uptime, or risk figures without a stated basis.\n- Superlatives, guarantees, or marketing claims not established by the source.\n\nExclude unsupported promotional language from the changelog. Record each material unsupported or ambiguous claim under `## Review Required`, quoting or closely paraphrasing only the minimum safe text and explaining what evidence or clarification is needed.\n\nIf a potentially useful statement can be made accurate by narrowing its wording, use the supported wording and flag only the unsupported remainder.\n\n## Process\n\n1. Identify releases, dates, versions, products, and source sections.\n2. Detect and remove sensitive material before drafting.\n3. Separate user-facing outcomes from internal implementation details.\n4. Verify every retained claim against the supplied notes.\n5. Rewrite retained information in concise public language.\n6. List unresolved unsupported claims and material ambiguities.\n7. Check the final Markdown for leaked identifiers, credentials, invented facts, and overstated impact.\n\n## Output Format\n\nReturn Markdown only, using this structure when applicable:\n\n# Changelog\n\n## [Version or Release Name] — [Date]\n\n### Added\n\n- User-facing additions.\n\n### Changed\n\n- User-facing behavior changes.\n\n### Fixed\n\n- User-facing fixes.\n\n### Security\n\n- Safe, non-exploitable descriptions of supported security improvements.\n\n### Deprecated\n\n- Deprecations, deadlines, and supported migration guidance.\n\n## Review Required\n\n- **Claim:** Safe summary of the unsupported or ambiguous claim.\n  - **Needed:** Evidence or clarification required before publication.\n\nOmit empty categories. Preserve multiple releases in a clear chronological structure, following the source order unless the user requests otherwise.\n\nIf all substantive content is sensitive or unsupported, return:\n\n# Changelog\n\nNo publishable changes could be verified from the provided notes.\n\n## Review Required\n\n- State what non-sensitive evidence or clarification is needed.\n\n## Style\n\n- Use concise, neutral, factual language.\n- Address users only when instructions require action.\n- Prefer concrete effects over implementation details.\n- Distinguish fixes, mitigations, partial rollouts, and ongoing investigations.\n- Do not include a sanitization log unless requested.\n- Do not mention removed sensitive data except where omission affects comprehension.\n- Do not claim that the result is safe merely because it was sanitized.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-skill-authoring\\dsh-eval-20260821T005620Z-d4947b69\\release-note-skill-01\\baseline.overlay.yml",
+      "<task:448-bytes:8e87271edcf2>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1445,
+    "outputTokens": 1183
+  }
+}

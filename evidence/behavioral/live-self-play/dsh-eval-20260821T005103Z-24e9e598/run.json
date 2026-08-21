@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {
+      "case": "queue-router",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T005103Z",
+  "status": "MEASURED",
+  "targetSkill": "self-play"
+}

@@ -1,0 +1,34 @@
+{
+  "durationMs": 33382,
+  "label": "treatment",
+  "output": "```text\nSymptom: Valid test output was obtained, but the identical command was repeated without narrowing causality.\nAxis: S\nConfusable ruled out: R — the configured shell executed successfully and returned valid output; capability and access are present.\nCheaper move considered: Ask collaborator about speed versus certainty — useful later, but it does not make the repeated evidence discriminating.\nLever: Targeted DSH grep/read — inspect the failure-implicated code and choose one falsifiable, materially different check instead of rerunning the suite.\nSpends: Once\nLeft unmoved: P — no speed/certainty preference is assumed; the next check remains small and reversible.\n```",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-spark\\dsh-eval-20260821T015503Z-ee1ab700\\mid-task-steering-01\\treatment.overlay.yml",
+      "<task:572-bytes:b390a6f4a1c3>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 6656,
+    "inputTokens": 2181,
+    "outputTokens": 1177
+  }
+}

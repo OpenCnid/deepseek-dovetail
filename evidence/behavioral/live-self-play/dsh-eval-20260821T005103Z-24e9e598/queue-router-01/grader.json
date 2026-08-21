@@ -1,0 +1,34 @@
+{
+  "durationMs": 7764,
+  "label": "grader",
+  "output": "WINNER_B — It is deterministic, complete, capacity-safe, regulation-safe, meaningfully stress-tests all 400 valid inputs, and clearly discloses blind-role visibility.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play\\dsh-eval-20260821T005103Z-24e9e598\\queue-router-01\\grader.overlay.yml",
+      "<task:5562-bytes:893c9a77fb0e>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 2835,
+    "outputTokens": 139
+  }
+}

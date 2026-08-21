@@ -1,0 +1,34 @@
+{
+  "durationMs": 17734,
+  "label": "baseline",
+  "output": "| Subject | Allowed data | Conditions | Conflict or ambiguity |\n|---|---|---|---|\n| Contractors | Incident summaries | Manager approval required | “Manager,” approval scope, and summary boundaries are undefined. |\n| Contractors | No production logs | Prohibited by Excerpt A | Potential conflict if a contractor is separately designated an on-call responder. |\n| On-call responders | Production logs | Only during a declared severity-1 incident | Responder designation, incident declaration authority/duration, and log scope are undefined. |\n| Contractor who is also an on-call responder | Incident summaries; possibly production logs | Manager approval for summaries; severity-1 declaration and responder designation for logs | Core ambiguity: A’s absolute prohibition may override B, or B may be a specific emergency exception. Contractor status alone does **not** confer responder access. |",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\parallel-cold-review-01\\baseline.overlay.yml",
+      "<task:556-bytes:36c1f13bc2f4>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 3,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 5632,
+    "inputTokens": 897,
+    "outputTokens": 233
+  }
+}

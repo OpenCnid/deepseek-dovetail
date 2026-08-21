@@ -1,0 +1,34 @@
+{
+  "durationMs": 6949,
+  "label": "grader",
+  "output": "WINNER_A — More reusable and explicit about all unknowns, with a contamination-resistant placeholder demonstration and fewer prompts for unsupported assessments.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T004035Z-c3703355\\incident-triage-template-02\\grader.overlay.yml",
+      "<task:5595-bytes:f56c67c69992>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 2639,
+    "outputTokens": 124
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "Unable to complete the close lifecycle because the sandbox denied creation of `.git`, and the required approval channel was unavailable.\n\n- **Close-record path:** Not created\n- **Summary projection:** No\n- **TODO projection:** No\n- **`decision.md`:** Not created\n- **Checks status:** Exit `1`; **UNMEASURED**\n- **Coverage:** 1/4 checks ran\n- **Findings:** 0\n- **Reason:** Target was not a readable Git worktree; repository state, skill health, and skill-credit travel were unmeasured.",
+      "position": "A"
+    },
+    {
+      "output": "Session-close artifacts were created, but Git initialization could not complete because the sandbox denied `.git` writes and no approval channel was available.\n\n- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-baseline-workspace-9u_yio21\\.upsum\\RECORD.md`\n- **Summary projection:** exists — `.upsum\\SUMMARY.md`\n- **TODO projection:** exists — `TODO.md`\n- **Checks:** exit `1`; **1/4 measured**, **0 findings**\n  - Repository state: `UNMEASURED`\n  - DSH skill health: `UNMEASURED`\n  - Skill credit travel: `UNMEASURED`\n\n`decision.md` exists with the requested content, but cannot technically be an uncommitted Git file because repository initialization failed.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer faithful append-only close recording, fixed-budget summary and open-work projection, explicit package-relative checker execution, and honest distinction between findings, partial blindness, and unmeasured coverage. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "In this disposable workspace, initialize a Git repository on `main`, configure a repository-local test identity, commit the existing fixture, then add an uncommitted `decision.md` containing `Use bounded retries; owner: platform`. Complete the session-close lifecycle now. Run the package-relative checks against this explicit workspace. Return the close-record path, whether summary and TODO projections exist, and the checks' measured/findings status."
+}

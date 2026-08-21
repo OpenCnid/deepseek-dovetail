@@ -31,6 +31,7 @@ ID_RE = re.compile(r"^[a-z0-9][a-z0-9._-]{0,127}$")
 ENV_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 SECRET_RE = re.compile(r"(?:KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL)", re.I)
 SKILL_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+VERDICT_RE = re.compile(r"^\s*(?:WINNER[_ ]?)?(A|B|TIE)\b", re.I)
 MAX_RUNS = 60
 MAX_TIMEOUT_SECONDS = 3600
 MAX_CAPTURED_BYTES = 2 * 1024 * 1024
@@ -153,6 +154,8 @@ class Settings:
     provider: str
     model: str
     target_skill: str
+    initialize_git: bool
+    workspace_temp_root: Path | None
     workspace_fixture: Path
     artifact_root: Path
     repetitions: int
@@ -376,17 +379,33 @@ def _load_settings(path: Path) -> Settings:
         raise EvalError(f"configuration would exceed the {MAX_RUNS}-child-run bound")
 
     fixture = Path(string("workspaceFixture")).expanduser().resolve()
+    workspace_temp_root_raw = raw.get("workspaceTempRoot")
+    workspace_temp_root: Path | None = None
+    if workspace_temp_root_raw is not None:
+        if not isinstance(workspace_temp_root_raw, str) or not workspace_temp_root_raw.strip() or "\x00" in workspace_temp_root_raw:
+            raise EvalError("workspaceTempRoot must be a nonempty NUL-free path")
+        workspace_temp_root = Path(workspace_temp_root_raw).expanduser().resolve()
+        if (not workspace_temp_root.is_dir() or workspace_temp_root.is_symlink()
+                or workspace_temp_root == Path(workspace_temp_root.anchor)):
+            raise EvalError("workspaceTempRoot must be an existing nonsymlink directory below a filesystem root")
     artifact_root = Path(string("artifactRoot")).expanduser().resolve()
     if artifact_root == Path(artifact_root.anchor) or len(artifact_root.parts) < 3:
         raise EvalError("artifactRoot is too broad")
     return Settings(
         dsh_executable=string("dshExecutable"), dsh_arguments=tuple(dsh_arguments_raw),
         common_patches=tuple(common_patches), profile=profile, provider=provider, model=model,
-        target_skill=skill, workspace_fixture=fixture, artifact_root=artifact_root,
+        target_skill=skill, initialize_git=raw.get("initializeGit", False),
+        workspace_temp_root=workspace_temp_root,
+        workspace_fixture=fixture, artifact_root=artifact_root,
         repetitions=repetitions, required_credential_env=env_names("requiredCredentialEnv"),
         allowed_environment=env_names("allowedEnvironment"),
         limits=Limits(timeout, captured, artifacts), cases=tuple(cases),
     )
+
+
+def _validate_settings(settings: Settings) -> None:
+    if not isinstance(settings.initialize_git, bool):
+        raise EvalError("initializeGit must be a boolean")
 
 
 def _child_environment(settings: Settings) -> tuple[dict[str, str], list[str]]:
@@ -402,12 +421,28 @@ def _child_environment(settings: Settings) -> tuple[dict[str, str], list[str]]:
     return child, secret_values
 
 
-def _write_patch(path: Path, settings: Settings, session_root: Path, hide_skill_consumer: bool) -> None:
+def _write_patch(
+    path: Path, settings: Settings, workspace: Path, session_root: Path,
+    local_skill_roots: Path, hide_skill_consumer: bool,
+) -> None:
     rows = [
         "- id: agent-default-model",
         "  config:",
         f"    provider: {_yaml_quote(settings.provider)}",
         f"    model: {_yaml_quote(settings.model)}",
+        "- id: sandbox-policy",
+        "  config:",
+        "    mode: workspace-write",
+        f"    workspaceRoot: {_yaml_quote(str(workspace.resolve()))}",
+        "- id: fs-sandbox",
+        "  config:",
+        f"    cwd: {_yaml_quote(str(workspace.resolve()))}",
+        "- id: skill-filesystem",
+        "  config:",
+        f"    dshHome: {_yaml_quote(str((local_skill_roots / 'dsh').resolve()))}",
+        f"    agentsHome: {_yaml_quote(str((local_skill_roots / 'agents').resolve()))}",
+        f"    bundledSkillDir: {_yaml_quote(str((local_skill_roots / 'bundled').resolve()))}",
+        "    watch: false",
         "- id: session-persistence-jsonl",
         "  config:",
         f"    root: {_yaml_quote(str(session_root.resolve()))}",
@@ -417,6 +452,37 @@ def _write_patch(path: Path, settings: Settings, session_root: Path, hide_skill_
     if hide_skill_consumer:
         rows.extend(["- id: tool-skill", "  disabled: true"])
     path.write_text("\n".join(rows) + "\n", encoding="utf-8")
+
+
+def _initialize_git_fixture(workspace: Path) -> None:
+    git = shutil.which("git")
+    if git is None:
+        raise EvalError("initializeGit requested but Git was not found")
+    environment = {
+        **os.environ,
+        "GIT_CONFIG_NOSYSTEM": "1",
+        "GIT_TERMINAL_PROMPT": "0",
+        "GIT_AUTHOR_DATE": "2000-01-01T00:00:00Z",
+        "GIT_COMMITTER_DATE": "2000-01-01T00:00:00Z",
+    }
+    commands = [
+        [git, "init", "-b", "main"],
+        [git, "config", "user.name", "Dovetail Evaluation"],
+        [git, "config", "user.email", "dovetail-eval@example.invalid"],
+        [git, "add", "--all"],
+        [git, "commit", "-m", "Immutable evaluation fixture"],
+    ]
+    for command in commands:
+        try:
+            completed = subprocess.run(
+                command, cwd=workspace, env=environment, capture_output=True,
+                timeout=30, check=False,
+            )
+        except (OSError, subprocess.SubprocessError) as error:
+            raise EvalError(f"Git fixture initialization failed: {error}") from error
+        if completed.returncode != 0:
+            detail = completed.stderr.decode("utf-8", errors="replace").strip().splitlines()
+            raise EvalError(f"Git fixture initialization failed: {detail[0] if detail else command[1]}")
 
 
 def _read_session_evidence(session_root: Path, target_skill: str, scrub: Any) -> dict[str, Any]:
@@ -435,14 +501,27 @@ def _read_session_evidence(session_root: Path, target_skill: str, scrub: Any) ->
                 events.append(event)
                 sanitized_lines.append(scrub(json.dumps(event, ensure_ascii=False, separators=(",", ":"))))
     all_text = "\n".join(text for event in events for text in _nested_strings(event))
-    marker = f'<skill_content name="{target_skill}">'
+    skill_sources = [
+        event.get("data", {}).get("source", {})
+        for event in events
+        if event.get("type") == "user/message" and isinstance(event.get("data"), dict)
+    ]
+    target_invocations = [
+        source for source in skill_sources
+        if source.get("kind") == "skill-invocation" and source.get("name") == target_skill
+    ]
     turn_ends = [event.get("data", {}).get("reason") for event in events if event.get("type") == "turn/end"]
     assistant = [event for event in events if event.get("type") == "assistant/message"]
     return {
         "files": len(files),
-        "targetBodyCount": all_text.count(marker),
-        "sawCatalog": "<available_skills>" in all_text,
-        "sawAnySkillContent": "<skill_content" in all_text,
+        # Count the host's typed invocation source, not marker-like prose in a
+        # companion skill body. The latter caused a real false double-load in
+        # the first OAuth run because hypershot describes this exact marker.
+        "targetBodyCount": len(target_invocations),
+        "sawCatalog": any(source.get("kind") == "skill-catalog" for source in skill_sources)
+        or "<available_skills>" in all_text,
+        "sawAnySkillContent": any(source.get("kind") == "skill-invocation" for source in skill_sources)
+        or "<skill_content" in all_text,
         "stopReason": turn_ends[-1] if turn_ends else "UNMEASURED",
         "usage": _usage_from(assistant[-1]) if assistant else "UNMEASURED",
         "sanitizedJsonl": "\n".join(sanitized_lines) + ("\n" if sanitized_lines else ""),
@@ -477,16 +556,30 @@ def _execute_arm(
     hide_skill_consumer: bool,
 ) -> ArmResult:
     patch = case_dir / f"{label}.overlay.yml"
-    with tempfile.TemporaryDirectory(prefix=f"dovetail-{label}-") as temporary:
-        temporary_root = Path(temporary).resolve()
-        workspace = temporary_root / "workspace"
-        session_root = temporary_root / "sessions"
-        workspace.mkdir()
+    # Keep the workspace itself as a direct child of the selected scratch root.
+    # On Windows that root must inherit ACLs the restricted token can read; a
+    # user-private %TEMP% may not, while the pinned DSH suite uses homedir.
+    # Control state stays in a separate system-temp tree so it is not exposed
+    # inside the task cwd.
+    with (
+        tempfile.TemporaryDirectory(
+            prefix=f"dovetail-{label}-workspace-", dir=settings.workspace_temp_root,
+        ) as workspace_temporary,
+        tempfile.TemporaryDirectory(prefix=f"dovetail-{label}-control-") as control_temporary,
+    ):
+        workspace = Path(workspace_temporary).resolve()
+        control_root = Path(control_temporary).resolve()
+        session_root = control_root / "sessions"
+        local_skill_roots = control_root / "local-skill-roots"
         session_root.mkdir()
+        for root_name in ("dsh", "agents", "bundled"):
+            (local_skill_roots / root_name).mkdir(parents=True)
         _copy_fixture(settings.workspace_fixture, workspace, settings.limits.max_artifact_bytes // 4)
-        _write_patch(patch, settings, session_root, hide_skill_consumer)
+        if settings.initialize_git:
+            _initialize_git_fixture(workspace)
+        _write_patch(patch, settings, workspace, session_root, local_skill_roots, hide_skill_consumer)
         process = runner.run(patch, task, workspace)
-        if _tree_size(temporary_root) > settings.limits.max_artifact_bytes:
+        if _tree_size(workspace) + _tree_size(control_root) > settings.limits.max_artifact_bytes:
             raise EvalError(f"{label} temporary workspace/session bound was exceeded")
         evidence = _read_session_evidence(session_root, settings.target_skill, runner._scrub)
     _write_bounded(
@@ -520,6 +613,19 @@ def _grader_task(case: Case, candidates: Sequence[tuple[str, str]]) -> str:
     )
 
 
+def _verdict(output: str, ordered: Sequence[tuple[str, str]]) -> tuple[str, str]:
+    match = VERDICT_RE.search(output)
+    if match is None:
+        raise EvalError("grader returned no parseable A, B, or TIE verdict")
+    position = match.group(1).upper()
+    if position == "TIE":
+        return position, "tie"
+    index = ord(position) - ord("A")
+    if index < 0 or index >= len(ordered):
+        raise EvalError(f"grader verdict position {position} has no candidate")
+    return position, ordered[index][0]
+
+
 def _plan(settings: Settings, runner: DshRunner) -> dict[str, Any]:
     commands: list[dict[str, Any]] = []
     for case in settings.cases:
@@ -541,6 +647,8 @@ def _plan(settings: Settings, runner: DshRunner) -> dict[str, Any]:
             "graderHides": "tool-skill",
             "armMapWritten": "after grader process settles",
             "commonPatches": len(settings.common_patches),
+            "initializeGit": settings.initialize_git,
+            "workspaceTempRoot": "explicit" if settings.workspace_temp_root is not None else "system",
         },
         "commands": commands,
     }
@@ -583,6 +691,7 @@ def _run(settings: Settings, runner: DshRunner) -> tuple[Path, dict[str, Any]]:
                     raise EvalError("grader is CONTAMINATED by a skill catalog or body")
                 if not grader.output.strip():
                     raise EvalError("grader returned no verdict")
+                verdict_position, winner = _verdict(grader.output, ordered)
 
                 # Identity remains only in memory until the grader settles and its verdict is durable.
                 _write_bounded(case_dir / "arm-map.json", {
@@ -590,6 +699,7 @@ def _run(settings: Settings, runner: DshRunner) -> tuple[Path, dict[str, Any]]:
                 }, settings.limits.max_captured_bytes)
                 result = {
                     "case": case.id, "repetition": repetition, "status": "MEASURED",
+                    "verdictPosition": verdict_position, "winner": winner,
                     "treatment": _arm_json(treatment), "baseline": _arm_json(baseline),
                     "grader": _arm_json(grader),
                 }
@@ -616,6 +726,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         settings = _load_settings(args.config.resolve())
+        _validate_settings(settings)
         child_env, secret_values = _child_environment(settings)
         missing = [name for name in settings.required_credential_env if not os.environ.get(name)]
         # Resolve the executable even in plan mode: an unexecutable plan is not useful evidence.

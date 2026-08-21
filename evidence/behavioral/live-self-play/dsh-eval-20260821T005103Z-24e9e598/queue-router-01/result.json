@@ -1,0 +1,109 @@
+{
+  "baseline": {
+    "durationMs": 25118,
+    "label": "baseline",
+    "output": "### Routing rubric\n\nAssume requests are **atomic** and capacity is maximum accepted batch size—not current free space.\n\n| Rule order | Condition | Route |\n|---|---|---|\n| 1 | Invalid urgency, regulated flag, or batch outside 1–100 | Reject |\n| 2 | Regulated = yes | **B** |\n| 3 | Urgency = high and batch ≤ 20 | **A** |\n| 4 | Otherwise | **B** |\n\nThis reserves low-latency Queue A for eligible high-urgency work. All valid requests fit Queue B.\n\n### Pseudocode\n\n```text\nroute(request):\n    require request.urgency in {\"low\", \"high\"}\n    require request.regulated in {yes, no}\n    require 1 <= request.batch_size <= 100\n\n    if request.regulated == yes:\n        return B, \"regulated data requires B\"\n\n    if request.urgency == high and request.batch_size <= 20:\n        return A, \"high urgency and fits A\"\n\n    return B, \"default or exceeds A capacity\"\n```\n\n### Stress test\n\nExhaust all `2 × 2 × 100 = 400` valid combinations:\n\n- A receives exactly 20: nonregulated, high, sizes 1–20.\n- B receives the other 380.\n- No regulated request reaches A.\n- No request routed to A exceeds 20.\n- Routing is total and deterministic.\n\n### Three boundary cases\n\n1. `(high, no, 20)` → **A** — exact A capacity.\n2. `(high, no, 21)` → **B** — one over A capacity.\n3. `(high, yes, 1)` → **B** — regulation overrides urgency.\n\n### Input-visibility matrix\n\nA blind verifier may independently derive outcomes without seeing expected routes.\n\n| Role | Urgency | Regulated flag | Batch size | Policy | Expected route | Actual decision |\n|---|---:|---:|---:|---:|---:|---:|\n| Router | ✓ | ✓ | ✓ | ✓ | — | Produces |\n| Blind verifier | ✓ | ✓ | ✓ | ✓ | **Blind** | Derives |\n| Result comparator | — | — | — | — | ✓ | ✓ |\n\nIf “capacity” instead means **current free queue slots**, queue occupancy must be added as an input; otherwise capacity-safe routing cannot be guaranteed.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play\\dsh-eval-20260821T005103Z-24e9e598\\queue-router-01\\baseline.overlay.yml",
+        "<task:382-bytes:da3d817255ac>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 1439,
+      "outputTokens": 1151
+    }
+  },
+  "case": "queue-router",
+  "grader": {
+    "durationMs": 7764,
+    "label": "grader",
+    "output": "WINNER_B — It is deterministic, complete, capacity-safe, regulation-safe, meaningfully stress-tests all 400 valid inputs, and clearly discloses blind-role visibility.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play\\dsh-eval-20260821T005103Z-24e9e598\\queue-router-01\\grader.overlay.yml",
+        "<task:5562-bytes:893c9a77fb0e>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 2835,
+      "outputTokens": 139
+    }
+  },
+  "repetition": 1,
+  "status": "MEASURED",
+  "treatment": {
+    "durationMs": 184250,
+    "label": "treatment",
+    "output": "## Routing rubric\n\nPriority order:\n\n1. **Validate:** Reject malformed fields or batch sizes outside `1..100`.\n2. **Regulation:** Regulated requests must use **B**.\n3. **Capacity:** Batches over `20` must use **B**.\n4. **Urgency:** High-urgency requests eligible for A use **A**.\n5. **Default:** Low-urgency requests use **B**, preserving A for urgent work.\n\nAssumption: capacity is the maximum batch per request; no occupancy or arrival-rate data is available.\n\n## Pseudocode\n\n```text\nroute(request):\n    if urgency not in {low, high}\n       or regulated not in {yes, no}\n       or batch_size is not an integer in 1..100:\n        return REJECT_INVALID\n\n    if regulated == yes:\n        return B\n\n    if batch_size > 20:\n        return B\n\n    if urgency == high:\n        return A\n\n    return B\n```\n\n## Boundary cases\n\n| Input `(urgency, regulated, batch)` | Route | Reason |\n|---|---:|---|\n| `(high, no, 20)` | A | Exact A capacity; urgent and eligible |\n| `(high, no, 21)` | B | Exceeds A by one |\n| `(high, yes, 1)` | B | Regulation overrides latency and urgency |\n\n## Self-play result\n\n- Control instrument correctly distinguished a compliant router from one sending regulated data to A.\n- Evaluator found the policy total and compliant over the declared domain.\n- Adversary found no hard failure.\n- **Tradeoff:** eligible low-urgency batches receive 15-minute B latency instead of 2-minute A latency. This is deliberate prioritization, not a forced or provably optimal policy.\n- Conclusion: **admissible and deterministic, but not demonstrably utility-optimal without load/SLA objectives.**\n\n## Input-visibility matrix\n\n`Y*` means conservatively treated as visible because tool-level filesystem/skill isolation was not enforced, despite prompts prohibiting access.\n\n| Role | Prompt | Parent history | Current turn | Workspace | User/project skills | Package skills | Repo instructions | Candidate | Condition label | Prediction | Builder stake | Other outputs | Answer key |\n|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n| Gatherer | Y | N | N | Y* | Y* | Y* | Y* | N | N | N | N | N | N |\n| Control evaluator | Y | N | N | Y* | Y* | Y* | Y* | N | N | N | N | N | N |\n| Adversary | Y | N | N | Y* | Y* | Y* | Y* | Y | N | N | N | N | N |\n| Evaluator/executor | Y | N | N | Y* | Y* | Y* | Y* | Y | N | N | N | N | N |\n| Utility judge | Y | N | N | Y* | Y* | Y* | Y* | Y | N | N | N | N | N |\n| Audit | Y | N | N | Y* | Y* | Y* | Y* | Y | Y | Y | N | Y | Y |\n\nEvidence: all roles were cold `subagent` calls, so parent history/current turn were absent; candidate, prediction, outputs, and keys were present only where explicitly included in each role’s prompt. Contamination freedom is therefore **not fully established** at the filesystem/skill layer.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play\\dsh-eval-20260821T005103Z-24e9e598\\queue-router-01\\treatment.overlay.yml",
+        "<task:393-bytes:1a30488e809d>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": true,
+      "sawCatalog": true,
+      "sessionFiles": 7,
+      "targetBodyCount": 1
+    },
+    "usage": {
+      "cacheReadTokens": 14848,
+      "inputTokens": 1683,
+      "outputTokens": 1819
+    }
+  },
+  "verdictPosition": "B",
+  "winner": "baseline"
+}

@@ -1,0 +1,34 @@
+{
+  "durationMs": 133910,
+  "label": "treatment",
+  "output": "Close lifecycle was only partially completed because the sandbox denied Git and check-script access to the explicit workspace, and approval was unavailable.\n\n- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-treatment-0k2ecoyj\\workspace\\.upsum\\RECORD.md`\n- **Summary projection:** Yes — `.upsum\\SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Decision file:** Created with the requested content.\n- **Checks measured status:** **UNMEASURED** — workspace access denied.\n- **Findings status:** **Unavailable; not clean**.\n- **Git:** Repository initialization, local identity, and fixture commit could not be completed due to the same access denial.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T010052Z-432eb4f0\\changed-session-01\\treatment.overlay.yml",
+      "<task:460-bytes:5b9fb48168db>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 12800,
+    "inputTokens": 931,
+    "outputTokens": 158
+  }
+}

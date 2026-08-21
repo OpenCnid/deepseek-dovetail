@@ -1,0 +1,34 @@
+{
+  "durationMs": 47463,
+  "label": "baseline",
+  "output": "Unable to complete the Git lifecycle: creating `.git` was denied by the sandbox, and the required escalation failed because no approval channel was available.\n\nNo `.upsum` close record was created. The repository could not be initialized or cleanly closed, so no successful session-close record was produced.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\unchanged-session-01\\baseline.overlay.yml",
+      "<task:291-bytes:acb282480687>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 6656,
+    "inputTokens": 1121,
+    "outputTokens": 63
+  }
+}

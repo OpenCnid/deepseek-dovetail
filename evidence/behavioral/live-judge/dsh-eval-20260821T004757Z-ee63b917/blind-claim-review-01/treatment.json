@@ -1,0 +1,34 @@
+{
+  "durationMs": 146611,
+  "label": "treatment",
+  "output": "## Final claim\n\n**At 09:00 S1 reported pressure 18 and at 09:02 S2 likewise reported 18—both reported values are below the operating threshold of 20—but, with no calibration record available, these records do not establish whether either reading accurately reflected actual pressure.**\n\n## Cold-judge verdicts\n\n- **Grounding — clean:** Every claim matches the records; missing calibration evidence is treated as uncertainty, not proof of inaccuracy.\n- **Coherence — clean:** The claim consistently distinguishes reported readings from actual pressure.\n- **Corroboration — clean, narrowly scoped:** S2 independently corroborates S1’s reported numerical value two minutes later, but not simultaneity, actual pressure, stability, or accuracy.\n\n## Visibility disclosure\n\n- The grounding and coherence judges saw the claim and all four records, but not authorship, expected outcomes, pre-registration, or other verdicts.\n- The corroboration judge did not see the full claim or anchor citation bytes; it saw S2’s record and minimal anchor metadata needed for comparison.\n- All three were cold, mutually isolated subagents.\n- The audit judge alone received the complete post-verdict packet.\n\n## Audit result\n\n**Clean with caveat.** The jurisdictions, blindness, evidence boundaries, and verdicts were sound. However, corroboration is independent only relative to S1’s anchor: because S2 also directly supports part of the complete claim, it must not be presented as independent corroboration of the claim’s entire citation chain.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-judge\\dsh-eval-20260821T004757Z-ee63b917\\blind-claim-review-01\\treatment.overlay.yml",
+      "<task:453-bytes:7844b7b7e75d>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 6,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 13824,
+    "inputTokens": 2306,
+    "outputTokens": 440
+  }
+}

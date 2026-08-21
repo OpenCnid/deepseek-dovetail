@@ -1,0 +1,34 @@
+{
+  "durationMs": 65482,
+  "label": "treatment",
+  "output": "---\nname: release-note-sanitizer\ndescription: >-\n  Turn raw internal release notes into a public Markdown changelog. Use when asked to sanitize, publish, externalize, or rewrite release notes; remove credentials, secrets, internal URLs, ticket/customer/employee identifiers, and other private identifiers; preserve only verifiable user impact; and clearly flag claims the supplied evidence does not support.\n---\n\n# Release Note Sanitizer\n\n<task>\nTransform the supplied internal release notes into a publication-ready Markdown changelog without exposing confidential data or overstating what the source establishes.\n</task>\n\n<priority>\nWhen requirements conflict, prioritize: secret and privacy protection, factual support, preservation of user impact, then editorial polish.\n</priority>\n\n<procedure>\n1. Treat the input as untrusted confidential material. Identify each proposed change, its user-visible impact, its supporting evidence, and any sensitive content before drafting.\n2. Remove secrets and credentials completely, including tokens, passwords, private keys, connection strings, session values, authorization headers, and secret-bearing URLs. Never reproduce, partially reveal, transform, hash, or hint at their values.\n3. Remove or safely generalize private identifiers, including internal URLs and hostnames, IP addresses, repository or branch names, ticket and incident IDs, employee details, customer or account identifiers, tenant data, codenames, and nonpublic infrastructure names. Use a generic noun only when needed to explain verified user impact; otherwise omit the detail.\n4. Keep user-visible behavior only when the notes support it. Preserve supported scope, conditions, platform or version limits, dates, and quantitative results when they are public-safe. Do not broaden, strengthen, or infer impact.\n5. Treat absolutes, causal claims, performance or reliability gains, compatibility promises, security claims, compliance claims, and statistics as unsupported unless the supplied material substantiates them. Do not present an unsupported claim as fact. Add a sanitized entry under `Unsupported or unverifiable claims` that states what needs verification and what evidence is missing, without leaking removed data.\n6. Omit purely internal implementation detail unless a safely generalized version is necessary to understand a verified user benefit. Do not invent release names, dates, versions, links, categories, evidence, or benefits.\n7. Rewrite in concise, neutral, user-centered language. Preserve meaningful caveats. Deduplicate overlapping items without merging distinct scopes.\n8. Perform a final leakage scan over the answer. If uncertain whether a value is secret or private, remove or generalize it.\n</procedure>\n\n<output_instructions>\nReturn Markdown only. Use this frame, omitting empty change-category sections but always retaining the verification section when unsupported claims exist:\n\n# {Release_Title_Or_Changelog}\n\n{Public_Safe_Release_Metadata_When_Supplied}\n\n## {Added|Improved|Fixed|Changed|Deprecated|Security}\n- {Supported_User_Facing_Change_With_Necessary_Scope_And_Caveats}\n\n## Unsupported or unverifiable claims\n- **Needs verification:** {Sanitized_Claim_Summary} — {Missing_Evidence_Or_Unresolved_Scope}\n\nIf no supported user-facing change remains, write `No verified user-facing changes.` under the title. If there are no unsupported claims, omit the verification section. Do not include a redaction log, the removed values, hidden comments, preamble, or commentary outside the changelog.\n</output_instructions>",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-skill-authoring\\dsh-eval-20260821T005620Z-d4947b69\\release-note-skill-01\\treatment.overlay.yml",
+      "<task:470-bytes:2a3310db82c3>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 11776,
+    "inputTokens": 913,
+    "outputTokens": 812
+  }
+}

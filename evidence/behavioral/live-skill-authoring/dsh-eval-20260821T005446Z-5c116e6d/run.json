@@ -1,0 +1,7 @@
+{
+  "cases": [],
+  "error": "artifact exceeds 524288 bytes: treatment.session.sanitized.jsonl",
+  "startedAt": "20260821T005446Z",
+  "status": "FAILED",
+  "targetSkill": "better-skill-creator"
+}
