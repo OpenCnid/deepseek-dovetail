@@ -19,6 +19,7 @@ async function fixture(requiredCredentialEnv: string[] = []): Promise<{ root: st
     dshExecutable: process.execPath,
     profile: 'headless', provider: 'test-provider', model: 'test-model', targetSkill: 'prompt-engineering',
     workspaceFixture: workspace, artifactRoot: artifacts, repetitions: 1,
+    initializeGit: true,
     timeoutSeconds: 10, maxCapturedBytes: 65536, maxArtifactBytes: 1048576,
     requiredCredentialEnv, allowedEnvironment: [],
     cases: [{ id: 'case-one', task: 'Write a bounded template.', graderPrompt: 'Prefer correctness and clarity.' }],
@@ -29,13 +30,16 @@ async function fixture(requiredCredentialEnv: string[] = []): Promise<{ root: st
 async function installFakeDsh(test: { root: string; config: string }, timeoutSeconds = 10): Promise<void> {
   const fake = resolve(test.root, 'fake-dsh.mjs')
   await writeFile(fake, [
-    "import { mkdir, readFile, writeFile } from 'node:fs/promises'",
+    "import { access, mkdir, readFile, writeFile } from 'node:fs/promises'",
     "import { join } from 'node:path'",
     "const args = process.argv.slice(2)",
+    "await access(join(process.cwd(), '.git', 'HEAD'))",
     "const patches = args.flatMap((value, index) => value === '--patch' ? [args[index + 1]] : [])",
     "const patch = await readFile(patches.at(-1), 'utf8')",
     "const rootMatch = /root: '(.*)'/u.exec(patch)",
     "if (!rootMatch) throw new Error('missing session root')",
+    "if (!patch.includes('id: sandbox-policy') || !patch.includes('mode: workspace-write')) throw new Error('missing workspace sandbox')",
+    "if (!patch.includes('id: fs-sandbox') || !patch.includes('id: skill-filesystem') || !patch.includes('watch: false')) throw new Error('missing isolated filesystem roots')",
     "const sessionRoot = rootMatch[1].replaceAll(`''`, `'`)",
     "const task = args.at(-1) ?? ''",
     "const baseline = patch.includes('id: tool-skill')",
@@ -43,7 +47,7 @@ async function installFakeDsh(test: { root: string; config: string }, timeoutSec
     "const mode = process.env.DOVETAIL_FAKE_MODE ?? ''",
     "if (mode === 'hang-treatment' && task.startsWith('/')) await new Promise(resolve => setTimeout(resolve, 30000))",
     "const messages = []",
-    "if (!baseline && !grader) messages.push({ type: 'user/message', seq: 1, data: { source: { kind: 'skill-invocation', name: 'prompt-engineering', form: 'instructions' }, content: [{ type: 'text', text: '<skill_content name=\"prompt-engineering\">fixture</skill_content>' }] } })",
+    "if (!baseline && !grader) messages.push({ type: 'user/message', seq: 1, data: { source: { kind: 'skill-invocation', name: 'prompt-engineering', form: 'instructions' }, content: [{ type: 'text', text: '<skill_content name=\"prompt-engineering\">fixture</skill_content>' }] } }, { type: 'tool/result', seq: 2, data: { message: { content: [{ type: 'tool-result', content: [{ type: 'text', text: 'companion prose names <skill_content name=\"prompt-engineering\"> without loading it' }] }] } } })",
     "if (baseline && mode === 'contaminate') messages.push({ type: 'user/message', seq: 1, data: { source: { kind: 'skill-catalog' }, content: [{ type: 'text', text: '<available_skills>contaminated</available_skills>' }] } })",
     "const reply = grader ? 'TIE: fixture verdict' : `candidate ${process.env.DOVETAIL_TEST_SECRET ?? 'clean'}`",
     "const events = [{ type: 'session', version: 0, id: 'session-fake', createdAt: 1, cwd: process.cwd(), delegationDepth: 0 }, ...messages, { type: 'assistant/message', seq: 2, data: { message: { role: 'assistant', content: [{ type: 'text', text: reply }] }, usage: { inputTokens: 1, outputTokens: 1 } } }, { type: 'turn/end', seq: 3, data: { reason: { kind: 'completed' } } }]",
@@ -78,7 +82,7 @@ describe('DSH paired evaluation runner controls', () => {
     const plan = JSON.parse(stdout) as { status: string; runs: number; controls: Record<string, string>; commands: { arm: string; argv: string[] }[] }
     expect(plan.status).toBe('PLAN')
     expect(plan.runs).toBe(3)
-    expect(plan.controls).toMatchObject({ treatmentPrefix: '/prompt-engineering', baselineHides: 'tool-skill' })
+    expect(plan.controls).toMatchObject({ treatmentPrefix: '/prompt-engineering', baselineHides: 'tool-skill', initializeGit: true })
     expect(plan.commands.map(command => command.arm)).toEqual(['treatment', 'baseline', 'grader'])
     expect(stdout).not.toContain(secret)
     expect(stdout).not.toContain('Write a bounded template.')
@@ -118,11 +122,17 @@ describe('DSH paired evaluation runner controls', () => {
     const baseline = JSON.parse(await readFile(resolve(caseDir, 'baseline.json'), 'utf8'))
     const gradeInput = JSON.parse(await readFile(resolve(caseDir, 'grade-input.json'), 'utf8'))
     const armMap = JSON.parse(await readFile(resolve(caseDir, 'arm-map.json'), 'utf8'))
+    const measuredResult = JSON.parse(await readFile(resolve(caseDir, 'result.json'), 'utf8'))
     expect(treatment.surfaceChecks).toMatchObject({ targetBodyCount: 1, sawCatalog: false, sawAnySkillContent: true })
     expect(baseline.surfaceChecks).toMatchObject({ targetBodyCount: 0, sawCatalog: false, sawAnySkillContent: false })
     expect(gradeInput.candidates.map((candidate: { position: string }) => candidate.position)).toEqual(['A', 'B'])
     expect(JSON.stringify(gradeInput)).not.toMatch(/treatment|baseline/iu)
     expect(Object.values(armMap).sort()).toEqual(['baseline', 'treatment'])
+    expect(measuredResult).toMatchObject({ verdictPosition: 'TIE', winner: 'tie' })
+    const treatmentOverlay = await readFile(resolve(caseDir, 'treatment.overlay.yml'), 'utf8')
+    expect(treatmentOverlay).toContain('mode: workspace-write')
+    expect(treatmentOverlay).toContain('id: skill-filesystem')
+    expect(treatmentOverlay).toContain('watch: false')
     const files = await readdir(caseDir)
     for (const file of files) expect(await readFile(resolve(caseDir, file), 'utf8')).not.toContain(secret)
   })

@@ -1,0 +1,33 @@
+{
+  "durationMs": 4934,
+  "label": "grader",
+  "output": "TIE Both correctly choose no delegation, compute 323, and provide the same valid compact check.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\delegation-gate-01\\grader.overlay.yml",
+      "<task:804-bytes:d993c0902f0a>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 6182,
+    "outputTokens": 24
+  }
+}

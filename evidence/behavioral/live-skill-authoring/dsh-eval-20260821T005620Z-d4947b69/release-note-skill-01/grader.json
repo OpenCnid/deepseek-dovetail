@@ -1,0 +1,34 @@
+{
+  "durationMs": 7302,
+  "label": "grader",
+  "output": "WINNER_B — It has explicit valid invocation controls, complete trigger coverage, robust secret/privacy handling, and a clearer workflow/output contract for preserving verified impact while flagging unsupported claims.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-skill-authoring\\dsh-eval-20260821T005620Z-d4947b69\\release-note-skill-01\\grader.overlay.yml",
+      "<task:9972-bytes:80cd5a37fbaa>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 3257,
+    "outputTokens": 142
+  }
+}

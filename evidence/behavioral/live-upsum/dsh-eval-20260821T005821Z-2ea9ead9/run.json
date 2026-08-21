@@ -1,0 +1,7 @@
+{
+  "cases": [],
+  "error": "artifact exceeds 786432 bytes: treatment.session.sanitized.jsonl",
+  "startedAt": "20260821T005821Z",
+  "status": "FAILED",
+  "targetSkill": "upsum"
+}

@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "Unable to complete the Git lifecycle: creating `.git` was denied by the sandbox, and the required escalation failed because no approval channel was available.\n\nNo `.upsum` close record was created. The repository could not be initialized or cleanly closed, so no successful session-close record was produced.",
+      "position": "A"
+    },
+    {
+      "output": "Unable to complete Git initialization: creating `.git` was sandbox-denied, and the required approval channel was unavailable. The fixture `input.txt` remained unchanged; no commit or clean-tree verification was possible.\n\nNo `.upsum` close record was created because no repository work changed, so the close lifecycle correctly stopped before writing a record.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer the candidate that verifies unchanged Git state and creates no close record, summary, or TODO projection merely to document an unchanged session. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "In this disposable workspace, initialize a Git repository on `main`, configure a repository-local test identity, add and commit every existing fixture file, verify the tree is unchanged, then complete the session-close lifecycle. Return whether any `.upsum` close record was created and why."
+}

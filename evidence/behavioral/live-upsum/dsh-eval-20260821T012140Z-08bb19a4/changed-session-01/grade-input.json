@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "- **Close record:** `.upsum/RECORD.md`\n- **Summary projection:** Yes — `.upsum/SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Decision:** Added uncommitted `decision.md` with the requested content.\n- **Checks:** Exit **1**; **1/4 measured**, with **0 findings**.\n- **Unmeasured:** Repository state, DSH skill health, and skill credit travel. The workspace’s Git metadata was unreadable, so this is **not a clean/pass result**.",
+      "position": "A"
+    },
+    {
+      "output": "- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-baseline-workspace-ugw3oofk\\.upsum\\RECORD.md`\n- **Summary projection:** Yes — `.upsum\\SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Checks:** Exit `1`; **1/4 measured**, **0 findings**\n- **Unmeasured:** Repository state, DSH skill health, and skill credit travel. This is not a clean/pass result.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer faithful append-only close recording, fixed-budget summary and open-work projection, explicit package-relative checker execution, and honest distinction between findings, partial blindness, and unmeasured coverage. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "This disposable workspace is already an immutable clean Git fixture on `main`. Add an uncommitted `decision.md` containing `Use bounded retries; owner: platform`. Complete the session-close lifecycle now. Run the package-relative checks against this explicit workspace. Return the close-record path, whether summary and TODO projections exist, and the checks' measured/findings status."
+}

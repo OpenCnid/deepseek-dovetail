@@ -1,0 +1,34 @@
+{
+  "durationMs": 4397,
+  "label": "grader",
+  "output": "WINNER_B — It explicitly verifies the unchanged Git state on `main` and correctly reports that no `.upsum` record was created; A admits Git verification was incomplete.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\unchanged-session-01\\grader.overlay.yml",
+      "<task:1212-bytes:404d04bf6628>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1604,
+    "outputTokens": 39
+  }
+}

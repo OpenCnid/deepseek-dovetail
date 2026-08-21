@@ -1,0 +1,32 @@
+{
+  "durationMs": 112639,
+  "label": "baseline",
+  "output": "",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T013110Z-1ae71f87\\changed-session-01\\baseline.overlay.yml",
+      "<task:385-bytes:7cc4336ffbf3>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 1,
+    "stderr": "node:events:497\r\n      throw er; // Unhandled 'error' event\r\n      ^\r\n\r\nError: read ENOTCONN\r\n    at tryReadStart (node:net:717:20)\r\n    at Socket._read (node:net:732:5)\r\n    at Readable.read (node:internal/streams/readable:739:12)\r\n    at Socket.read (node:net:786:39)\r\n    at new Socket (node:net:495:12)\r\n    at Object.Socket (node:net:364:41)\r\n    at createSocket (node:internal/child_process:335:14)\r\n    at ChildProcess.spawn (node:internal/child_process:450:23)\r\n    at spawn (node:child_process:787:9)\r\n    at spawnSubprocess (file:///D:/deepseek-harness-custom-plugins-setup/dsh-99f6f02-clean-dovetail/packages/subprocess/subprocess-local/lib/index.js:548:16)\r\nEmitted 'error' event on Socket instance at:\r\n    at emitErrorNT (node:internal/streams/destroy:170:8)\r\n    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\r\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\r\n  errno: -4053,\r\n  code: 'ENOTCONN',\r\n  syscall: 'read'\r\n}\r\n\r\nNode.js v22.23.2\r\n",
+    "timedOut": false
+  },
+  "stopReason": "UNMEASURED",
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 34304,
+    "inputTokens": 780,
+    "outputTokens": 335
+  }
+}

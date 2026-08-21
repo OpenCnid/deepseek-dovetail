@@ -1,0 +1,109 @@
+{
+  "baseline": {
+    "durationMs": 36767,
+    "label": "baseline",
+    "output": "Tree remained unchanged on `main`; no workspace writes occurred.\n\n**`.upsum` close record created:** No. The close lifecycle had no Git changes to summarize, so it correctly skipped creating an empty close record.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\unchanged-session-01\\baseline.overlay.yml",
+        "<task:218-bytes:9abdf49d079b>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 27136,
+      "inputTokens": 1009,
+      "outputTokens": 104
+    }
+  },
+  "case": "unchanged-session",
+  "grader": {
+    "durationMs": 4397,
+    "label": "grader",
+    "output": "WINNER_B — It explicitly verifies the unchanged Git state on `main` and correctly reports that no `.upsum` record was created; A admits Git verification was incomplete.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\unchanged-session-01\\grader.overlay.yml",
+        "<task:1212-bytes:404d04bf6628>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 1604,
+      "outputTokens": 39
+    }
+  },
+  "repetition": 1,
+  "status": "MEASURED",
+  "treatment": {
+    "durationMs": 64549,
+    "label": "treatment",
+    "output": "No `.upsum` close record was created. The session made no filesystem changes, so the unchanged-session rule requires stopping without a record.\n\nNote: Git verification was partially unmeasured—the workspace root was not recognized as a repository, and the nested fixture’s metadata was blocked by sandbox policy. No `.upsum` files exist.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\unchanged-session-01\\treatment.overlay.yml",
+        "<task:225-bytes:1c87e7944a37>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": true,
+      "sawCatalog": true,
+      "sessionFiles": 1,
+      "targetBodyCount": 1
+    },
+    "usage": {
+      "cacheReadTokens": 12800,
+      "inputTokens": 1189,
+      "outputTokens": 276
+    }
+  },
+  "verdictPosition": "B",
+  "winner": "baseline"
+}

@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "**Decision record**\n\n- **Primary SPARK shortage:** **Strategy/reasoning** — repeating an unchanged test is not reducing uncertainty.\n- **Ruled out:** **Reach/tool access** — the configured shell succeeded and returned valid output.\n- **Narrowest DSH move:** `send_message` to the existing agent, requiring competing hypotheses and one discriminating next test before rerunning anything.\n- **Cost:** **Once** — one steering turn, not a recurring escalation.\n- **Intentionally unchanged:** **Model/capability tier**; speed versus certainty preference is unknown, so do not upgrade or fan out yet.",
+      "position": "A"
+    },
+    {
+      "output": "```text\nSymptom: Valid test output was obtained, but the identical command was repeated without narrowing causality.\nAxis: S\nConfusable ruled out: R — the configured shell executed successfully and returned valid output; capability and access are present.\nCheaper move considered: Ask collaborator about speed versus certainty — useful later, but it does not make the repeated evidence discriminating.\nLever: Targeted DSH grep/read — inspect the failure-implicated code and choose one falsifiable, materially different check instead of rerunning the suite.\nSpends: Once\nLeft unmoved: P — no speed/certainty preference is assumed; the next check remains small and reversible.\n```",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer the candidate that diagnoses from the stated evidence, distinguishes adjacent SPARK axes, avoids inventing unavailable DSH surfaces, chooses the narrowest justified move, handles the collaborator-owned tradeoff honestly, and accounts for recurring cost. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "An agent is midway through a repository diagnosis. Its configured shell tool executed successfully and returned valid test output, but it has repeated the same command twice without narrowing the cause. The collaborator has not stated whether speed or certainty matters more. Produce a compact decision record that identifies the primary SPARK shortage, rules out the closest confusable axis using the evidence, chooses the narrowest next move available in DSH, states whether the cost is once or recurring, and names one axis intentionally left unchanged."
+}

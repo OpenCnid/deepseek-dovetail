@@ -1,0 +1,34 @@
+{
+  "durationMs": 33183,
+  "label": "baseline",
+  "output": "**Decision record**\n\n- **Primary SPARK shortage:** **Strategy/reasoning** — repeating an unchanged test is not reducing uncertainty.\n- **Ruled out:** **Reach/tool access** — the configured shell succeeded and returned valid output.\n- **Narrowest DSH move:** `send_message` to the existing agent, requiring competing hypotheses and one discriminating next test before rerunning anything.\n- **Cost:** **Once** — one steering turn, not a recurring escalation.\n- **Intentionally unchanged:** **Model/capability tier**; speed versus certainty preference is unknown, so do not upgrade or fan out yet.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-spark\\dsh-eval-20260821T015503Z-ee1ab700\\mid-task-steering-01\\baseline.overlay.yml",
+      "<task:556-bytes:7b737c49cf90>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 5632,
+    "inputTokens": 858,
+    "outputTokens": 1047
+  }
+}

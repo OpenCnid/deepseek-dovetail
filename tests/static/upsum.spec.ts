@@ -12,9 +12,9 @@ async function git(cwd: string, ...args: string[]): Promise<void> {
   await execFileAsync('git', args, { cwd, maxBuffer: 1024 * 1024 })
 }
 
-async function measuredExit(root: string): Promise<{ code: number; stdout: string; stderr: string }> {
+async function measuredExit(root: string, isolatedPython = false): Promise<{ code: number; stdout: string; stderr: string }> {
   try {
-    const result = await execFileAsync('python', [checks, root], { maxBuffer: 1024 * 1024 })
+    const result = await execFileAsync('python', [...(isolatedPython ? ['-S'] : []), checks, root], { maxBuffer: 1024 * 1024 })
     return { code: 0, stdout: result.stdout, stderr: result.stderr }
   }
   catch (error) {
@@ -64,5 +64,14 @@ describe('package-relative upsum checker', () => {
     expect(dirty.stdout).toMatch(/[1-9][0-9]* finding\(s\); 4\/4 checks ran\./u)
     expect(dirty.stdout).not.toContain('UNMEASURED:')
     await expect(access(resolve(root, '.upsum'))).rejects.toMatchObject({ code: 'ENOENT' })
+  })
+
+  it('parses DSH YAML through the packaged Node dependency without Python site packages', async () => {
+    const root = await gitFixture()
+    const measured = await measuredExit(root, true)
+    expect(measured.code).toBe(1)
+    expect(measured.stdout).toContain('DSH skill health: clean over 1 file(s)')
+    expect(measured.stdout).not.toContain('PyYAML')
+    expect(measured.stdout).not.toContain('UNMEASURED: DSH skill health')
   })
 })

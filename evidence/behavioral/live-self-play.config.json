@@ -1,0 +1,25 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": ["D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "self-play",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play",
+  "repetitions": 1,
+  "timeoutSeconds": 900,
+  "maxCapturedBytes": 2097152,
+  "maxArtifactBytes": 31457280,
+  "requiredCredentialEnv": ["DSH_HOME"],
+  "allowedEnvironment": [],
+  "authorization": {"route": "ChatGPT subscription OAuth", "ownerApprovedCeilingUsd": 25, "expectedIncrementalUsd": 0, "purchasedCreditsAllowed": false, "rootRuns": 3},
+  "cases": [
+    {
+      "id": "queue-router",
+      "task": "Design and stress-test a deterministic router between Queue A (latency 2 minutes, capacity 20, no regulated data) and Queue B (latency 15 minutes, capacity 200, regulated data allowed). Requests have urgency low/high, regulated yes/no, and batch size 1..100. Return a compact rubric, routing pseudocode, three boundary cases, and an input-visibility matrix for any blind roles used.",
+      "graderPrompt": "Prefer a deterministic, complete router that never sends regulated data to Queue A, handles capacity and urgency honestly, tests meaningful boundaries, and preserves/discloses blind-role inputs. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

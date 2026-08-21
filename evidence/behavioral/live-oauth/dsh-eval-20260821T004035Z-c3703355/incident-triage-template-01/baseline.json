@@ -1,0 +1,34 @@
+{
+  "durationMs": 14682,
+  "label": "baseline",
+  "output": "You are an incident-triage editor. Convert the unordered incident note below into a concise, factual triage brief.\n\n## Requirements\n- Use exactly these headings, in this order:\n  1. **Incident Summary**\n  2. **Observed Impact**\n  3. **Timeline**\n  4. **Evidence**\n  5. **Actions Taken**\n  6. **Open Questions and Unknowns**\n  7. **Recommended Next Steps**\n- Use only information supported by the note.\n- Do not infer causes, impacts, chronology, ownership, or resolution.\n- Distinguish confirmed facts from reported claims.\n- Normalize timestamps only when their meaning and time zone are clear; otherwise preserve them verbatim.\n- Write **Unknown** for every required detail not established by the note.\n- Identify contradictions or ambiguous statements explicitly.\n- Keep each section brief and use bullets where practical.\n- Do not include commentary outside the brief.\n\n## Input\n<incident_note>\n{{UNORDERED_INCIDENT_NOTE}}\n</incident_note>\n\n## Structurally Analogous Demonstration\n\n### Example Input\n<incident_note>\n- …\n- Reported by: {{REPORTER}}\n- Symptom: {{OBSERVED_SYMPTOM}}\n- At {{TIME_A}}, {{ACTION}} was attempted.\n- Possible cause: {{UNVERIFIED_CAUSE}}\n- Impact details not provided.\n- …\n</incident_note>\n\n### Example Output\n**Incident Summary**\n- Reported incident involving {{OBSERVED_SYMPTOM}}.\n- Status: Unknown.\n- Cause: Unknown; {{UNVERIFIED_CAUSE}} is unverified.\n\n**Observed Impact**\n- Confirmed impact: Unknown.\n- Scope: Unknown.\n\n**Timeline**\n- {{TIME_A}} — {{ACTION}} was attempted.\n- Incident start time: Unknown.\n- Detection time: Unknown.\n\n**Evidence**\n- Reported symptom: {{OBSERVED_SYMPTOM}}.\n- Supporting logs, metrics, or alerts: Unknown.\n\n**Actions Taken**\n- {{ACTION}} was attempted.\n- Result: Unknown.\n\n**Open Questions and Unknowns**\n- What is the confirmed user or system impact?\n- When did the incident begin?\n- What evidence supports or rejects {{UNVERIFIED_CAUSE}}?\n- Who owns the response?\n- Is the incident resolved?\n\n**Recommended Next Steps**\n- Confirm impact and affected scope.\n- Collect relevant logs, metrics, and alert data.\n- Verify the outcome of {{ACTION}}.\n- Assign an incident owner and establish current status.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T004035Z-c3703355\\incident-triage-template-01\\baseline.overlay.yml",
+      "<task:280-bytes:e7c53c467b96>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 1399,
+    "outputTokens": 553
+  }
+}

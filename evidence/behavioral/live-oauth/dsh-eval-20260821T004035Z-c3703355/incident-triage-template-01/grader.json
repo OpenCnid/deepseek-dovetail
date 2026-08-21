@@ -1,0 +1,33 @@
+{
+  "durationMs": 7154,
+  "label": "grader",
+  "output": "WINNER_A — It is more structurally explicit, uses only object-level placeholders, mandates precise unknown/conflict handling, and better prevents unsupported facts from leaking from the demonstration.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T004035Z-c3703355\\incident-triage-template-01\\grader.overlay.yml",
+      "<task:5515-bytes:3c55d058b8a8>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 7247,
+    "outputTokens": 112
+  }
+}

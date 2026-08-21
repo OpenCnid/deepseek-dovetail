@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {
+      "case": "release-note-skill",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T005620Z",
+  "status": "MEASURED",
+  "targetSkill": "better-skill-creator"
+}

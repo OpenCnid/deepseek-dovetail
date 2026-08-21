@@ -1,0 +1,108 @@
+{
+  "baseline": {
+    "durationMs": 5038,
+    "label": "baseline",
+    "output": "DELEGATION: NO\n\n17 × 19 = **323**\n\nCheck: 17 × (20 − 1) = 340 − 17 = 323.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\delegation-gate-01\\baseline.overlay.yml",
+        "<task:201-bytes:2780e1cadbc8>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 1402,
+      "outputTokens": 39
+    }
+  },
+  "case": "delegation-gate",
+  "grader": {
+    "durationMs": 4934,
+    "label": "grader",
+    "output": "TIE Both correctly choose no delegation, compute 323, and provide the same valid compact check.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\delegation-gate-01\\grader.overlay.yml",
+        "<task:804-bytes:d993c0902f0a>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "inputTokens": 6182,
+      "outputTokens": 24
+    }
+  },
+  "repetition": 1,
+  "status": "MEASURED",
+  "treatment": {
+    "durationMs": 9696,
+    "label": "treatment",
+    "output": "DELEGATION: NO\n\n**Result:** 17 × 19 = **323**\n\n**Check:** 17 × (20 − 1) = 340 − 17 = 323.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\delegation-gate-01\\treatment.overlay.yml",
+        "<task:223-bytes:2c06f0d81fb7>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": true,
+      "sawCatalog": true,
+      "sessionFiles": 1,
+      "targetBodyCount": 1
+    },
+    "usage": {
+      "cacheReadTokens": 7680,
+      "inputTokens": 1676,
+      "outputTokens": 44
+    }
+  },
+  "verdictPosition": "TIE",
+  "winner": "tie"
+}

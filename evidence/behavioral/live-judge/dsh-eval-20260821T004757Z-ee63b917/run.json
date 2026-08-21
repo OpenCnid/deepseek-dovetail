@@ -1,0 +1,12 @@
+{
+  "cases": [
+    {
+      "case": "blind-claim-review",
+      "repetition": 1,
+      "status": "MEASURED"
+    }
+  ],
+  "startedAt": "20260821T004757Z",
+  "status": "MEASURED",
+  "targetSkill": "judge-composition"
+}

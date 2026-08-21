@@ -1,0 +1,34 @@
+{
+  "durationMs": 184250,
+  "label": "treatment",
+  "output": "## Routing rubric\n\nPriority order:\n\n1. **Validate:** Reject malformed fields or batch sizes outside `1..100`.\n2. **Regulation:** Regulated requests must use **B**.\n3. **Capacity:** Batches over `20` must use **B**.\n4. **Urgency:** High-urgency requests eligible for A use **A**.\n5. **Default:** Low-urgency requests use **B**, preserving A for urgent work.\n\nAssumption: capacity is the maximum batch per request; no occupancy or arrival-rate data is available.\n\n## Pseudocode\n\n```text\nroute(request):\n    if urgency not in {low, high}\n       or regulated not in {yes, no}\n       or batch_size is not an integer in 1..100:\n        return REJECT_INVALID\n\n    if regulated == yes:\n        return B\n\n    if batch_size > 20:\n        return B\n\n    if urgency == high:\n        return A\n\n    return B\n```\n\n## Boundary cases\n\n| Input `(urgency, regulated, batch)` | Route | Reason |\n|---|---:|---|\n| `(high, no, 20)` | A | Exact A capacity; urgent and eligible |\n| `(high, no, 21)` | B | Exceeds A by one |\n| `(high, yes, 1)` | B | Regulation overrides latency and urgency |\n\n## Self-play result\n\n- Control instrument correctly distinguished a compliant router from one sending regulated data to A.\n- Evaluator found the policy total and compliant over the declared domain.\n- Adversary found no hard failure.\n- **Tradeoff:** eligible low-urgency batches receive 15-minute B latency instead of 2-minute A latency. This is deliberate prioritization, not a forced or provably optimal policy.\n- Conclusion: **admissible and deterministic, but not demonstrably utility-optimal without load/SLA objectives.**\n\n## Input-visibility matrix\n\n`Y*` means conservatively treated as visible because tool-level filesystem/skill isolation was not enforced, despite prompts prohibiting access.\n\n| Role | Prompt | Parent history | Current turn | Workspace | User/project skills | Package skills | Repo instructions | Candidate | Condition label | Prediction | Builder stake | Other outputs | Answer key |\n|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|\n| Gatherer | Y | N | N | Y* | Y* | Y* | Y* | N | N | N | N | N | N |\n| Control evaluator | Y | N | N | Y* | Y* | Y* | Y* | N | N | N | N | N | N |\n| Adversary | Y | N | N | Y* | Y* | Y* | Y* | Y | N | N | N | N | N |\n| Evaluator/executor | Y | N | N | Y* | Y* | Y* | Y* | Y | N | N | N | N | N |\n| Utility judge | Y | N | N | Y* | Y* | Y* | Y* | Y | N | N | N | N | N |\n| Audit | Y | N | N | Y* | Y* | Y* | Y* | Y | Y | Y | N | Y | Y |\n\nEvidence: all roles were cold `subagent` calls, so parent history/current turn were absent; candidate, prediction, outputs, and keys were present only where explicitly included in each role’s prompt. Contamination freedom is therefore **not fully established** at the filesystem/skill layer.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-self-play\\dsh-eval-20260821T005103Z-24e9e598\\queue-router-01\\treatment.overlay.yml",
+      "<task:393-bytes:1a30488e809d>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 7,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 14848,
+    "inputTokens": 1683,
+    "outputTokens": 1819
+  }
+}

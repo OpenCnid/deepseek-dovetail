@@ -1,0 +1,33 @@
+{
+  "durationMs": 6308,
+  "label": "grader",
+  "output": "WINNER_B — It cleanly separates both excerpts, states the conditional responder exception without granting contractors responder rights, and provides the requested four-row synthesis.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-subagent\\dsh-eval-20260821T004342Z-8d8f22fb\\parallel-cold-review-01\\grader.overlay.yml",
+      "<task:2842-bytes:bdb9d2e40791>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "inputTokens": 6509,
+    "outputTokens": 121
+  }
+}

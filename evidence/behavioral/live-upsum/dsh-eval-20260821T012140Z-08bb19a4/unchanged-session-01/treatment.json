@@ -1,0 +1,34 @@
+{
+  "durationMs": 64549,
+  "label": "treatment",
+  "output": "No `.upsum` close record was created. The session made no filesystem changes, so the unchanged-session rule requires stopping without a record.\n\nNote: Git verification was partially unmeasured—the workspace root was not recognized as a repository, and the nested fixture’s metadata was blocked by sandbox policy. No `.upsum` files exist.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\unchanged-session-01\\treatment.overlay.yml",
+      "<task:225-bytes:1c87e7944a37>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 12800,
+    "inputTokens": 1189,
+    "outputTokens": 276
+  }
+}

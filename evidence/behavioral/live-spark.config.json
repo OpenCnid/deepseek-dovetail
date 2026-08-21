@@ -1,0 +1,35 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": [
+    "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"
+  ],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "spark-steering",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-spark",
+  "repetitions": 1,
+  "timeoutSeconds": 600,
+  "maxCapturedBytes": 1048576,
+  "maxArtifactBytes": 20971520,
+  "requiredCredentialEnv": [
+    "DSH_HOME"
+  ],
+  "allowedEnvironment": [],
+  "authorization": {
+    "route": "ChatGPT subscription OAuth",
+    "ownerApprovedCeilingUsd": 25,
+    "expectedIncrementalUsd": 0,
+    "purchasedCreditsAllowed": false,
+    "rootRuns": 3
+  },
+  "cases": [
+    {
+      "id": "mid-task-steering",
+      "task": "An agent is midway through a repository diagnosis. Its configured shell tool executed successfully and returned valid test output, but it has repeated the same command twice without narrowing the cause. The collaborator has not stated whether speed or certainty matters more. Produce a compact decision record that identifies the primary SPARK shortage, rules out the closest confusable axis using the evidence, chooses the narrowest next move available in DSH, states whether the cost is once or recurring, and names one axis intentionally left unchanged.",
+      "graderPrompt": "Prefer the candidate that diagnoses from the stated evidence, distinguishes adjacent SPARK axes, avoids inventing unavailable DSH surfaces, chooses the narrowest justified move, handles the collaborator-owned tradeoff honestly, and accounts for recurring cost. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

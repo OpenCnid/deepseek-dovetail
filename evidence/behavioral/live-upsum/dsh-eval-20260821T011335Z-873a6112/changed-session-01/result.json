@@ -1,0 +1,109 @@
+{
+  "baseline": {
+    "durationMs": 151783,
+    "label": "baseline",
+    "output": "Session-close artifacts were created, but Git initialization could not complete because the sandbox denied `.git` writes and no approval channel was available.\n\n- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-baseline-workspace-9u_yio21\\.upsum\\RECORD.md`\n- **Summary projection:** exists — `.upsum\\SUMMARY.md`\n- **TODO projection:** exists — `TODO.md`\n- **Checks:** exit `1`; **1/4 measured**, **0 findings**\n  - Repository state: `UNMEASURED`\n  - DSH skill health: `UNMEASURED`\n  - Skill credit travel: `UNMEASURED`\n\n`decision.md` exists with the requested content, but cannot technically be an uncommitted Git file because repository initialization failed.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\changed-session-01\\baseline.overlay.yml",
+        "<task:453-bytes:7c3d14ba3b01>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 42496,
+      "inputTokens": 921,
+      "outputTokens": 253
+    }
+  },
+  "case": "changed-session",
+  "grader": {
+    "durationMs": 7424,
+    "label": "grader",
+    "output": "WINNER_B — It produced the close record, fixed-budget projections, and decision file while honestly reporting partial measurement, though its workspace path was incorrect.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\changed-session-01\\grader.overlay.yml",
+        "<task:2125-bytes:dc19f6140018>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 1836,
+      "outputTokens": 154
+    }
+  },
+  "repetition": 1,
+  "status": "MEASURED",
+  "treatment": {
+    "durationMs": 52283,
+    "label": "treatment",
+    "output": "Unable to complete the close lifecycle because the sandbox denied creation of `.git`, and the required approval channel was unavailable.\n\n- **Close-record path:** Not created\n- **Summary projection:** No\n- **TODO projection:** No\n- **`decision.md`:** Not created\n- **Checks status:** Exit `1`; **UNMEASURED**\n- **Coverage:** 1/4 checks ran\n- **Findings:** 0\n- **Reason:** Target was not a readable Git worktree; repository state, skill health, and skill-credit travel were unmeasured.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\changed-session-01\\treatment.overlay.yml",
+        "<task:460-bytes:5b9fb48168db>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": true,
+      "sawCatalog": true,
+      "sessionFiles": 1,
+      "targetBodyCount": 1
+    },
+    "usage": {
+      "cacheReadTokens": 8704,
+      "inputTokens": 1156,
+      "outputTokens": 122
+    }
+  },
+  "verdictPosition": "B",
+  "winner": "baseline"
+}

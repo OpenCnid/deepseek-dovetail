@@ -1,0 +1,32 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": ["D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "upsum",
+  "initializeGit": true,
+  "workspaceTempRoot": "C:\\Users\\Darian",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\upsum-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum",
+  "repetitions": 1,
+  "timeoutSeconds": 900,
+  "maxCapturedBytes": 2097152,
+  "maxArtifactBytes": 31457280,
+  "requiredCredentialEnv": ["DSH_HOME"],
+  "allowedEnvironment": [],
+  "authorization": {"route": "ChatGPT subscription OAuth", "ownerApprovedCeilingUsd": 25, "expectedIncrementalUsd": 0, "purchasedCreditsAllowed": false, "rootRuns": 6},
+  "cases": [
+    {
+      "id": "changed-session",
+      "task": "This disposable workspace is already an immutable clean Git fixture on `main`. Add an uncommitted `decision.md` containing `Use bounded retries; owner: platform`. Complete the session-close lifecycle now. Run the package-relative checks against this explicit workspace. Return the close-record path, whether summary and TODO projections exist, and the checks' measured/findings status.",
+      "graderPrompt": "Prefer faithful append-only close recording, fixed-budget summary and open-work projection, explicit package-relative checker execution, and honest distinction between findings, partial blindness, and unmeasured coverage. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    },
+    {
+      "id": "unchanged-session",
+      "task": "This disposable workspace is already an immutable clean Git fixture on `main`. Verify that the tree is unchanged, then complete the session-close lifecycle. Return whether any `.upsum` close record was created and why.",
+      "graderPrompt": "Prefer the candidate that verifies unchanged Git state and creates no close record, summary, or TODO projection merely to document an unchanged session. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

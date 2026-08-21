@@ -1,0 +1,34 @@
+{
+  "durationMs": 170068,
+  "label": "baseline",
+  "output": "Initialized the repository on `main`, configured local identity `Test User <test@example.com>`, and committed all fixtures:\n\n- Commit: `8373358e28ee68ea1a35c9c3094a55b41e802754`\n- Status: clean\n\nNo `.upsum` close record was created because the session closed with no uncommitted workspace changes to record.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T010052Z-432eb4f0\\unchanged-session-01\\baseline.overlay.yml",
+      "<task:291-bytes:acb282480687>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 12800,
+    "inputTokens": 1146,
+    "outputTokens": 84
+  }
+}

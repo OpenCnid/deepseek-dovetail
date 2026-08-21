@@ -1,0 +1,34 @@
+{
+  "durationMs": 171663,
+  "label": "baseline",
+  "output": "- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-baseline-workspace-ugw3oofk\\.upsum\\RECORD.md`\n- **Summary projection:** Yes — `.upsum\\SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Checks:** Exit `1`; **1/4 measured**, **0 findings**\n- **Unmeasured:** Repository state, DSH skill health, and skill credit travel. This is not a clean/pass result.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T012140Z-08bb19a4\\changed-session-01\\baseline.overlay.yml",
+      "<task:385-bytes:7cc4336ffbf3>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 82432,
+    "inputTokens": 1750,
+    "outputTokens": 114
+  }
+}

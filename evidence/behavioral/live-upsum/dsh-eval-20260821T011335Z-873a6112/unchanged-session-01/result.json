@@ -1,0 +1,109 @@
+{
+  "baseline": {
+    "durationMs": 47463,
+    "label": "baseline",
+    "output": "Unable to complete the Git lifecycle: creating `.git` was denied by the sandbox, and the required escalation failed because no approval channel was available.\n\nNo `.upsum` close record was created. The repository could not be initialized or cleanly closed, so no successful session-close record was produced.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\unchanged-session-01\\baseline.overlay.yml",
+        "<task:291-bytes:acb282480687>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 6656,
+      "inputTokens": 1121,
+      "outputTokens": 63
+    }
+  },
+  "case": "unchanged-session",
+  "grader": {
+    "durationMs": 6653,
+    "label": "grader",
+    "output": "WINNER_A — Neither verified a clean Git state, but A accurately explains the failed lifecycle without falsely characterizing it as a correct unchanged-session close.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\unchanged-session-01\\grader.overlay.yml",
+        "<task:1399-bytes:d0f13ad6671e>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": false,
+      "sawCatalog": false,
+      "sessionFiles": 1,
+      "targetBodyCount": 0
+    },
+    "usage": {
+      "cacheReadTokens": 4608,
+      "inputTokens": 1635,
+      "outputTokens": 116
+    }
+  },
+  "repetition": 1,
+  "status": "MEASURED",
+  "treatment": {
+    "durationMs": 50309,
+    "label": "treatment",
+    "output": "Unable to complete Git initialization: creating `.git` was sandbox-denied, and the required approval channel was unavailable. The fixture `input.txt` remained unchanged; no commit or clean-tree verification was possible.\n\nNo `.upsum` close record was created because no repository work changed, so the close lifecycle correctly stopped before writing a record.",
+    "process": {
+      "argv": [
+        "node.exe",
+        "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+        "--profile",
+        "headless",
+        "--patch",
+        "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T011335Z-873a6112\\unchanged-session-01\\treatment.overlay.yml",
+        "<task:298-bytes:8062f9cbb628>"
+      ],
+      "captureTruncated": false,
+      "exitCode": 0,
+      "stderr": "",
+      "timedOut": false
+    },
+    "stopReason": {
+      "kind": "completed"
+    },
+    "surfaceChecks": {
+      "sawAnySkillContent": true,
+      "sawCatalog": true,
+      "sessionFiles": 1,
+      "targetBodyCount": 1
+    },
+    "usage": {
+      "cacheReadTokens": 11776,
+      "inputTokens": 690,
+      "outputTokens": 327
+    }
+  },
+  "verdictPosition": "A",
+  "winner": "baseline"
+}

@@ -1,0 +1,24 @@
+- id: agent-default-model
+  config:
+    provider: 'openai-codex'
+    model: 'gpt-5.6-sol'
+- id: sandbox-policy
+  config:
+    mode: workspace-write
+    workspaceRoot: 'C:\Users\Darian\AppData\Local\Temp\dovetail-baseline-za20lnif\workspace'
+- id: fs-sandbox
+  config:
+    cwd: 'C:\Users\Darian\AppData\Local\Temp\dovetail-baseline-za20lnif\workspace'
+- id: skill-filesystem
+  config:
+    dshHome: 'C:\Users\Darian\AppData\Local\Temp\dovetail-baseline-za20lnif\local-skill-roots\dsh'
+    agentsHome: 'C:\Users\Darian\AppData\Local\Temp\dovetail-baseline-za20lnif\local-skill-roots\agents'
+    bundledSkillDir: 'C:\Users\Darian\AppData\Local\Temp\dovetail-baseline-za20lnif\local-skill-roots\bundled'
+    watch: false
+- id: session-persistence-jsonl
+  config:
+    root: 'C:\Users\Darian\AppData\Local\Temp\dovetail-baseline-za20lnif\sessions'
+    compression: none
+    packChunks: false
+- id: tool-skill
+  disabled: true

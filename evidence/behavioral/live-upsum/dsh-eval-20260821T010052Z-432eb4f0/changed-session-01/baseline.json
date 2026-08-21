@@ -1,0 +1,34 @@
+{
+  "durationMs": 167363,
+  "label": "baseline",
+  "output": "Close lifecycle could not be fully completed because the sandbox denied Git and checker access, and no approval channel was available.\n\n- **Close record:** `.upsum/RECORD.md`\n- **Summary projection:** Yes — `.upsum/SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Checks measured status:** **FAILED / unmeasured** — `checks.py` received `WinError 5: Access is denied`\n- **Findings status:** **Unavailable** because measurement failed\n- **Git status:** Repository initialization and fixture commit did not occur\n- **`decision.md`:** Exists with the requested content",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-upsum\\dsh-eval-20260821T010052Z-432eb4f0\\changed-session-01\\baseline.overlay.yml",
+      "<task:453-bytes:7c3d14ba3b01>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 1,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 39424,
+    "inputTokens": 572,
+    "outputTokens": 134
+  }
+}

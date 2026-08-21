@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "output": "Close lifecycle could not be fully completed because the sandbox denied Git and checker access, and no approval channel was available.\n\n- **Close record:** `.upsum/RECORD.md`\n- **Summary projection:** Yes — `.upsum/SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Checks measured status:** **FAILED / unmeasured** — `checks.py` received `WinError 5: Access is denied`\n- **Findings status:** **Unavailable** because measurement failed\n- **Git status:** Repository initialization and fixture commit did not occur\n- **`decision.md`:** Exists with the requested content",
+      "position": "A"
+    },
+    {
+      "output": "Close lifecycle was only partially completed because the sandbox denied Git and check-script access to the explicit workspace, and approval was unavailable.\n\n- **Close record:** `C:\\Users\\Darian\\AppData\\Local\\Temp\\dovetail-treatment-0k2ecoyj\\workspace\\.upsum\\RECORD.md`\n- **Summary projection:** Yes — `.upsum\\SUMMARY.md`\n- **TODO projection:** Yes — `TODO.md`\n- **Decision file:** Created with the requested content.\n- **Checks measured status:** **UNMEASURED** — workspace access denied.\n- **Findings status:** **Unavailable; not clean**.\n- **Git:** Repository initialization, local identity, and fixture commit could not be completed due to the same access denial.",
+      "position": "B"
+    }
+  ],
+  "rubric": "Prefer faithful append-only close recording, fixed-budget summary and open-work projection, explicit package-relative checker execution, and honest distinction between findings, partial blindness, and unmeasured coverage. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason.",
+  "task": "In this disposable workspace, initialize a Git repository on `main`, configure a repository-local test identity, commit the existing fixture, then add an uncommitted `decision.md` containing `Use bounded retries; owner: platform`. Complete the session-close lifecycle now. Run the package-relative checks against this explicit workspace. Return the close-record path, whether summary and TODO projections exist, and the checks' measured/findings status."
+}

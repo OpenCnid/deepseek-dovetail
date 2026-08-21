@@ -1,0 +1,35 @@
+{
+  "dshExecutable": "C:\\Users\\Darian\\AppData\\Local\\hermes\\node\\node.exe",
+  "dshArguments": [
+    "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js"
+  ],
+  "commonPatches": [],
+  "profile": "headless",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "targetSkill": "prompt-engineering",
+  "workspaceFixture": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\fixtures\\runner-workspace",
+  "artifactRoot": "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth",
+  "repetitions": 2,
+  "timeoutSeconds": 600,
+  "maxCapturedBytes": 524288,
+  "maxArtifactBytes": 20971520,
+  "requiredCredentialEnv": [
+    "DSH_HOME"
+  ],
+  "allowedEnvironment": [],
+  "authorization": {
+    "route": "ChatGPT subscription OAuth",
+    "ownerApprovedCeilingUsd": 25,
+    "expectedIncrementalUsd": 0,
+    "purchasedCreditsAllowed": false,
+    "rootRuns": 6
+  },
+  "cases": [
+    {
+      "id": "incident-triage-template",
+      "task": "Create a reusable instruction template that turns an unordered incident note into a triage brief with fixed headings, explicit unknowns, and one structurally analogous contamination-free demonstration using ellipsis or object-level placeholders. Return only the finished template.",
+      "graderPrompt": "Prefer the candidate that is more reusable, structurally explicit, resistant to copying accidental facts from its demonstration, and honest about unknown incident details. Penalize unsupported facts and prose outside the requested finished template. Return exactly WINNER_A, WINNER_B, or TIE followed by one concise reason."
+    }
+  ]
+}

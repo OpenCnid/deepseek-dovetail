@@ -15,6 +15,16 @@ Prompt Engineering, Self Play, and Subagent Composition preserve attribution to 
 
 Nothing in this package implies endorsement by OpenCnid, Anthropic, Matthew Murphy/Lexideck, the SPARK authors, or DeepSeek. Existing upstream terms are not altered.
 
+## Runtime dependency notice
+
+The package directly depends on `yaml@2.9.0` by Eemeli Aro to parse DSH-compatible YAML in the `upsum` package-resource helper. It is distributed under the ISC license:
+
+> Copyright Eemeli Aro <eemeli@gmail.com>
+>
+> Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+>
+> THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
 ## Verbatim generated files
 
 The following package paths are copied byte-for-byte from the pinned source:
@@ -55,6 +65,7 @@ Every `SKILL.md` under `dist/skills` is a DSH adaptation. These additional gener
 - `spark-steering/references/steer-3-costs.md`
 - `subagent-composition/references/dsh-subagents.md`
 - `upsum/scripts/checks.py`
+- `upsum/scripts/parse-frontmatter.mjs`
 
 Original pinned bytes for every adapted upstream file remain under `vendor/dovetail` and are hashed in `upstream.lock.json`; generated output is never the editing source. The reviewed-deletion manifest and lock enumerate incompatible or unreachable upstream resources omitted from the runtime artifact.
 

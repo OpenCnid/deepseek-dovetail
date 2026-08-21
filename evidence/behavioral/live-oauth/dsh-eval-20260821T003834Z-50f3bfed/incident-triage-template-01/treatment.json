@@ -1,0 +1,34 @@
+{
+  "durationMs": 18826,
+  "label": "treatment",
+  "output": "<request type=\"Incident_Note_To_Triage_Brief\">\n  <objective>\n    Convert the supplied unordered incident note into a concise, evidence-grounded triage brief.\n  </objective>\n\n  <rules>\n    1. Use only information contained in `<incident_note>`.\n    2. Do not invent, infer, or silently resolve missing facts.\n    3. Preserve uncertainty, attribution, timestamps, identifiers, and conflicting claims.\n    4. Place every material missing fact under **Explicit Unknowns**.\n    5. If a section has no supported information, write `Unknown — not stated in the incident note.`\n    6. Distinguish observed facts from reported claims using labels such as `Observed:` and `Reported:`.\n    7. Prioritize immediate safety, containment, evidence preservation, and operational continuity.\n    8. Recommend actions without presenting them as completed.\n    9. Use the fixed headings below exactly and do not add sections.\n  </rules>\n\n  <structurally_analogous_demonstration>\n# Incident Summary\n{One_Or_Two_Sentence_Neutral_Summary}\n\n# Severity and Rationale\n- **Provisional severity:** {Severity_Or_Unknown}\n- **Rationale:** {Evidence_Based_Rationale_Or_Unknown}\n\n# Impact\n- {Confirmed_Or_Reported_Impact}\n- ...\n\n# Known Facts\n- **Observed:** {Directly_Supported_Fact}\n- **Reported:** {Attributed_Claim}\n- ...\n\n# Timeline\n- `{Timestamp_Or_Unknown}` — {Event}\n- ...\n\n# Actions Already Taken\n- {Completed_Action_And_Status}\n- ...\n\n# Explicit Unknowns\n- {Material_Unanswered_Question}\n- ...\n\n# Immediate Triage Actions\n1. {Highest_Priority_Action}\n2. ...\n\n# Escalation and Ownership\n- **Current owner:** {Owner_Or_Unknown}\n- **Escalate to:** {Role_Or_Team_Or_Unknown}\n- **Escalation trigger:** {Condition_Or_Unknown}\n  </structurally_analogous_demonstration>\n\n  <task>\n    Produce the triage brief now. Normalize the note’s order, but do not normalize away ambiguity or disagreement.\n  </task>\n\n  <incident_note>\n${UNORDERED_INCIDENT_NOTE}\n  </incident_note>\n\n  <output_instructions>\n    Return only the completed brief using the demonstrated headings and structure. Do not include analysis, preamble, or code fences.\n  </output_instructions>\n</request>",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-oauth\\dsh-eval-20260821T003834Z-50f3bfed\\incident-triage-template-01\\treatment.overlay.yml",
+      "<task:300-bytes:ee2ab4fe856d>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": true,
+    "sawCatalog": true,
+    "sessionFiles": 1,
+    "targetBodyCount": 1
+  },
+  "usage": {
+    "cacheReadTokens": 6656,
+    "inputTokens": 1652,
+    "outputTokens": 644
+  }
+}

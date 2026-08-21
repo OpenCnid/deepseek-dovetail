@@ -20,15 +20,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 
-try:
-    import yaml
-except ImportError:
-    yaml = None
-
 SKIP_DIRS = {".git", "node_modules", "__pycache__", ".venv", "venv", "build", "vendor", "ports"}
 ARCHIVAL_DIRS = {"references", "vendor", "evals", "tests", "fixtures", "runs", ".upsum"}
 MAX_FILES = 10_000
 MAX_FILE_BYTES = 2 * 1024 * 1024
+MAX_FRONTMATTER_BYTES = 16 * 1024 * 1024
 MAX_SHOWN = 12
 DESCRIPTION_LIMIT = 480
 RULE_CITATION = re.compile(r"\b(?:Guardrail|[Rr]ule)\s+\d+[a-z]?\b")
@@ -216,16 +212,42 @@ def _boolean(value: object) -> bool | None:
     return None
 
 
+def parse_frontmatter(documents: list[str]) -> list[dict[str, object]]:
+    helper = Path(__file__).with_name("parse-frontmatter.mjs").resolve()
+    if not helper.is_file() or helper.is_symlink():
+        raise RuntimeError(f"package frontmatter parser is absent or symlinked: {helper}")
+    payload = json.dumps(documents, ensure_ascii=False).encode("utf-8")
+    if len(payload) > MAX_FRONTMATTER_BYTES:
+        raise RuntimeError(f"frontmatter batch exceeds the {MAX_FRONTMATTER_BYTES}-byte checker bound")
+    try:
+        completed = subprocess.run(
+            ["node", str(helper)], input=payload, capture_output=True,
+            timeout=30, check=False,
+        )
+    except (OSError, subprocess.SubprocessError) as error:
+        raise RuntimeError(f"package YAML parser could not run: {error}") from error
+    if completed.returncode != 0:
+        detail = completed.stderr.decode("utf-8", errors="replace").strip().splitlines()
+        raise RuntimeError(f"package YAML parser failed: {detail[0] if detail else 'no diagnostic'}")
+    try:
+        parsed = json.loads(completed.stdout.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise RuntimeError("package YAML parser returned invalid JSON") from error
+    if not isinstance(parsed, list) or len(parsed) != len(documents):
+        raise RuntimeError("package YAML parser returned the wrong result count")
+    if not all(isinstance(item, dict) for item in parsed):
+        raise RuntimeError("package YAML parser returned an invalid result")
+    return parsed
+
+
 def check_dsh_skills(root: Path) -> Result:
     result = Result("DSH skill health")
     skills = list(walk(root, "SKILL.md"))
     if not skills:
         result.unmeasured = "no SKILL.md found"
         return result
-    if yaml is None:
-        result.unmeasured = "PyYAML absent; DSH frontmatter validation is unavailable"
-        return result
     root_real = root.resolve()
+    records: list[tuple[Path, str, re.Match[str]]] = []
     for skill in skills:
         relative_path = skill.relative_to(root).as_posix()
         raw = read_text(skill)
@@ -237,11 +259,13 @@ def check_dsh_skills(root: Path) -> Result:
         if match is None:
             result.find(f"{relative_path}: missing YAML frontmatter or body")
             continue
-        try:
-            data = yaml.safe_load(match.group(1))
-        except yaml.YAMLError as error:
-            result.find(f"{relative_path}: YAML error -- {str(error).splitlines()[0]}")
+        records.append((skill, relative_path, match))
+    parsed = parse_frontmatter([match.group(1) for _, _, match in records])
+    for (skill, relative_path, match), parsed_item in zip(records, parsed, strict=True):
+        if parsed_item.get("ok") is not True:
+            result.find(f"{relative_path}: YAML error -- {parsed_item.get('error', 'unknown parser error')}")
             continue
+        data = parsed_item.get("data")
         if not isinstance(data, dict):
             result.find(f"{relative_path}: frontmatter is not a mapping")
             continue

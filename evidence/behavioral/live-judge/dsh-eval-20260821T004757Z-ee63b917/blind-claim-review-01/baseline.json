@@ -1,0 +1,34 @@
+{
+  "durationMs": 20124,
+  "label": "baseline",
+  "output": "I’ll wait for the three blinded judges, then submit their verdicts to a separate final auditor.",
+  "process": {
+    "argv": [
+      "node.exe",
+      "D:\\deepseek-harness-custom-plugins-setup\\dsh-99f6f02-clean-dovetail\\apps\\cli\\lib\\bin.js",
+      "--profile",
+      "headless",
+      "--patch",
+      "D:\\deepseek-harness-custom-plugins-setup\\deepseek-dovetail\\evidence\\behavioral\\live-judge\\dsh-eval-20260821T004757Z-ee63b917\\blind-claim-review-01\\baseline.overlay.yml",
+      "<task:434-bytes:9b37f867ae0c>"
+    ],
+    "captureTruncated": false,
+    "exitCode": 0,
+    "stderr": "",
+    "timedOut": false
+  },
+  "stopReason": {
+    "kind": "completed"
+  },
+  "surfaceChecks": {
+    "sawAnySkillContent": false,
+    "sawCatalog": false,
+    "sessionFiles": 4,
+    "targetBodyCount": 0
+  },
+  "usage": {
+    "cacheReadTokens": 4608,
+    "inputTokens": 2272,
+    "outputTokens": 50
+  }
+}
