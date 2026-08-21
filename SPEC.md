@@ -163,7 +163,7 @@ The repository MUST begin as one ESM npm package with this logical layout:
 
 Equivalent build-tool filenames MAY be used, but the separation between exact upstream material, DSH-authored overlays, and generated runtime output MUST remain explicit.
 
-The package name MUST be `deepseek-dovetail`, initial version `0.1.0`, `type: module`, and `private: true`. The package remains private until the release decisions in section 19 are resolved.
+The package name MUST be `deepseek-dovetail`, initial version `0.1.0`, `type: module`, and `private: true`. The npm package remains private until the release decisions in section 19 are resolved; GitHub repository visibility is independent and is now public.
 
 ## 8. Upstream synchronization and materialization
 
@@ -440,7 +440,7 @@ The package MUST include:
 - SPARK/arXiv provenance where inherited; and
 - `THIRD_PARTY_NOTICES.md` listing verbatim and adapted files.
 
-Until the owner selects a license for new adapter/build code, the repository and npm package MUST remain private and use an explicit `SEE LICENSE IN ...` posture that does not relicense upstream material.
+Until the owner selects a license for new adapter/build code, the npm package MUST remain private and use an explicit `SEE LICENSE IN ...` posture that does not relicense upstream material. The GitHub repository may be public, but that visibility does not imply a license grant or authorize npm publication.
 
 ## 15. Testing and evidence plan
 
@@ -584,7 +584,7 @@ Implementation may begin without these decisions, but npm publication and a stab
 
 - selects a license for new adapter/build/test code without relicensing upstream skills;
 - approves the repository and npm ownership/name;
-- chooses private, unlisted, or public release visibility;
+- chooses private, unlisted, or public npm release visibility; GitHub repository visibility is already public;
 - approves `THIRD_PARTY_NOTICES.md` and the vendored/adapted file list;
 - decides which successfully tested operating systems may be claimed; and
 - approves the cost and model/provider used for the final live behavioral evaluation.
