@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">SPARK Steering</title>
+  <desc id="desc">A five-axis compass measures Skills, Personalities, Approaches, Resources, and Knowledge and highlights the deficient axis.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#172b51"/></linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#47dfff"/><stop offset=".5" stop-color="#aa8cff"/><stop offset="1" stop-color="#ff8fc5"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#6d9fff" stop-opacity=".24"/><stop offset="1" stop-color="#6d9fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="720" height="400" rx="24" fill="url(#bg)"/><circle cx="527" cy="215" r="190" fill="url(#glow)"/>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="38" y="48" fill="#80c7ff" font-size="12" font-weight="800" letter-spacing="2">DOVETAIL SKILL · USER-ONLY</text>
+    <text x="38" y="94" fill="#f3f7ff" font-size="34" font-weight="800">SPARK Steering</text>
+    <text x="38" y="126" fill="#b7c4dc" font-size="15">Diagnose the short axis before adding more machinery.</text>
+    <g transform="translate(45 174)" font-size="12" font-weight="800">
+      <g><rect width="218" height="34" rx="12" fill="#10233b" stroke="#3e79a7"/><text x="17" y="22" fill="#ccecff">S</text><text x="48" y="22" fill="#96b3c8">Skills</text><rect x="116" y="12" width="82" height="10" rx="5" fill="#4d91ba"/></g>
+      <g transform="translate(0 43)"><rect width="218" height="34" rx="12" fill="#10233b" stroke="#625a99"/><text x="17" y="22" fill="#e2d7ff">P</text><text x="48" y="22" fill="#aaa0c7">Personalities</text><rect x="139" y="12" width="59" height="10" rx="5" fill="#8074bb"/></g>
+      <g transform="translate(0 86)"><rect width="218" height="34" rx="12" fill="#3a1832" stroke="#ff83bf" stroke-width="2"/><text x="17" y="22" fill="#ffd9eb">A</text><text x="48" y="22" fill="#f4b7d3">Approaches</text><rect x="130" y="12" width="29" height="10" rx="5" fill="#ff8fc5"/><text x="190" y="22" text-anchor="middle" fill="#ffb8d8">SHORT</text></g>
+      <g transform="translate(0 129)"><rect width="218" height="34" rx="12" fill="#10233b" stroke="#417d85"/><text x="17" y="22" fill="#d3fbf3">R</text><text x="48" y="22" fill="#9bbfb9">Resources</text><rect x="121" y="12" width="77" height="10" rx="5" fill="#4c9995"/></g>
+      <g transform="translate(0 172)"><rect width="218" height="34" rx="12" fill="#10233b" stroke="#8a6e43"/><text x="17" y="22" fill="#fff0c9">K</text><text x="48" y="22" fill="#c8b48a">Knowledge</text><rect x="119" y="12" width="79" height="10" rx="5" fill="#b19257"/></g>
+    </g>
+    <g transform="translate(350 139)">
+      <circle cx="155" cy="107" r="99" fill="#0d192d" stroke="#4c6993"/>
+      <path d="m155 8 24 74 77 1-62 45 23 74-62-46-62 46 23-74-62-45 77-1z" fill="#162846" stroke="url(#spark)" stroke-width="2"/>
+      <path d="m155 44 14 51 54 1-43 31 16 51-41-31-42 31 16-51-43-31 54-1z" fill="#263b61"/>
+      <path d="M155 107 99 147" stroke="#ff8fc5" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="155" cy="107" r="14" fill="#f0f4ff" stroke="#839de2"/>
+      <g font-size="13" font-weight="900" text-anchor="middle"><text x="155" y="0" fill="#89dfff">S</text><text x="270" y="88" fill="#ad9aff">P</text><text x="226" y="224" fill="#ff9dcc">A</text><text x="84" y="224" fill="#76e2c5">R</text><text x="40" y="88" fill="#e3bd69">K</text></g>
+    </g>
+    <g transform="translate(603 326)"><path d="m0 18 25-18 25 18-25 18z" fill="#3a1b38" stroke="#ff91c8"/><text x="25" y="22" text-anchor="middle" fill="#ffd9eb" font-size="10" font-weight="900">LEVER</text></g>
+  </g>
+  <rect x="1" y="1" width="718" height="398" rx="23" fill="none" stroke="#799aff" stroke-opacity=".24" stroke-width="2"/>
+</svg>

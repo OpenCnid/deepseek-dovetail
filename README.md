@@ -48,24 +48,70 @@ dsh plugin --profile web remove deepseek-dovetail
 
 In a DSH session, type `/` to browse skills or invoke one directly, for example `/prompt-engineering`. Six skills are model-discoverable; `spark-steering` and `upsum` are intentionally user-only.
 
-## Included skills
+## Skill gallery
 
-| Skill | What it does | Invocation |
-|---|---|---|
-| `prompt-engineering` | Designs precise prompts and instruction schemas with explicit structure and clean ground. | Model + `/prompt-engineering` |
-| `hypershot-protocol` | Creates structural examples that teach form without leaking task content. | Model + `/hypershot-protocol` |
-| `better-skill-creator` | Authors, validates, packages, and compares DSH skills against clean baselines. | Model + `/better-skill-creator` |
-| `subagent-composition` | Chooses when and how to delegate across cold, forked, foreground, or background agents. | Model + `/subagent-composition` |
-| `judge-composition` | Builds differently blinded grounding, coherence, corroboration, and audit panels. | Model + `/judge-composition` |
-| `self-play` | Tests unsolved designs with controlled gatherer, adversary, evaluator, and judge roles. | Model + `/self-play` |
-| `spark-steering` | Diagnoses the short SPARK axis before changing an agent or its environment. | `/spark-steering` only |
-| `upsum` | Closes changed sessions with a durable record, summary, open-work projection, and checks. | `/upsum` only |
+Each original SVG gives the workflow a visual shorthand. Expand **Real DSH output** for an example generated through the installed bundle in the pinned DSH web profile—not a mockup. Six skills are model-discoverable and slash-invocable; `spark-steering` and `upsum` are intentionally slash-only.
 
-## Skill discovery in DSH
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>prompt-engineering</code></h3>
+      <img src="docs/assets/skills/prompt-engineering.svg" alt="A rough prompt refracted into a precise structured instruction" width="100%" />
+      <p>Turns a vague request into a precise instruction schema with explicit constraints and output shape. <code>/prompt-engineering</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/prompt-engineering.png" alt="Prompt Engineering producing a structured API review prompt in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>hypershot-protocol</code></h3>
+      <img src="docs/assets/skills/hypershot-protocol.svg" alt="An empty structural frame that transfers form without content" width="100%" />
+      <p>Builds examples that transfer structure without contaminating the target with task-specific content. <code>/hypershot-protocol</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/hypershot-protocol.png" alt="Hypershot Protocol creating a contamination-free incident postmortem frame in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>better-skill-creator</code></h3>
+      <img src="docs/assets/skills/better-skill-creator.svg" alt="A skill specification forged into a validated reusable module" width="100%" />
+      <p>Authors compact DSH skills, validates their structure, and plans clean-baseline comparison. <code>/better-skill-creator</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/better-skill-creator.png" alt="Better Skill Creator drafting a minimal release-note sanitizer skill in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>subagent-composition</code></h3>
+      <img src="docs/assets/skills/subagent-composition.svg" alt="A routing gate deciding whether and how work should branch to agents" width="100%" />
+      <p>Applies a delegation gate, then chooses cold, forked, foreground, or background execution. <code>/subagent-composition</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/subagent-composition.png" alt="Subagent Composition declining unnecessary delegation for a documentation typo in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>judge-composition</code></h3>
+      <img src="docs/assets/skills/judge-composition.svg" alt="Four differently blinded judges surrounding an evidence core" width="100%" />
+      <p>Designs separately blinded grounding, coherence, corroboration, and audit seats. <code>/judge-composition</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/judge-composition.png" alt="Judge Composition designing a four-seat cache latency evaluation panel in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>self-play</code></h3>
+      <img src="docs/assets/skills/self-play.svg" alt="Controlled gatherer adversary evaluator and judge roles inside a test arena" width="100%" />
+      <p>Tests unresolved designs through preregistered, visibility-controlled specialist roles. <code>/self-play</code></p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/self-play.png" alt="Self-Play designing a controlled routing-threshold evaluation in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><code>spark-steering</code></h3>
+      <img src="docs/assets/skills/spark-steering.svg" alt="A five-axis SPARK compass identifying the constrained agent capability" width="100%" />
+      <p>Diagnoses the shortest Skills, Personalities, Approaches, Resources, or Knowledge axis before intervention. <code>/spark-steering</code> only</p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/spark-steering.png" alt="SPARK Steering diagnosing a shallow incident report as a skills-axis gap in DeepSeek Harness" width="100%" /></details>
+    </td>
+    <td width="50%" valign="top">
+      <h3><code>upsum</code></h3>
+      <img src="docs/assets/skills/upsum.svg" alt="A changed session compressed into durable records at descending resolutions" width="100%" />
+      <p>Closes changed sessions with a durable record, compressed summary, open-work projection, and checks. <code>/upsum</code> only</p>
+      <details><summary><strong>Real DSH output</strong></summary><img src="docs/assets/examples/upsum.png" alt="Upsum previewing a read-only documentation closeout in DeepSeek Harness" width="100%" /></details>
+    </td>
+  </tr>
+</table>
 
-![The spark-steering skill displayed as a user-only entry in the real DeepSeek Harness slash catalog](docs/assets/dsh-spark-steering.png)
-
-The screenshot comes from the pinned DSH web profile used for assembled acceptance. The repository also retains a machine-readable [UI snapshot](evidence/assembled/web-ui.snapshot.json) covering all eight entries.
+The captures use the assembled `deepseek-dovetail@0.1.0` profile with GPT-5.6 Terra. They are illustrative runs, not universal evaluation claims; exact prompts and capture conditions are recorded in [the example manifest](docs/assets/examples/README.md). A machine-readable [UI snapshot](evidence/assembled/web-ui.snapshot.json) covers all eight catalog entries.
 
 ## Architecture
 

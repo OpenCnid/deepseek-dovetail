@@ -22,7 +22,8 @@ This repository is an out-of-tree DeepSeek Harness bundle that ports eight OpenC
 - `scripts/` — sync, materialization, verification, and package checks.
 - `tests/` — static and real-provider integration coverage.
 - `evidence/` — retained acceptance snapshots and bounded behavioral results.
-- `docs/assets/` — README artwork and verified UI captures.
+- `docs/assets/skills/` — one original concept SVG per shipped skill.
+- `docs/assets/examples/` — real assembled-profile output captures and their reproducibility manifest.
 
 ## Invariants
 
@@ -84,11 +85,11 @@ Keep `README.md` lean and human-first:
 
 - lead with the value and supported host versions;
 - keep one copy-pasteable source-build/install path;
-- describe every skill in one short table row;
+- give every skill one short description, one concept SVG, and one expandable real-output capture;
 - link detailed compatibility, evidence, provenance, and limitations instead of duplicating them;
 - keep public-repository status distinct from npm publication and license status;
-- update the hero, screenshot, version badges, and captions when their claims change;
-- use screenshots from a real assembled DSH profile, with no secrets or fabricated UI.
+- update the hero, skill artwork, output captures, version badges, and captions when their claims change;
+- use output captures from a real assembled DSH profile, with no secrets or fabricated UI, and record their prompts and conditions in `docs/assets/examples/README.md`.
 
 ## Evidence and claims
 

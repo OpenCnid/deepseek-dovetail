@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Upsum</title>
+  <desc id="desc">A changed session descends through progressively smaller summaries into a durable record, open-work projection, and verified handoff.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08150f"/><stop offset="1" stop-color="#173a27"/></linearGradient>
+    <linearGradient id="sum" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5cf0a7"/><stop offset="1" stop-color="#d4e86c"/></linearGradient>
+    <pattern id="lines" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M0 31h32" stroke="#9ee6b4" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="720" height="400" rx="24" fill="url(#bg)"/><rect width="720" height="400" rx="24" fill="url(#lines)"/>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="38" y="48" fill="#77eba9" font-size="12" font-weight="800" letter-spacing="2">DOVETAIL SKILL · USER-ONLY</text>
+    <text x="38" y="94" fill="#f2fff7" font-size="34" font-weight="800">Upsum</text>
+    <text x="38" y="126" fill="#b5d3bf" font-size="15">Close changed work into durable, descending-resolution memory.</text>
+    <g transform="translate(45 170)">
+      <rect width="206" height="139" rx="18" fill="#0d281b" stroke="#3e8c60"/>
+      <text x="19" y="28" fill="#a7f5c4" font-size="12" font-weight="800">CHANGED SESSION</text>
+      <path d="M21 51h162M21 74h137M21 97h151M21 120h94" stroke="#466e55" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="181" cy="119" r="14" fill="#244c34" stroke="#68d796"/><path d="m174 119 5 5 10-12" fill="none" stroke="#baffd2" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <path d="M256 239h47" stroke="#62cf8b" stroke-width="3"/><path d="m296 231 13 8-13 8" fill="#62cf8b"/>
+    <g transform="translate(328 156)">
+      <path d="M0 0h223l-29 48H29z" fill="#174d31" stroke="#61de91"/>
+      <path d="M29 58h165l-26 43H55z" fill="#1c5a38" stroke="#75e5a0"/>
+      <path d="M55 111h113l-22 39H77z" fill="#276744" stroke="#9be5a4"/>
+      <path d="M77 160h69l-16 34H93z" fill="#376f4d" stroke="#c2e995"/>
+      <g text-anchor="middle" font-size="10" font-weight="800"><text x="112" y="28" fill="#d7ffe5">FULL RECORD</text><text x="112" y="84" fill="#e2ffea">FIXED BUDGET</text><text x="112" y="136" fill="#edffdc">OPEN WORK</text><text x="112" y="182" fill="#f7ffd8">HANDOFF</text></g>
+    </g>
+    <g transform="translate(587 170)">
+      <rect width="91" height="139" rx="17" fill="#0d2519" stroke="#4e8c62"/>
+      <text x="45" y="26" text-anchor="middle" fill="#b9e9c8" font-size="11" font-weight="800">CHECKS</text>
+      <g fill="none" stroke="#8ff0b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m22 53 7 7 13-16"/><path d="m22 83 7 7 13-16"/><path d="m22 113 7 7 13-16"/></g>
+      <g fill="#89ae96" font-size="9"><text x="50" y="57">record</text><text x="50" y="87">status</text><text x="50" y="117">publish</text></g>
+    </g>
+    <text x="39" y="371" fill="#8db79b" font-size="12" font-weight="700" letter-spacing="1">APPEND · RE-DERIVE · PROJECT OPEN WORK · VERIFY</text>
+  </g>
+  <rect x="1" y="1" width="718" height="398" rx="23" fill="none" stroke="#6ee29b" stroke-opacity=".22" stroke-width="2"/>
+</svg>

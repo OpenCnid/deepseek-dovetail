@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Better Skill Creator</title>
+  <desc id="desc">A skill document moves through a forge of authoring, validation, measurement, and packaging.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171109"/><stop offset="1" stop-color="#392512"/></linearGradient>
+    <linearGradient id="fire" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ff8a3d"/><stop offset="1" stop-color="#ffd76a"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#ffb04f" stop-opacity=".28"/><stop offset="1" stop-color="#ff9b44" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#ffd08a" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="720" height="400" rx="24" fill="url(#bg)"/><rect width="720" height="400" rx="24" fill="url(#grid)"/><circle cx="525" cy="220" r="190" fill="url(#glow)"/>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="38" y="48" fill="#ffc768" font-size="12" font-weight="800" letter-spacing="2">DOVETAIL SKILL</text>
+    <text x="38" y="94" fill="#fff8eb" font-size="34" font-weight="800">Better Skill Creator</text>
+    <text x="38" y="126" fill="#d9c2a3" font-size="15">Forge repeatable judgment into a measured DSH skill.</text>
+    <g transform="translate(44 180)">
+      <path d="M0 0h156l28 28v126H0z" fill="#231b11" stroke="#9f6d37"/><path d="M156 0v28h28" fill="#5c3a1c" stroke="#9f6d37"/>
+      <text x="22" y="39" fill="#ffc664" font-family="ui-monospace,Consolas,monospace" font-size="17" font-weight="800">SKILL.md</text>
+      <rect x="22" y="58" width="126" height="9" rx="4.5" fill="#614221"/><rect x="22" y="79" width="102" height="9" rx="4.5" fill="#614221"/><rect x="22" y="100" width="132" height="9" rx="4.5" fill="#614221"/><rect x="22" y="121" width="82" height="9" rx="4.5" fill="#614221"/>
+    </g>
+    <path d="M248 255h51" stroke="#f4ae52" stroke-width="3" stroke-dasharray="5 7"/><path d="m292 247 12 8-12 8" fill="#f4ae52"/>
+    <g transform="translate(326 173)">
+      <path d="M72 0c29 35 42 61 22 86 38-16 63 30 39 58-18 22-90 26-120 0-27-24-12-67 20-76-11 33 16 38 25 16 9-22-3-45 14-84z" fill="url(#fire)" opacity=".9"/>
+      <path d="M-10 141h176l-22 41H12z" fill="#18120c" stroke="#b77835" stroke-width="2"/><rect x="42" y="182" width="72" height="18" rx="4" fill="#b77835"/>
+    </g>
+    <g transform="translate(535 167)" font-size="12" font-weight="800">
+      <g><circle cx="50" cy="28" r="27" fill="#2a2013" stroke="#ffbd5b"/><text x="50" y="32" text-anchor="middle" fill="#ffe4ac">AUTHOR</text></g>
+      <g><circle cx="99" cy="84" r="27" fill="#2a2013" stroke="#ff9a55"/><text x="99" y="88" text-anchor="middle" fill="#ffddbd">CHECK</text></g>
+      <g><circle cx="50" cy="140" r="27" fill="#2a2013" stroke="#ffd66a"/><text x="50" y="144" text-anchor="middle" fill="#fff1bd">MEASURE</text></g>
+      <g><circle cx="1" cy="84" r="27" fill="#2a2013" stroke="#e48c40"/><text x="1" y="88" text-anchor="middle" fill="#ffe0bd">PACK</text></g>
+      <path d="M71 47l13 16M80 105l-12 16M30 122L15 105M18 63l13-16" fill="none" stroke="#c9853e" stroke-dasharray="3 4"/>
+    </g>
+    <text x="42" y="370" fill="#b89467" font-size="12" font-weight="700" letter-spacing="1">AUTHOR → VALIDATE → COMPARE → IMPROVE → PACKAGE</text>
+  </g>
+  <rect x="1" y="1" width="718" height="398" rx="23" fill="none" stroke="#ffb451" stroke-opacity=".22" stroke-width="2"/>
+</svg>

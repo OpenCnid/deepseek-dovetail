@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Judge Composition</title>
+  <desc id="desc">Four differently blinded judges examine a claim through separate evidence beams while an audit ring watches the process.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#110c1b"/><stop offset="1" stop-color="#342044"/></linearGradient>
+    <linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9bd0"/><stop offset="1" stop-color="#9d86ff"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#d69cff" stop-opacity=".24"/><stop offset="1" stop-color="#d69cff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="720" height="400" rx="24" fill="url(#bg)"/><circle cx="520" cy="215" r="190" fill="url(#glow)"/>
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="38" y="48" fill="#d2a1ff" font-size="12" font-weight="800" letter-spacing="2">DOVETAIL SKILL</text>
+    <text x="38" y="94" fill="#fbf6ff" font-size="34" font-weight="800">Judge Composition</text>
+    <text x="38" y="126" fill="#ccbdda" font-size="15">Separate grounding, coherence, corroboration, and audit.</text>
+    <g transform="translate(54 175)">
+      <path d="M0 26h205M26 26v112M179 26v112M0 138h205" stroke="#8e6aaa" stroke-width="3"/>
+      <path d="M103 0v26M60 74h86" stroke="#bb8de0" stroke-width="3"/>
+      <path d="M38 64 17 101h42zM167 64l-21 37h42z" fill="#251532" stroke="#d49aff"/>
+      <text x="103" y="167" text-anchor="middle" fill="#b793ca" font-size="11" font-weight="800" letter-spacing="1">DIFFERENT BLINDING</text>
+    </g>
+    <g transform="translate(385 144)">
+      <circle cx="133" cy="96" r="96" fill="#160e22" stroke="#7f5aa1" stroke-width="2" stroke-dasharray="5 7"/>
+      <path d="M133 0v62M229 96h-62M133 192v-62M37 96h62" stroke="#8c67a9" stroke-opacity=".65"/>
+      <path d="m133 61 34 25-13 40h-42L99 86z" fill="url(#gem)" stroke="#ffd3ea"/>
+      <text x="133" y="99" text-anchor="middle" fill="#24132c" font-size="12" font-weight="900">CLAIM</text>
+      <g font-size="10" font-weight="800" text-anchor="middle">
+        <g transform="translate(133 0)"><circle r="29" fill="#261634" stroke="#72cdf2"/><path d="M-14-2c9-9 19-9 28 0-9 9-19 9-28 0z" fill="none" stroke="#aee8ff"/><text y="43" fill="#c4eefd">GROUND</text></g>
+        <g transform="translate(229 96)"><circle r="29" fill="#261634" stroke="#a78cf6"/><path d="M-13 5h26M-13-6h26" stroke="#d7caff"/><text y="43" fill="#dfd5ff">COHERE</text></g>
+        <g transform="translate(133 192)"><circle r="29" fill="#261634" stroke="#72e0b3"/><path d="m-12 5 8 8 17-21" fill="none" stroke="#c5ffe5" stroke-width="3"/><text y="43" fill="#d4ffec">CORROBORATE</text></g>
+        <g transform="translate(37 96)"><circle r="29" fill="#261634" stroke="#f2a5cb"/><circle r="12" fill="none" stroke="#ffd4e8"/><path d="m9 9 10 10" stroke="#ffd4e8" stroke-width="3"/><text y="43" fill="#ffdfed">AUDIT</text></g>
+      </g>
+    </g>
+    <text x="39" y="371" fill="#a98cba" font-size="12" font-weight="700" letter-spacing="1">AUTHORED EXPECTATION NEVER ENTERS THE JUDGE PROMPTS</text>
+  </g>
+  <rect x="1" y="1" width="718" height="398" rx="23" fill="none" stroke="#d19aff" stroke-opacity=".22" stroke-width="2"/>
+</svg>
