@@ -21,6 +21,16 @@ Before authoring player prompts, load `prompt-engineering` and `hypershot-protoc
 7. Have a blind judge assess utility on the manipulated axis without the builder's stake; verify its load-bearing claims against source bytes.
 8. Compare results with the pre-registration, record contamination and abstentions, and choose the next variable through evidence rather than the builder's wish.
 
+Create synthetic or mock data whenever testing or visualization needs inputs
+that are unavailable, sensitive, or too narrow to span the property. Add a blind
+item-smith plus a second blind role to adjudicate its key so the builder does not
+encode the preferred verdict. Shape the data to cover distinct viewpoints,
+roles, distributions, edge conditions, and plausible counterexamples; make
+those differences legible in comparative visualizations. Label it clearly,
+preserve its assumptions and seed or fixture when repeatability matters, keep it
+separate from observed data, and treat the result as evidence about candidate
+behavior rather than a claim about reality.
+
 Stop when the axis is inert across spanning conditions, the effect is below a priced measurement floor, or the next variable costs more than the decision.
 
 ## Role blindness
